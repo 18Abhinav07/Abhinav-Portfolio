@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+@layer base {
+  :root {
+    --rule-weight: 1px;
+    --rule-color: #4d4639;
+    --grid-paper-color: rgba(189, 245, 50, 0.04);
+  }
+
+  html {
+    background: #0A0908;
+    color: #e9e1d9;
+    font-family: var(--font-geist), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: #16130e;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #bdf532;
+    color: #16130e;
+  }
+
+  /* Hide scrollbar for horizontal carousels */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer components {
+  .brutalist-rule-t { border-top: var(--rule-weight) solid var(--rule-color); }
+  .brutalist-rule-b { border-bottom: var(--rule-weight) solid var(--rule-color); }
+  .brutalist-rule-l { border-left: var(--rule-weight) solid var(--rule-color); }
+  .brutalist-rule-r { border-right: var(--rule-weight) solid var(--rule-color); }
+
+  .grid-paper {
+    background-image:
+      linear-gradient(var(--grid-paper-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-paper-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .editorial-text {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #e9e1d9;
+  }
+
+  .editorial-text p { margin-bottom: 1.5rem; }
+
+  .drop-cap::first-letter {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 5rem;
+    float: left;
+    line-height: 1;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+    color: #e6c479;
+    font-weight: 700;
+  }
+
+  .glass-panel {
+    background: rgba(22, 19, 14, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(153, 144, 128, 0.2);
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.9); }
+  }
+
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .blink { animation: blink 1.5s step-end infinite; }
+}
