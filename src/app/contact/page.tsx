@@ -1,6 +1,4 @@
 import { Landline } from "@/components/Landline";
-import { site } from "@/content/site";
-import Link from "next/link";
 
 export const metadata = {
   title: "Contact · Abhinav Pangaria",
@@ -32,28 +30,6 @@ export default function ContactPage() {
       <div className="grid md:grid-cols-12 gap-column-gap">
         <div className="md:col-start-5 md:col-span-8 max-w-2xl">
           <Landline />
-
-          <div className="mt-20 pt-20 brutalist-rule-t">
-            <h4 className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-md">
-              Other Channels
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-stack-lg">
-              {site.socials.map((social) => (
-                <Link
-                  key={social.label}
-                  href={social.url}
-                  className="group flex flex-col gap-1"
-                >
-                  <span className="font-mono text-label-mono text-on-surface-variant group-hover:text-primary transition-colors">
-                    {social.label}
-                  </span>
-                  <span className="text-body-sm text-on-surface">
-                    {social.handle}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

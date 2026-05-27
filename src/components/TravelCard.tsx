@@ -9,9 +9,10 @@ interface TravelCardProps {
   location: string;
   date: string;
   index: number;
+  onLoad?: () => void;
 }
 
-export function TravelCard({ src, type, location, date, index }: TravelCardProps) {
+export function TravelCard({ src, type, location, date, index, onLoad }: TravelCardProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -71,6 +72,7 @@ export function TravelCard({ src, type, location, date, index }: TravelCardProps
               loop 
               muted 
               playsInline 
+              onLoadedData={onLoad}
               className="w-full h-full object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
             >
               <source src={src} />
@@ -82,6 +84,7 @@ export function TravelCard({ src, type, location, date, index }: TravelCardProps
                 alt={location}
                 fill
                 priority={index < 3}
+                onLoad={onLoad}
                 className="object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

@@ -29,7 +29,7 @@ export function Identity() {
             </Reveal>
             <Reveal as="p" delay={0.2}>
               Co-founder and lead architect/engineer at PayZoll. Stellar SCF grantee.
-              Opened campus incubation. Author of the Tesseract privacy protocol.
+              Open campus incubation. Author of the Tesseract privacy protocol.
               Builder of Kredio on-chain credit. Most of what I am proud of
               is in production, clearing every day without my name attached.
             </Reveal>

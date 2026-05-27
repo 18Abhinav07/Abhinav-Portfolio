@@ -16,6 +16,7 @@ export default function BeyondPage() {
   const triggerRef = useRef<HTMLDivElement>(null);
   const [selectedLocation, setSelectedLocation] = useState<typeof data.travels[0] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(0);
 
   // Body Lock & Scroll Management
   useEffect(() => {
@@ -87,10 +88,25 @@ export default function BeyondPage() {
 
   const handleLocationClick = (loc: typeof data.travels[0]) => {
     setSelectedLocation(loc);
-    // Artificially wait for the "Sync" feel
+    setLoadedImages(0);
     setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 2000);
   };
+
+  useEffect(() => {
+    if (selectedLocation && loadedImages >= selectedLocation.media.length) {
+      // Artificial delay for high-fidelity feel
+      const timer = setTimeout(() => setIsLoading(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [loadedImages, selectedLocation]);
+
+  // Fail-safe
+  useEffect(() => {
+    if (isLoading) {
+      const timer = setTimeout(() => setIsLoading(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
 
   return (
     <div className={`bg-surface-dim overflow-hidden ${selectedLocation ? 'h-screen' : ''}`}>
@@ -240,6 +256,7 @@ export default function BeyondPage() {
                         location={selectedLocation.location}
                         date={selectedLocation.date}
                         index={i}
+                        onLoad={() => setLoadedImages(prev => prev + 1)}
                       />
                     </div>
                   ))}
