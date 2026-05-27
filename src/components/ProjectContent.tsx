@@ -1,0 +1,215 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { AnimatePresence } from "motion/react";
+import type { Project } from "@/content/projects";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
+import { ProjectLoader } from "@/components/ProjectLoader";
+
+interface ProjectContentProps {
+  project: Project;
+  nextProject: Project;
+}
+
+export function ProjectContent({ project, nextProject }: ProjectContentProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const totalImages = project.screenshots.length;
+
+  useEffect(() => {
+    // Body Lock
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
+
+  const handleImageLoad = () => {
+    setLoadedImages((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (loadedImages >= totalImages) {
+      // Artificial delay for that "Sync" feel, similar to Beyond
+      const timer = setTimeout(() => setIsLoading(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [loadedImages, totalImages]);
+
+  // Fail-safe: if images take too long or fail
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      <AnimatePresence>
+        {isLoading && <ProjectLoader project={project} />}
+      </AnimatePresence>
+
+      <article className={isLoading ? "invisible" : "visible"}>
+        <header className="px-6 md:px-[80px] pt-[120px] pb-stack-xl">
+          <div className="grid md:grid-cols-12 gap-column-gap">
+            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary">
+              {project.index} · {project.ecosystem}
+              <div className="mt-stack-md text-on-surface-variant">
+                {project.role}
+                <br />
+                {project.year}
+              </div>
+            </div>
+            <div className="md:col-span-9 max-w-3xl">
+              <h1 className="font-display text-display-lg-mobile md:text-display-lg leading-[0.95] tracking-[-0.02em] text-on-surface mb-stack-md">
+                {project.name}.
+              </h1>
+              <p className="font-display italic text-headline-md text-on-surface-variant leading-[1.3]">
+                {project.tagline}
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <Reveal className="px-6 md:px-[80px] mb-[120px]" y={48}>
+          <div className="relative aspect-video w-full overflow-hidden brutalist-rule-t brutalist-rule-b brutalist-rule-l brutalist-rule-r">
+            <Image
+              src={project.heroImage}
+              alt={project.name}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) calc(100vw - 160px), 100vw"
+              onLoad={handleImageLoad}
+              priority
+            />
+          </div>
+        </Reveal>
+
+        <section className="px-6 md:px-[80px] mb-[120px]">
+          <div className="grid md:grid-cols-12 gap-column-gap">
+            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary">
+              Brief
+            </div>
+            <div className="md:col-span-9 max-w-3xl">
+              <p className="editorial-text text-on-surface drop-cap">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-[80px] mb-[120px] grid md:grid-cols-12 gap-column-gap">
+          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-md md:mb-0">
+            Metrics
+          </div>
+          <StaggerGroup className="md:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-stack-md">
+            {project.metrics.map((m) => (
+              <StaggerItem key={m.label} className="border-l-2 border-primary pl-stack-md">
+                <div className="font-display text-headline-md text-on-surface tracking-[-0.01em]">
+                  {m.value}
+                </div>
+                <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant mt-1">
+                  {m.label}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </section>
+
+        <section className="px-6 md:px-[80px] mb-[120px] grid md:grid-cols-12 gap-column-gap">
+          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-md md:mb-0">
+            Stack
+          </div>
+          <div className="md:col-span-9 flex flex-wrap gap-stack-sm">
+            {project.stack.map((t) => (
+              <span
+                key={t}
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-sm py-1.5 border border-outline-variant rounded-pill text-on-surface-variant"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {project.screenshots.length > 1 && (
+          <section className="px-6 md:px-[80px] mb-[120px]">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-lg">
+              Surface · {project.screenshots.length.toString().padStart(2, "0")} frames
+            </div>
+            <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+              {project.screenshots.slice(1).map((s, i) => (
+                <StaggerItem key={s.src} className="relative">
+                  <div className="relative aspect-video w-full overflow-hidden brutalist-rule-t brutalist-rule-b brutalist-rule-l brutalist-rule-r">
+                    <Image
+                      src={s.src}
+                      alt={s.caption || `${project.name} frame ${i + 2}`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      onLoad={handleImageLoad}
+                    />
+                  </div>
+                  {s.caption && (
+                    <div className="mt-stack-sm font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant">
+                      {s.caption}
+                    </div>
+                  )}
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </section>
+        )}
+
+        {(project.liveUrl || project.githubUrl) && (
+          <section className="px-6 md:px-[80px] mb-[120px] flex flex-wrap gap-stack-md">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-primary-on rounded-pill hover:bg-secondary hover:text-secondary-on transition-colors"
+              >
+                Live site →
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-primary transition-colors"
+              >
+                Source →
+              </a>
+            )}
+          </section>
+        )}
+
+        <nav className="px-6 md:px-[80px] py-[120px] brutalist-rule-t">
+          <Link
+            href={`/work/${nextProject.slug}`}
+            className="group flex items-end justify-between"
+          >
+            <div>
+              <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-sm">
+                Next · {nextProject.index}
+              </div>
+              <div className="font-display text-headline-lg tracking-[-0.02em] text-on-surface group-hover:text-secondary transition-colors">
+                {nextProject.name}.
+              </div>
+            </div>
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant group-hover:text-primary transition-colors">
+              →
+            </div>
+          </Link>
+        </nav>
+      </article>
+    </>
+  );
+}
