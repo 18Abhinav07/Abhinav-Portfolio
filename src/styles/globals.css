@@ -20,7 +20,7 @@ html.lenis body { height: auto; }
   html {
     background: #0A0908;
     color: #e9e1d9;
-    font-family: var(--font-geist), system-ui, sans-serif;
+    font-family: system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -29,6 +29,19 @@ html.lenis body { height: auto; }
     background: #16130e;
     min-height: 100vh;
     overflow-x: hidden;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
   ::selection {
@@ -101,4 +114,51 @@ html.lenis body { height: auto; }
     50%, 100% { opacity: 0; }
   }
   .blink { animation: blink 1.5s step-end infinite; }
+
+  @keyframes radar-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .radar-sweep {
+    background: conic-gradient(from 0deg, transparent 70%, rgba(189, 245, 50, 0.15) 100%);
+    border-radius: 50%;
+    animation: radar-spin 3s linear infinite;
+  }
+
+  /* Polished Button Components */
+  .btn-primary {
+    @apply font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-primary-on rounded-pill 
+    hover:bg-secondary hover:text-secondary-on hover:scale-[1.02]
+    active:scale-[0.98]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg
+    transition-all duration-300 ease-out
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant text-on-surface rounded-pill 
+    hover:border-primary hover:text-primary hover:bg-primary/5 hover:scale-[1.02]
+    active:scale-[0.98]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg
+    transition-all duration-300 ease-out
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100;
+  }
+
+  .btn-danger {
+    @apply font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-error text-bg rounded-pill 
+    hover:opacity-90 hover:scale-[1.02]
+    active:scale-[0.98]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-bg
+    transition-all duration-300 ease-out
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100;
+  }
+
+  /* Polished Input Components */
+  .input-field {
+    @apply bg-surface-container-lowest border border-outline-variant px-stack-md py-stack-sm text-body-md text-on-surface 
+    hover:border-outline hover:bg-surface-dim
+    focus:border-primary focus:bg-surface-dim focus:outline-none focus:ring-1 focus:ring-primary
+    transition-all duration-300 ease-out placeholder:text-on-surface-variant/50;
+  }
 }

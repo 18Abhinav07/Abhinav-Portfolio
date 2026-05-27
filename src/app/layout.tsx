@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Playfair_Display, Fraunces, Inter } from "next/font/google";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Preloader } from "@/components/Preloader";
 import "@/styles/globals.css";
 
 const playfair = Playfair_Display({
@@ -21,15 +22,9 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK", "opsz"],
 });
 
-const geist = Geist({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -47,7 +42,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${fraunces.variable} ${inter.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
@@ -55,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans bg-surface text-on-surface antialiased pb-[64px] md:pb-0">
+        <Preloader />
         <SmoothScroll />
         <TopNav />
         <main>{children}</main>
