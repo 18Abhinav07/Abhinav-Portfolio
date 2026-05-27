@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
   title: "Journey · Abhinav Pangaria",
-  description: "Six episodes. Origins, hackathons, founding, mainnet, ZK, and what comes next.",
+  description: "Five episodes. Origins, velocity, conviction, primitives, and mastery.",
 };
 
 export default function JourneyPage() {
@@ -19,7 +19,7 @@ export default function JourneyPage() {
         </Reveal>
         <Reveal className="md:col-span-9 max-w-2xl" y={28} delay={0.1}>
           <h1 className="font-display text-headline-lg leading-[1.05] tracking-[-0.02em] text-on-surface mb-stack-md">
-            Six episodes. <em className="italic text-primary">One throughline.</em>
+            Five episodes. <em className="italic text-primary">One throughline.</em>
           </h1>
           <p className="text-body-md text-on-surface-variant">
             The mosaic below is read left-to-right, top-to-bottom. Each card

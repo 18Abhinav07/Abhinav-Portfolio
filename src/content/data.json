@@ -1,0 +1,834 @@
+{
+  "site": {
+    "name": "Abhinav Pangaria",
+    "wordmark": "ABHINAV PANGARIA",
+    "shortBio": "Builder of resilient systems.",
+    "longBio": "Engineer working across Web3 payments, privacy primitives, on-chain credit, and agent infrastructure. Production shipping across Stellar, Mantle, Polkadot, and Base. Equally at home in research, writing, and architectural design.",
+    "email": "abhinavpangaria2003@gmail.com",
+    "socials": [
+      {
+        "label": "Twitter / X",
+        "handle": "@apangaria",
+        "url": "https://twitter.com/apangaria"
+      },
+      {
+        "label": "GitHub",
+        "handle": "18Abhinav07",
+        "url": "https://github.com/18Abhinav07"
+      },
+      {
+        "label": "LinkedIn",
+        "handle": "Abhinav Pangaria",
+        "url": "https://linkedin.com/in/abhinav-pangaria"
+      },
+      {
+        "label": "Telegram",
+        "handle": "PLACEHOLDER",
+        "url": "#"
+      },
+      {
+        "label": "Discord",
+        "handle": "PLACEHOLDER",
+        "url": "#"
+      }
+    ],
+    "chips": [
+      "$100K SCF GRANT",
+      "OPEN CAMPUS INCUBATION",
+      "CO-FOUNDER",
+      "LEAD ARCHITECT"
+    ],
+    "nav": [
+      {
+        "label": "Work",
+        "href": "/work"
+      },
+      {
+        "label": "Journey",
+        "href": "/journey"
+      },
+      {
+        "label": "Beyond",
+        "href": "/beyond"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "coordinates": [
+    {
+      "city": "Kyoto, JP",
+      "coord": "35.0116\u00b0 N",
+      "note": "Temple grids and quiet ramen counters."
+    },
+    {
+      "city": "Berlin, DE",
+      "coord": "52.5200\u00b0 N",
+      "note": "Bauhaus posters and 4am techno."
+    },
+    {
+      "city": "Moab, US",
+      "coord": "38.5733\u00b0 N",
+      "note": "Red rock under a hard blue sky."
+    },
+    {
+      "city": "London, UK",
+      "coord": "51.5072\u00b0 N",
+      "note": "Brutalist concrete and quiet pubs."
+    },
+    {
+      "city": "Seoul, KR",
+      "coord": "37.5665\u00b0 N",
+      "note": "Late-night convenience stores and neon."
+    }
+  ],
+  "dispatches": [
+    {
+      "date": "MAY 2026",
+      "title": "On building infrastructure that actually clears.",
+      "readTime": "8 MIN READ",
+      "href": "#"
+    },
+    {
+      "date": "APR 2026",
+      "title": "The subgraph paradigm: observability as product.",
+      "readTime": "12 MIN READ",
+      "href": "#"
+    },
+    {
+      "date": "FEB 2026",
+      "title": "Why Rust is a language of operators.",
+      "readTime": "6 MIN READ",
+      "href": "#"
+    },
+    {
+      "date": "DEC 2025",
+      "title": "Notes from a year of mainnet deploys.",
+      "readTime": "10 MIN READ",
+      "href": "#"
+    },
+    {
+      "date": "OCT 2025",
+      "title": "Privacy as a primitive, not a feature.",
+      "readTime": "7 MIN READ",
+      "href": "#"
+    }
+  ],
+  "signals": [
+    {
+      "icon": "chat_bubble",
+      "text": "If your protocol cannot clear a payment at 3am on a Sunday, it is not infrastructure. It is a demo.",
+      "time": "12h"
+    },
+    {
+      "icon": "repeat",
+      "text": "RT: 'The boring path through the system should be the most secure one.' Still the only design heuristic I trust.",
+      "time": "1d"
+    },
+    {
+      "icon": "favorite",
+      "text": "Ten million in volume is a number. Ten million in volume without a single rollback is a thesis.",
+      "time": "3d"
+    },
+    {
+      "icon": "chat_bubble",
+      "text": "Hackathon arc: twenty-something ships taught me that velocity is a craft, not a temperament.",
+      "time": "5d"
+    },
+    {
+      "icon": "repeat",
+      "text": "Temporal decorrelation > marketing copy about 'privacy.'",
+      "time": "1w"
+    },
+    {
+      "icon": "favorite",
+      "text": "Builders who answer their own DMs ship faster. No exceptions.",
+      "time": "2w"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "payzoll",
+      "index": "01",
+      "name": "PayZoll",
+      "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
+      "description": "The financial 'OS' for the Web3 economy. Originally built for the Stellar Build Better hackathon, PayZoll executes multi-hop path payments to settle global payroll in a single click. From contract-level path formation to automated asset swaps and institutional-grade dashboards, it bridges the legacy-fiat gap with production-grade efficiency.",
+      "year": "2024 \u00b7 Present",
+      "ecosystem": "Stellar",
+      "role": "Lead Architect \u00b7 Solo Coder (Stellar Core)",
+      "stack": [
+        "Rust",
+        "Go",
+        "Stellar SDK",
+        "NestJS",
+        "PostgreSQL"
+      ],
+      "metrics": [
+        {
+          "label": "Origin",
+          "value": "Stellar Build Better \u00b7 1st"
+        },
+        {
+          "label": "Pharos Camp",
+          "value": "3rd Place Win"
+        },
+        {
+          "label": "Status",
+          "value": "Mainnet Live"
+        }
+      ],
+      "liveUrl": "https://payzoll.in",
+      "heroImage": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
+      "screenshots": [
+        {
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
+          "caption": "Stellar dashboard \u00b7 home"
+        },
+        {
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-1.png",
+          "caption": "Feature surface I"
+        },
+        {
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-2.png",
+          "caption": "Feature surface II"
+        },
+        {
+          "src": "/images/projects/payzoll/PZ-Pharos-Home.png",
+          "caption": "Pharos console \u00b7 3rd Place"
+        }
+      ],
+      "accent": "primary"
+    },
+    {
+      "slug": "openassets",
+      "index": "02",
+      "name": "OpenAssets",
+      "tagline": "The Mantle-native gateway bridging the RWA liquidity gap.",
+      "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
+      "year": "2026",
+      "ecosystem": "Mantle Network",
+      "role": "Lead Architect \u00b7 Builder Team",
+      "stack": [
+        "EVM",
+        "ERC-3643",
+        "Solidity",
+        "TypeScript",
+        "mETH",
+        "Redis"
+      ],
+      "metrics": [
+        {
+          "label": "Compliance",
+          "value": "ERC-3643 T-REX"
+        },
+        {
+          "label": "Leverage",
+          "value": "mETH Staked ETH"
+        },
+        {
+          "label": "Abstraction",
+          "value": "OAID Credit ID"
+        }
+      ],
+      "liveUrl": "https://www.openassets.xyz",
+      "githubUrl": "https://github.com/TheOpenAssets",
+      "heroImage": "/images/projects/openassets/Hero.png",
+      "screenshots": [
+        {
+          "src": "/images/projects/openassets/Hero.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "/images/projects/openassets/Marketplace.png",
+          "caption": "RWA marketplace"
+        },
+        {
+          "src": "/images/projects/openassets/Trade.png",
+          "caption": "Trade desk"
+        },
+        {
+          "src": "/images/projects/openassets/Trade-Chart.png",
+          "caption": "Trade charts"
+        },
+        {
+          "src": "/images/projects/openassets/Loan.png",
+          "caption": "Loan flow"
+        },
+        {
+          "src": "/images/projects/openassets/Auction.png",
+          "caption": "Auction engine"
+        },
+        {
+          "src": "/images/projects/openassets/ActiveBids.png",
+          "caption": "Active bids"
+        },
+        {
+          "src": "/images/projects/openassets/Positions.png",
+          "caption": "Positions ledger"
+        },
+        {
+          "src": "/images/projects/openassets/InterestChart.png",
+          "caption": "Interest curve"
+        },
+        {
+          "src": "/images/projects/openassets/P2P.png",
+          "caption": "P2P matchmaking"
+        },
+        {
+          "src": "/images/projects/openassets/SwapChart.png",
+          "caption": "Swap surface"
+        },
+        {
+          "src": "/images/projects/openassets/METH-buy.png",
+          "caption": "mETH purchase"
+        },
+        {
+          "src": "/images/projects/openassets/USDC-buy.png",
+          "caption": "USDC on-ramp"
+        },
+        {
+          "src": "/images/projects/openassets/MyAssets.png",
+          "caption": "Portfolio view"
+        },
+        {
+          "src": "/images/projects/openassets/Faucet.png",
+          "caption": "Faucet"
+        },
+        {
+          "src": "/images/projects/openassets/Features.png",
+          "caption": "Capability matrix"
+        },
+        {
+          "src": "/images/projects/openassets/ExpandedRow.png",
+          "caption": "Asset row detail"
+        },
+        {
+          "src": "/images/projects/openassets/Notifcations.png",
+          "caption": "Signals tray"
+        },
+        {
+          "src": "/images/projects/openassets/Footer.png",
+          "caption": "Footer composition"
+        }
+      ],
+      "accent": "secondary"
+    },
+    {
+      "slug": "tesseract",
+      "index": "03",
+      "name": "Tesseract",
+      "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
+      "description": "Deposit, wait, withdraw. Built for the Stellar Build Better hackathon (1st Place winning team), Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
+      "year": "2024 \u00b7 2026",
+      "ecosystem": "Stellar \u00b7 Soroban",
+      "role": "Solo Backend Builder",
+      "stack": [
+        "NestJS",
+        "TypeScript",
+        "Stellar SDK",
+        "Soroban",
+        "MongoDB",
+        "Redis"
+      ],
+      "metrics": [
+        {
+          "label": "Prizes",
+          "value": "1st Place Winner"
+        },
+        {
+          "label": "Rotation",
+          "value": "Channel Accounts"
+        },
+        {
+          "label": "Privacy",
+          "value": "Temporal Decorrel."
+        }
+      ],
+      "liveUrl": "https://tesseractprotocol.xyz",
+      "githubUrl": "https://github.com/The-Tesseract-Protocol",
+      "heroImage": "/images/projects/tesseract/Tess-Hero.png",
+      "screenshots": [
+        {
+          "src": "/images/projects/tesseract/Tess-Hero.png",
+          "caption": "Protocol landing"
+        },
+        {
+          "src": "/images/projects/tesseract/Tess-Private.png",
+          "caption": "Private payment flow"
+        },
+        {
+          "src": "/images/projects/tesseract/Tess-Batch.png",
+          "caption": "Batch settlement"
+        },
+        {
+          "src": "/images/projects/tesseract/Tess-Details.png",
+          "caption": "Transaction details"
+        },
+        {
+          "src": "/images/projects/tesseract/Tess-Info.png",
+          "caption": "Info surface"
+        }
+      ],
+      "accent": "primary"
+    },
+    {
+      "slug": "kredio",
+      "index": "04",
+      "name": "Kredio",
+      "tagline": "DeFi with memory. Polkadot's on-chain credit layer.",
+      "description": "The decentralized credit layer for Polkadot. Kredio uses hybrid EVM \u2194 PolkaVM atomic calls to score borrowers against on-chain behavior. Featuring the YieldMind intelligence layer and NeuralScorer for real-time manipulation detection, it enables zero-oracle risk assessment across parachains via XCM.",
+      "year": "2024 \u00b7 2026",
+      "ecosystem": "Polkadot \u00b7 Paseo",
+      "role": "Lead Architect \u00b7 Builder",
+      "stack": [
+        "ink! Wasm",
+        "Solidity (EVM)",
+        "Polkadot XCM",
+        "NeuralScorer AI"
+      ],
+      "metrics": [
+        {
+          "label": "Network",
+          "value": "Polkadot Asset Hub"
+        },
+        {
+          "label": "Security",
+          "value": "NeuralScorer AI"
+        },
+        {
+          "label": "Routing",
+          "value": "YieldMind Engine"
+        }
+      ],
+      "liveUrl": "https://kredio-gamma.vercel.app",
+      "githubUrl": "https://github.com/18Abhinav07/Kredio",
+      "heroImage": "/images/projects/kredio/Kredio-Hero.png",
+      "screenshots": [
+        {
+          "src": "/images/projects/kredio/Kredio-Hero.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "/images/projects/kredio/Kredio-Working-Model.png",
+          "caption": "Scoring model"
+        },
+        {
+          "src": "/images/projects/kredio/Kredio-Tiers.png",
+          "caption": "Borrower tiers"
+        },
+        {
+          "src": "/images/projects/kredio/Kredio-Swap.png",
+          "caption": "Swap surface"
+        },
+        {
+          "src": "/images/projects/kredio/Kredio-Docs.png",
+          "caption": "Docs surface"
+        },
+        {
+          "src": "/images/projects/kredio/Kredio-Footer.png",
+          "caption": "Footer composition"
+        }
+      ],
+      "accent": "secondary"
+    },
+    {
+      "slug": "clearsky",
+      "index": "05",
+      "name": "Clear Sky",
+      "tagline": "The trust layer for climate data. DePIN meets verifiable IP.",
+      "description": "Environmental sensor readings (AQI, CO\u2082, temperature) become cryptographic intellectual property. ECDSA-signed payloads minted as IP on Story Protocol, anchored by Coinbase Smart Wallet, preventing fake data and unlocking monetization.",
+      "year": "2026",
+      "ecosystem": "Base \u00b7 Story Protocol",
+      "role": "Builder",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind",
+        "Story Protocol",
+        "Solidity",
+        "IPFS",
+        "Coinbase Smart Wallet"
+      ],
+      "metrics": [
+        {
+          "label": "Signing",
+          "value": "ECDSA"
+        },
+        {
+          "label": "IP Layer",
+          "value": "Story Protocol"
+        },
+        {
+          "label": "Status",
+          "value": "Phase 1 Foundation"
+        }
+      ],
+      "liveUrl": "https://docs.clearsky.network",
+      "heroImage": "/images/projects/clearsky/CS-Hero.png",
+      "screenshots": [
+        {
+          "src": "/images/projects/clearsky/CS-Hero.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "/images/projects/clearsky/CS-Features.png",
+          "caption": "Capability matrix"
+        }
+      ],
+      "accent": "primary"
+    }
+  ],
+  "episodes": [
+    {
+      "slug": "college-foundations",
+      "index": "01",
+      "title": "The Apprenticeship.",
+      "subtitle": "Theory meets the wire at IIIT.",
+      "era": "S01 \u00b7 2022 : 2023",
+      "date": "NOV 2022",
+      "category": "Origins",
+      "excerpt": "IIIT Guwahati, first semester. A 9.55 CGPA and a stubborn refusal to write throwaway code. Algorithms by day, debugging Linux stacks at 2am.",
+      "aspect": "aspect-[3/4]",
+      "accent": "primary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "College began as a race for technical depth. While the syllabus covered the basics, I was building my own detention center for bugs. Writing malloc from scratch to understand segfaults, scraping portals before there was a polite reason to, and obsessing over the distance between a textbook example and the actual wire."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 01 / The Foundation"
+        },
+        {
+          "kind": "h2",
+          "text": "Learning to see the system."
+        },
+        {
+          "kind": "p",
+          "text": "The 9.55 CGPA wasn't about the grades, it was about the discipline of completion. I learned early that taste comes from quantity. The path from first-year to mainnet isn't a leap, it is a thousand boring repetitions until you stop being surprised by your own mistakes."
+        }
+      ]
+    },
+    {
+      "slug": "hackathon-arc",
+      "index": "02",
+      "title": "The Crucible.",
+      "subtitle": "4-day sprints and solo marathons.",
+      "era": "S01 \u00b7 2023 : 2024",
+      "date": "FEB 2024",
+      "category": "Velocity",
+      "excerpt": "A series of high-stakes wins across Stellar, Polkadot, and Mantle. From a 4-day solo marathon mastering path payments to winning honorary awards in new ecosystems, this is where technical intuition was forged.",
+      "aspect": "aspect-square",
+      "accent": "secondary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "The arc reached its peak during the 4-day Stellar 'Build Better' Hackathon. Entering as a newcomer, I chose a high-risk path: solo-coding the entire infrastructure. I spent the first 12 hours deep in the core protocol docs, mapping out a solution others deemed impossible for a sprint: a complex multi-hop path payment system that handled asset conversion mid-flow. It secured 1st place and validated a core thesis: deep technical empathy is the ultimate force multiplier."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 02 / The Operator"
+        },
+        {
+          "kind": "h2",
+          "text": "Systems that clear."
+        },
+        {
+          "kind": "quote",
+          "text": "Winning is a byproduct of planning. From solo marathons on Stellar to hybrid EVM / Wasm logic on Polkadot, the goal was never just to 'finish', it was to build systems that clear under pressure."
+        },
+        {
+          "kind": "p",
+          "text": "The momentum shifted to Polkadot, where I built Kredio. As a newcomer to Substrate, I implemented cross-chain credit scoring via XCM, earning an Honorary Award. This continued with the Mantle Global Hackathon, where my team and I architected OpenAssets. These weren't trophies, they were the evidence of the production-grade architect I am today."
+        }
+      ]
+    },
+    {
+      "slug": "payzoll-journey",
+      "index": "03",
+      "title": "The Mainnet Season.",
+      "subtitle": "Scaling from incubation to Stellar mainnet.",
+      "era": "S01 \u00b7 2024 : 2026",
+      "date": "MAR 2024",
+      "category": "Inflection",
+      "excerpt": "PayZoll evolved from an Open Campus incubation into a global rails provider. Institutional capital moving through systems that don't sleep.",
+      "aspect": "aspect-video",
+      "accent": "primary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "PayZoll began as a thesis on friction. Capital moves slowly between borders and blockchains. Starting with the Educhain Open Campus incubation, we built for scale. The $100K SCF grant from the Stellar Development Foundation turned the prototype into a company. We focused on the vision of capital that moves now, not later."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 03 / Conviction"
+        },
+        {
+          "kind": "h2",
+          "text": "Engineering as a thesis."
+        },
+        {
+          "kind": "p",
+          "text": "Today, we are integrating with Mudrex (Saber) to harden the liquidity bridge. We chose Rust and Go because they are languages of operators, not narratives. Scaling to Stellar mainnet isn't just a milestone, it's the result of building infrastructure that actually clears at 3am on a Sunday."
+        }
+      ]
+    },
+    {
+      "slug": "open-assets-evolution",
+      "index": "04",
+      "title": "RealFi Mastery.",
+      "subtitle": "Bridging the RWA liquidity gap.",
+      "era": "S01 \u00b7 2025 : 2026",
+      "date": "OCT 2025",
+      "category": "Architecture",
+      "excerpt": "From the U2U Vietbuild win to Mantle-native RWA layers. Moving beyond hackathon products to fundamental financial primitives.",
+      "aspect": "aspect-square",
+      "accent": "secondary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "OpenAssets found its niche in the gap between trade receivables and on-chain liquidity. We first proved the concept at the Vietbuild hackathon for U2U network, taking home the win. But a hackathon product is just a sketch. We redesigned and revamped the entire stack for the Mantle Network, focusing on ERC-3643 (T-REX) compliance and institutional-grade security."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 04 / Primitives"
+        },
+        {
+          "kind": "h2",
+          "text": "The RWA Primitive."
+        },
+        {
+          "kind": "quote",
+          "text": "If your protocol cannot handle compliant Real-World Assets with the precision of a legacy bank, you are playing a game. We built OpenAssets to be the fundamental service."
+        },
+        {
+          "kind": "p",
+          "text": "We implemented mETH-powered leverage vaults and universal credit abstraction (OAID). It was a season of high-stakes architectural decisions, transforming a 48-hour win into a cornerstone of the Mantle ecosystem."
+        }
+      ]
+    },
+    {
+      "slug": "tesseract-and-zk",
+      "index": "05",
+      "title": "Privacy as Primitive.",
+      "subtitle": "Building temporal decorrelation on Stellar.",
+      "era": "S01 \u00b7 2025 : 2026",
+      "date": "MAY 2025",
+      "category": "Cryptography",
+      "excerpt": "Deposit, wait, withdraw. A Distributor severs the link between depositors and recipients. The most boring path is the most private one.",
+      "aspect": "aspect-[3/4]",
+      "accent": "primary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "Privacy as a feature is marketing. Privacy as a primitive is architecture. Tesseract makes that distinction concrete: a mechanism where a detached Distributor handles outflow, breaking the on-chain link between depositor and recipient. Channel-account rotation, hybrid encryption, and BullMQ-backed scheduling ensure that the system remains stable and private."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 05 / Mastery"
+        },
+        {
+          "kind": "h2",
+          "text": "The silent protocol."
+        },
+        {
+          "kind": "p",
+          "text": "I came out of the Soroban season with a much narrower set of opinions and a much wider set of scars. Both compound. The result is a protocol that does one thing perfectly: it clears private payments without the theater of 'zero-knowledge' marketing."
+        }
+      ]
+    }
+  ],
+  "travels": [
+    {
+      "location": "Dawki, Meghalaya",
+      "date": "MAR 2023",
+      "coordinates": "25.2000\u00b0 N",
+      "note": "Crystal clear waters of the Umngot river. Silence as a design choice.",
+      "cover": "/images/Trips and Travels./Dawki/VID_20230327_161707.mp4",
+      "media": [
+        {
+          "src": "/images/Trips and Travels./Dawki/IMG_1692.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Dawki/IMG_2058.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Dawki/IMG_2917.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Dawki/IMG_2938.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Dawki/IMG_4359.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Dawki/VID_20230327_161707.mp4",
+          "type": "video"
+        }
+      ]
+    },
+    {
+      "location": "Shillong, Meghalaya",
+      "date": "MAR 2023",
+      "coordinates": "25.5788\u00b0 N",
+      "note": "Scotland of the East. Pine forests and heavy fog.",
+      "cover": "/images/Trips and Travels./Shillong/IMG_1746.MOV",
+      "media": [
+        {
+          "src": "/images/Trips and Travels./Shillong/20230329_075336.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG20251107103731.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG20251107170059.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_1735.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_1746.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_1766.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_20230329_072754.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_20230329_173033.jpg",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_3977.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_4037.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_4389.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/IMG_5694.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Shillong/Snapchat-1559438947.mp4",
+          "type": "video"
+        }
+      ]
+    },
+    {
+      "location": "Goa",
+      "date": "APR 2024",
+      "coordinates": "15.2993\u00b0 N",
+      "note": "South Goa's quiet beaches. A different kind of rhythm.",
+      "cover": "/images/Trips and Travels./Goa/IMG_0947.MOV",
+      "media": [
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_0828.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_0945.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_0947.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_0953.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_1230.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Goa/IMG_2398.JPG",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "location": "Champawat",
+      "date": "MAY 2024",
+      "coordinates": "29.3364\u00b0 N",
+      "note": "Himalayan silence. Scaling mountains, not protocols.",
+      "cover": "/images/Trips and Travels./Champawat/IMG_2222.MOV",
+      "media": [
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2203.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2208.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2219.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2222.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2248.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_2265.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Champawat/IMG_3315.JPG",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "location": "Mawsynram",
+      "date": "MAR 2023",
+      "coordinates": "25.2975\u00b0 N",
+      "note": "The wettest place on Earth. Living root bridges and constant rain.",
+      "cover": "/images/Trips and Travels./Mawsynram/IMG_3762.MOV",
+      "media": [
+        {
+          "src": "/images/Trips and Travels./Mawsynram/IMG_0770.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Mawsynram/IMG_3739.JPG",
+          "type": "image"
+        },
+        {
+          "src": "/images/Trips and Travels./Mawsynram/IMG_3762.MOV",
+          "type": "video"
+        },
+        {
+          "src": "/images/Trips and Travels./Mawsynram/IMG_4369.JPG",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
