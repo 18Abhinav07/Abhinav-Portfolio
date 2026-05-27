@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
@@ -14,23 +13,43 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "email and message required" }, { status: 400 });
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ error: "mail service unconfigured" }, { status: 503 });
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    return NextResponse.json({ error: "bot service unconfigured" }, { status: 503 });
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const text = `
+📬 *New Transmission from Landline*
 
-  const { error } = await resend.emails.send({
-    from: "Landline <noreply@abhinavpangaria.com>",
-    to: ["abhinavpangaria2003@gmail.com"],
-    replyTo: email,
-    subject: `[Landline] ${name || "Unnamed"} · new transmission`,
-    text: `From: ${name || "Unnamed"} <${email}>\n\n${message}`,
-  });
+*From:* ${name || "Unnamed"}
+*Email:* ${email}
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 502 });
+*Message:*
+${message}
+  `.trim();
+
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: text,
+        parse_mode: "Markdown",
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.description || "Telegram API error");
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Telegram error:", error);
+    return NextResponse.json({ error: message }, { status: 502 });
   }
-
-  return NextResponse.json({ ok: true });
 }

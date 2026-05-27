@@ -8,34 +8,34 @@
     "socials": [
       {
         "label": "Twitter / X",
-        "handle": "@apangaria",
-        "url": "https://twitter.com/apangaria"
+        "handle": "@abhinavpangaria",
+        "url": "https://x.com/abhinavpangaria"
       },
       {
         "label": "GitHub",
-        "handle": "18Abhinav07",
+        "handle": "@18Abhinav07",
         "url": "https://github.com/18Abhinav07"
       },
       {
         "label": "LinkedIn",
-        "handle": "Abhinav Pangaria",
-        "url": "https://linkedin.com/in/abhinav-pangaria"
+        "handle": "@abhinavpangaria",
+        "url": "https://linkedin.com/in/abhinavpangaria"
       },
       {
         "label": "Telegram",
-        "handle": "PLACEHOLDER",
-        "url": "#"
+        "handle": "@abhinavpangaria",
+        "url": "https://t.me/abhinavpangaria"
       },
       {
         "label": "Discord",
-        "handle": "PLACEHOLDER",
-        "url": "#"
+        "handle": "@18_r_y_u_k_07",
+        "url": "https://discord.com/users/18_r_y_u_k_07"
       }
     ],
     "chips": [
       "$100K SCF GRANT",
       "OPEN CAMPUS INCUBATION",
-      "CO-FOUNDER",
+      "ENTREPRENEUR",
       "LEAD ARCHITECT"
     ],
     "nav": [
@@ -157,12 +157,13 @@
       "description": "The financial 'OS' for the Web3 economy. Originally built for the Stellar Build Better hackathon, PayZoll executes multi-hop path payments to settle global payroll in a single click. From contract-level path formation to automated asset swaps and institutional-grade dashboards, it bridges the legacy-fiat gap with production-grade efficiency.",
       "year": "2024 \u00b7 Present",
       "ecosystem": "Stellar",
-      "role": "Lead Architect \u00b7 Solo Coder (Stellar Core)",
+      "role": "Lead Architect & Engineer \u00b7 Solo Coder (Stellar Core)",
       "stack": [
         "Rust",
         "Go",
         "Stellar SDK",
         "NestJS",
+        "Stellar Disbursement Platform",
         "PostgreSQL"
       ],
       "metrics": [
@@ -180,22 +181,22 @@
         }
       ],
       "liveUrl": "https://payzoll.in",
-      "heroImage": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902036/portfolio/projects/payzoll/PayZoll-Stellar-Home.png",
       "screenshots": [
         {
-          "src": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902036/portfolio/projects/payzoll/PayZoll-Stellar-Home.png",
           "caption": "Stellar dashboard \u00b7 home"
         },
         {
-          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-1.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903594/portfolio/projects/payzoll/PayZoll-Stellar-Features-1.png",
           "caption": "Feature surface I"
         },
         {
-          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-2.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903593/portfolio/projects/payzoll/PayZoll-Stellar-Features-2.png",
           "caption": "Feature surface II"
         },
         {
-          "src": "/images/projects/payzoll/PZ-Pharos-Home.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903595/portfolio/projects/payzoll/PZ-Pharos-Home.png",
           "caption": "Pharos console \u00b7 3rd Place"
         }
       ],
@@ -209,7 +210,7 @@
       "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
       "year": "2026",
       "ecosystem": "Mantle Network",
-      "role": "Lead Architect \u00b7 Builder Team",
+      "role": "Lead Architect, Desinger and \u00b7 Fullstack builder",
       "stack": [
         "EVM",
         "ERC-3643",
@@ -241,75 +242,75 @@
           "caption": "Landing surface"
         },
         {
-          "src": "/images/projects/openassets/Marketplace.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901971/portfolio/projects/openassets/Marketplace.png",
           "caption": "RWA marketplace"
         },
         {
-          "src": "/images/projects/openassets/Trade.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902031/portfolio/projects/openassets/Trade.png",
           "caption": "Trade desk"
         },
         {
-          "src": "/images/projects/openassets/Trade-Chart.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901956/portfolio/projects/openassets/Trade-Chart.png",
           "caption": "Trade charts"
         },
         {
-          "src": "/images/projects/openassets/Loan.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901983/portfolio/projects/openassets/Loan.png",
           "caption": "Loan flow"
         },
         {
-          "src": "/images/projects/openassets/Auction.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902033/portfolio/projects/openassets/Auction.png",
           "caption": "Auction engine"
         },
         {
-          "src": "/images/projects/openassets/ActiveBids.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901959/portfolio/projects/openassets/ActiveBids.png",
           "caption": "Active bids"
         },
         {
-          "src": "/images/projects/openassets/Positions.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901967/portfolio/projects/openassets/Positions.png",
           "caption": "Positions ledger"
         },
         {
-          "src": "/images/projects/openassets/InterestChart.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901987/portfolio/projects/openassets/InterestChart.png",
           "caption": "Interest curve"
         },
         {
-          "src": "/images/projects/openassets/P2P.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901988/portfolio/projects/openassets/P2P.png",
           "caption": "P2P matchmaking"
         },
         {
-          "src": "/images/projects/openassets/SwapChart.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901968/portfolio/projects/openassets/SwapChart.png",
           "caption": "Swap surface"
         },
         {
-          "src": "/images/projects/openassets/METH-buy.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901965/portfolio/projects/openassets/METH-buy.png",
           "caption": "mETH purchase"
         },
         {
-          "src": "/images/projects/openassets/USDC-buy.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901985/portfolio/projects/openassets/USDC-buy.png",
           "caption": "USDC on-ramp"
         },
         {
-          "src": "/images/projects/openassets/MyAssets.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901984/portfolio/projects/openassets/MyAssets.png",
           "caption": "Portfolio view"
         },
         {
-          "src": "/images/projects/openassets/Faucet.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901986/portfolio/projects/openassets/Faucet.png",
           "caption": "Faucet"
         },
         {
-          "src": "/images/projects/openassets/Features.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901955/portfolio/projects/openassets/Features.png",
           "caption": "Capability matrix"
         },
         {
-          "src": "/images/projects/openassets/ExpandedRow.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901980/portfolio/projects/openassets/ExpandedRow.png",
           "caption": "Asset row detail"
         },
         {
-          "src": "/images/projects/openassets/Notifcations.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901954/portfolio/projects/openassets/Notifcations.png",
           "caption": "Signals tray"
         },
         {
-          "src": "/images/projects/openassets/Footer.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901970/portfolio/projects/openassets/Footer.png",
           "caption": "Footer composition"
         }
       ],
@@ -320,22 +321,23 @@
       "index": "03",
       "name": "Tesseract",
       "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
-      "description": "Deposit, wait, withdraw. Built for the Stellar Build Better hackathon (1st Place winning team), Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
+      "description": "Deposit, wait, withdraw. Built to expand Stellar Disbursement Platform with Privacy, Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
       "year": "2024 \u00b7 2026",
       "ecosystem": "Stellar \u00b7 Soroban",
-      "role": "Solo Backend Builder",
+      "role": "Sole Builder",
       "stack": [
         "NestJS",
         "TypeScript",
         "Stellar SDK",
         "Soroban",
         "MongoDB",
+        "Noir",
         "Redis"
       ],
       "metrics": [
         {
-          "label": "Prizes",
-          "value": "1st Place Winner"
+          "label": "Improve",
+          "value": "SDP with Privacy"
         },
         {
           "label": "Rotation",
@@ -355,19 +357,19 @@
           "caption": "Protocol landing"
         },
         {
-          "src": "/images/projects/tesseract/Tess-Private.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903603/portfolio/projects/tesseract/Tess-Private.png",
           "caption": "Private payment flow"
         },
         {
-          "src": "/images/projects/tesseract/Tess-Batch.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903601/portfolio/projects/tesseract/Tess-Batch.png",
           "caption": "Batch settlement"
         },
         {
-          "src": "/images/projects/tesseract/Tess-Details.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903597/portfolio/projects/tesseract/Tess-Details.png",
           "caption": "Transaction details"
         },
         {
-          "src": "/images/projects/tesseract/Tess-Info.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903600/portfolio/projects/tesseract/Tess-Info.png",
           "caption": "Info surface"
         }
       ],
@@ -381,7 +383,7 @@
       "description": "The decentralized credit layer for Polkadot. Kredio uses hybrid EVM \u2194 PolkaVM atomic calls to score borrowers against on-chain behavior. Featuring the YieldMind intelligence layer and NeuralScorer for real-time manipulation detection, it enables zero-oracle risk assessment across parachains via XCM.",
       "year": "2024 \u00b7 2026",
       "ecosystem": "Polkadot \u00b7 Paseo",
-      "role": "Lead Architect \u00b7 Builder",
+      "role": "Sole \u00b7 Builder",
       "stack": [
         "ink! Wasm",
         "Solidity (EVM)",
@@ -411,23 +413,23 @@
           "caption": "Landing surface"
         },
         {
-          "src": "/images/projects/kredio/Kredio-Working-Model.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903608/portfolio/projects/kredio/Kredio-Working-Model.png",
           "caption": "Scoring model"
         },
         {
-          "src": "/images/projects/kredio/Kredio-Tiers.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903615/portfolio/projects/kredio/Kredio-Tiers.png",
           "caption": "Borrower tiers"
         },
         {
-          "src": "/images/projects/kredio/Kredio-Swap.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903606/portfolio/projects/kredio/Kredio-Swap.png",
           "caption": "Swap surface"
         },
         {
-          "src": "/images/projects/kredio/Kredio-Docs.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903607/portfolio/projects/kredio/Kredio-Docs.png",
           "caption": "Docs surface"
         },
         {
-          "src": "/images/projects/kredio/Kredio-Footer.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903621/portfolio/projects/kredio/Kredio-Footer.png",
           "caption": "Footer composition"
         }
       ],
@@ -441,7 +443,7 @@
       "description": "Environmental sensor readings (AQI, CO\u2082, temperature) become cryptographic intellectual property. ECDSA-signed payloads minted as IP on Story Protocol, anchored by Coinbase Smart Wallet, preventing fake data and unlocking monetization.",
       "year": "2026",
       "ecosystem": "Base \u00b7 Story Protocol",
-      "role": "Builder",
+      "role": "Ideation & Builder",
       "stack": [
         "Next.js",
         "TypeScript",
@@ -473,7 +475,7 @@
           "caption": "Landing surface"
         },
         {
-          "src": "/images/projects/clearsky/CS-Features.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903604/portfolio/projects/clearsky/CS-Features.png",
           "caption": "Capability matrix"
         }
       ],
@@ -646,30 +648,30 @@
       "date": "MAR 2023",
       "coordinates": "25.2000\u00b0 N",
       "note": "Crystal clear waters of the Umngot river. Silence as a design choice.",
-      "cover": "/images/Trips and Travels./Dawki/VID_20230327_161707.mp4",
+      "cover": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901094/portfolio/Trips_and_Travels_/Dawki/VID_20230327_161707.mp4",
       "media": [
         {
-          "src": "/images/Trips and Travels./Dawki/IMG_1692.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901046/portfolio/Trips_and_Travels_/Dawki/IMG_1692.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Dawki/IMG_2058.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901048/portfolio/Trips_and_Travels_/Dawki/IMG_2058.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Dawki/IMG_2917.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901121/portfolio/Trips_and_Travels_/Dawki/IMG_2917.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Dawki/IMG_2938.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901050/portfolio/Trips_and_Travels_/Dawki/IMG_2938.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Dawki/IMG_4359.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901183/portfolio/Trips_and_Travels_/Dawki/IMG_4359.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Dawki/VID_20230327_161707.mp4",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901094/portfolio/Trips_and_Travels_/Dawki/VID_20230327_161707.mp4",
           "type": "video"
         }
       ]
@@ -679,58 +681,58 @@
       "date": "MAR 2023",
       "coordinates": "25.5788\u00b0 N",
       "note": "Scotland of the East. Pine forests and heavy fog.",
-      "cover": "/images/Trips and Travels./Shillong/IMG_1746.MOV",
+      "cover": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779900850/portfolio/Trips_and_Travels_/Shillong/IMG_1746.mov",
       "media": [
         {
-          "src": "/images/Trips and Travels./Shillong/20230329_075336.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900788/portfolio/Trips_and_Travels_/Shillong/20230329_075336.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG20251107103731.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900727/portfolio/Trips_and_Travels_/Shillong/IMG20251107103731.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG20251107170059.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900696/portfolio/Trips_and_Travels_/Shillong/IMG20251107170059.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_1735.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900648/portfolio/Trips_and_Travels_/Shillong/IMG_1735.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_1746.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779900850/portfolio/Trips_and_Travels_/Shillong/IMG_1746.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_1766.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900750/portfolio/Trips_and_Travels_/Shillong/IMG_1766.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_20230329_072754.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900746/portfolio/Trips_and_Travels_/Shillong/IMG_20230329_072754.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_20230329_173033.jpg",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900644/portfolio/Trips_and_Travels_/Shillong/IMG_20230329_173033.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_3977.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901009/portfolio/Trips_and_Travels_/Shillong/IMG_3977.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_4037.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900769/portfolio/Trips_and_Travels_/Shillong/IMG_4037.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_4389.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779900703/portfolio/Trips_and_Travels_/Shillong/IMG_4389.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/IMG_5694.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779900945/portfolio/Trips_and_Travels_/Shillong/IMG_5694.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Shillong/Snapchat-1559438947.mp4",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779900674/portfolio/Trips_and_Travels_/Shillong/Snapchat-1559438947.mp4",
           "type": "video"
         }
       ]
@@ -740,30 +742,30 @@
       "date": "APR 2024",
       "coordinates": "15.2993\u00b0 N",
       "note": "South Goa's quiet beaches. A different kind of rhythm.",
-      "cover": "/images/Trips and Travels./Goa/IMG_0947.MOV",
+      "cover": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901485/portfolio/Trips_and_Travels_/Goa/IMG_0947.mov",
       "media": [
         {
-          "src": "/images/Trips and Travels./Goa/IMG_0828.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901304/portfolio/Trips_and_Travels_/Goa/IMG_0828.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Goa/IMG_0945.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901588/portfolio/Trips_and_Travels_/Goa/IMG_0945.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Goa/IMG_0947.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901485/portfolio/Trips_and_Travels_/Goa/IMG_0947.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Goa/IMG_0953.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901247/portfolio/Trips_and_Travels_/Goa/IMG_0953.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Goa/IMG_1230.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901688/portfolio/Trips_and_Travels_/Goa/IMG_1230.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Goa/IMG_2398.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901219/portfolio/Trips_and_Travels_/Goa/IMG_2398.jpg",
           "type": "image"
         }
       ]
@@ -773,34 +775,34 @@
       "date": "MAY 2024",
       "coordinates": "29.3364\u00b0 N",
       "note": "Himalayan silence. Scaling mountains, not protocols.",
-      "cover": "/images/Trips and Travels./Champawat/IMG_2222.MOV",
+      "cover": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901889/portfolio/Trips_and_Travels_/Champawat/IMG_2222.mov",
       "media": [
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2203.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901852/portfolio/Trips_and_Travels_/Champawat/IMG_2203.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2208.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901945/portfolio/Trips_and_Travels_/Champawat/IMG_2208.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2219.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901942/portfolio/Trips_and_Travels_/Champawat/IMG_2219.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2222.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901889/portfolio/Trips_and_Travels_/Champawat/IMG_2222.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2248.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901928/portfolio/Trips_and_Travels_/Champawat/IMG_2248.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_2265.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901854/portfolio/Trips_and_Travels_/Champawat/IMG_2265.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Champawat/IMG_3315.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901953/portfolio/Trips_and_Travels_/Champawat/IMG_3315.jpg",
           "type": "image"
         }
       ]
@@ -810,22 +812,22 @@
       "date": "MAR 2023",
       "coordinates": "25.2975\u00b0 N",
       "note": "The wettest place on Earth. Living root bridges and constant rain.",
-      "cover": "/images/Trips and Travels./Mawsynram/IMG_3762.MOV",
+      "cover": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901786/portfolio/Trips_and_Travels_/Mawsynram/IMG_3762.mov",
       "media": [
         {
-          "src": "/images/Trips and Travels./Mawsynram/IMG_0770.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901812/portfolio/Trips_and_Travels_/Mawsynram/IMG_0770.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Mawsynram/IMG_3739.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901840/portfolio/Trips_and_Travels_/Mawsynram/IMG_3739.jpg",
           "type": "image"
         },
         {
-          "src": "/images/Trips and Travels./Mawsynram/IMG_3762.MOV",
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901786/portfolio/Trips_and_Travels_/Mawsynram/IMG_3762.mov",
           "type": "video"
         },
         {
-          "src": "/images/Trips and Travels./Mawsynram/IMG_4369.JPG",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901835/portfolio/Trips_and_Travels_/Mawsynram/IMG_4369.jpg",
           "type": "image"
         }
       ]

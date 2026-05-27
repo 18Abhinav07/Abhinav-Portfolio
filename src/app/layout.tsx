@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   description:
     "Web3 engineer working across payments, privacy, on-chain credit, and agent infrastructure. PayZoll, Tesseract, OpenAssets, Kredio, Clear Sky.",
   metadataBase: new URL("https://abhinavpangaria.com"),
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Abhinav Pangaria · Builder of resilient systems.",
     description: "Systems that hold together on the worst day. PayZoll · Tesseract · OpenAssets · Kredio · Clear Sky.",
