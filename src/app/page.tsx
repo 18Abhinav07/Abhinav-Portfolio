@@ -1,13 +1,13 @@
 import { Hero } from "@/components/Hero";
 import { Identity } from "@/components/Identity";
-import { ContactTeaser } from "@/components/ContactTeaser";
+import { Updates } from "@/components/Updates";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Identity />
-      <ContactTeaser />
+      <Updates />
     </>
   );
 }
