@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
@@ -36,6 +36,11 @@ export function ProjectCard({ project }: { project: Project }) {
     y.set(0);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -56,9 +61,11 @@ export function ProjectCard({ project }: { project: Project }) {
           className="relative aspect-[16/10] w-full rounded-xl bg-surface-variant/20 overflow-hidden transition-all duration-500 ease-out group-hover:bg-surface-variant/40"
         >
           {/* Skeleton Loader */}
-          <div 
-            className={`absolute inset-0 bg-surface-container-highest animate-pulse z-10 transition-opacity duration-700 ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-          />
+          {!isLoaded && (
+            <div 
+              className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+            />
+          )}
 
           {/* Subtle Glow */}
           <div 

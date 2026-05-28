@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
@@ -44,9 +44,23 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
   };
 
   const handleMediaLoad = () => {
-    setIsLoaded(true);
-    if (onLoad) onLoad();
+    if (!isLoaded) {
+      setIsLoaded(true);
+      if (onLoad) onLoad();
+    }
   };
+
+  // Fail-safe: ensure skeleton disappears even if events don't fire 
+  // (e.g., cached images, or blocked video autoplay on low power mode)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isLoaded) {
+        setIsLoaded(true);
+        if (onLoad) onLoad();
+      }
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [isLoaded, onLoad]);
 
   return (
     <motion.div
