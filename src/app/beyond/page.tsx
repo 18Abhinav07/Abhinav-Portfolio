@@ -4,10 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import data from "@/content/data.json";
 import { Reveal } from "@/components/Reveal";
 import { TravelCard } from "@/components/TravelCard";
+import { SectionLoader } from "@/components/SectionLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,10 @@ export default function BeyondPage() {
   const [selectedLocation, setSelectedLocation] = useState<typeof data.travels[0] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState(0);
+
+  const [isPageReady, setIsPageReady] = useState(false);
+  const [loadedCovers, setLoadedCovers] = useState(0);
+  const totalCovers = data.travels.length;
 
   // Body Lock & Scroll Management
   useEffect(() => {
@@ -93,6 +98,19 @@ export default function BeyondPage() {
   };
 
   useEffect(() => {
+    if (loadedCovers >= totalCovers) {
+      const timer = setTimeout(() => setIsPageReady(true), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [loadedCovers, totalCovers]);
+
+  // Fail-safe for page load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsPageReady(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (selectedLocation && loadedImages >= selectedLocation.media.length) {
       // Artificial delay for high-fidelity feel
       const timer = setTimeout(() => setIsLoading(false), 1200);
@@ -109,54 +127,67 @@ export default function BeyondPage() {
   }, [isLoading]);
 
   return (
-    <div className={`bg-surface-dim overflow-hidden ${selectedLocation ? 'h-screen' : ''}`}>
-      {/* Intro Section */}
-      <section className="px-6 md:px-outer-gutter pt-[120px] pb-[60px] relative">
-        <div className="grid md:grid-cols-12 gap-column-gap">
-          <Reveal className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary" y={20}>
-            05 / Beyond · Field notes
-          </Reveal>
-          <Reveal className="md:col-span-9 max-w-3xl" y={32} delay={0.1}>
-            <h1 className="font-display text-display-lg leading-[0.95] tracking-[-0.02em] text-on-surface">
-              The rest <em className="italic text-primary">of the world.</em>
-            </h1>
-          </Reveal>
-        </div>
-      </section>
+    <>
+      <AnimatePresence>
+        {!isPageReady && (
+          <SectionLoader 
+            title="Beyond" 
+            subtitle="Syncing_Global_Locations" 
+            index="05" 
+          />
+        )}
+      </AnimatePresence>
 
-      {/* Horizontal Scroller Trigger */}
-      <div ref={triggerRef} className="h-screen relative overflow-hidden">
-        <div 
-          ref={sectionRef} 
-          className="flex h-full relative"
-          style={{ width: `${data.travels.length * 100}vw` }}
-        >
-          {data.travels.map((t, i) => (
-            <div 
-              key={t.location} 
-              className="w-screen h-full flex-shrink-0 px-6 md:px-outer-gutter py-12 flex items-center justify-center relative group cursor-pointer"
-              onClick={() => handleLocationClick(t)}
-            >
-              <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
-                <div className="absolute inset-0 z-0">
-                  {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
-                    >
-                      <source src={t.cover} />
-                    </video>
-                    ) : (
-                    <Image
-                      src={t.cover}
-                      alt={t.location}
-                      fill
-                      className="object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
-                    />
-                  )}
+      <div className={`bg-surface-dim overflow-hidden ${selectedLocation ? 'h-screen' : ''} ${!isPageReady ? 'invisible' : 'visible'}`}>
+        {/* Intro Section */}
+        <section className="px-6 md:px-outer-gutter pt-[120px] pb-[60px] relative">
+          <div className="grid md:grid-cols-12 gap-column-gap">
+            <Reveal className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary" y={20}>
+              05 / Beyond · Field notes
+            </Reveal>
+            <Reveal className="md:col-span-9 max-w-3xl" y={32} delay={0.1}>
+              <h1 className="font-display text-display-lg leading-[0.95] tracking-[-0.02em] text-on-surface">
+                The rest <em className="italic text-primary">of the world.</em>
+              </h1>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Horizontal Scroller Trigger */}
+        <div ref={triggerRef} className="h-screen relative overflow-hidden">
+          <div 
+            ref={sectionRef} 
+            className="flex h-full relative"
+            style={{ width: `${data.travels.length * 100}vw` }}
+          >
+            {data.travels.map((t, i) => (
+              <div 
+                key={t.location} 
+                className="w-screen h-full flex-shrink-0 px-6 md:px-outer-gutter py-12 flex items-center justify-center relative group cursor-pointer"
+                onClick={() => handleLocationClick(t)}
+              >
+                <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
+                  <div className="absolute inset-0 z-0">
+                    {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        onLoadedData={() => setLoadedCovers(prev => prev + 1)}
+                        className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
+                      >
+                        <source src={t.cover} />
+                      </video>
+                      ) : (
+                      <Image
+                        src={t.cover}
+                        alt={t.location}
+                        fill
+                        onLoad={() => setLoadedCovers(prev => prev + 1)}
+                        className="object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
+                      />
+                    )}
                   <div className="absolute inset-0 bg-surface/20 mix-blend-overlay pointer-events-none" />
                 </div>
 
@@ -322,5 +353,6 @@ export default function BeyondPage() {
         }
       `}</style>
     </div>
+    </>
   );
 }

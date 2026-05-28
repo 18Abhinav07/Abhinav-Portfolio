@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import type { Project } from "@/content/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -40,7 +42,7 @@ export function ProjectCard({ project }: { project: Project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="group"
+      className="group relative"
     >
       <Link href={`/work/${project.slug}`} className="block">
         <motion.div
@@ -53,27 +55,33 @@ export function ProjectCard({ project }: { project: Project }) {
           }}
           className="relative aspect-[16/10] w-full rounded-xl bg-surface-variant/20 overflow-hidden transition-all duration-500 ease-out group-hover:bg-surface-variant/40"
         >
+          {/* Skeleton Loader */}
+          <div 
+            className={`absolute inset-0 bg-surface-container-highest animate-pulse z-10 transition-opacity duration-700 ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          />
+
           {/* Subtle Glow */}
           <div 
             style={{ transform: "translateZ(20px)" }}
-            className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" 
+            className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20" 
           />
 
           <Image
             src={project.heroImage}
             alt={project.name}
             fill
-            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+            onLoad={() => setIsLoaded(true)}
+            className={`object-cover transition-all duration-700 ease-out group-hover:scale-105 z-0 ${isLoaded ? 'opacity-80 group-hover:opacity-100' : 'opacity-0'}`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
           {/* Video Overlay Hint (if it were real video, we'd swap here) */}
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
 
           {/* Catchy Tagline Overlay */}
           <div 
             style={{ transform: "translateZ(60px)" }}
-            className="absolute bottom-6 left-6 right-6"
+            className="absolute bottom-6 left-6 right-6 z-30"
           >
             <div className="overflow-hidden">
                <motion.p 
@@ -92,7 +100,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {/* Detailed Surface Tag */}
           <div 
             style={{ transform: "translateZ(40px)" }}
-            className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100"
+            className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100 z-30"
           >
             <span className="px-4 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-md font-mono text-[10px] text-white tracking-widest uppercase">
               {project.index} / {project.year.split(" · ")[0]}
