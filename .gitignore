@@ -31,3 +31,5 @@ yarn-error.log*
 .vscode/
 .idea/
 *.swp
+deploy-error-ss
+.vercel

@@ -140,20 +140,20 @@ export default function BeyondPage() {
               <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
                 <div className="absolute inset-0 z-0">
                   {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
-                    <video 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline 
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
                     >
-                      <source src={encodeURI(t.cover)} />
+                      <source src={t.cover} />
                     </video>
-                  ) : (
-                    <Image 
-                      src={encodeURI(t.cover)} 
-                      alt={t.location} 
-                      fill 
+                    ) : (
+                    <Image
+                      src={t.cover}
+                      alt={t.location}
+                      fill
                       className="object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
                     />
                   )}
@@ -250,8 +250,8 @@ export default function BeyondPage() {
                       key={m.src}
                       className={i % 4 === 0 ? "md:col-span-2 md:aspect-video" : "aspect-square md:aspect-square"}
                     >
-                      <TravelCard 
-                        src={encodeURI(m.src)}
+                      <TravelCard
+                        src={m.src}
                         type={m.type as "image" | "video"}
                         location={selectedLocation.location}
                         date={selectedLocation.date}
