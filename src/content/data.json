@@ -235,10 +235,10 @@
       ],
       "liveUrl": "https://www.openassets.xyz",
       "githubUrl": "https://github.com/TheOpenAssets",
-      "heroImage": "/images/projects/openassets/Hero.png",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944528/portfolio/projects/openassets/Hero.png",
       "screenshots": [
         {
-          "src": "/images/projects/openassets/Hero.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944528/portfolio/projects/openassets/Hero.png",
           "caption": "Landing surface"
         },
         {
@@ -350,10 +350,10 @@
       ],
       "liveUrl": "https://tesseractprotocol.xyz",
       "githubUrl": "https://github.com/The-Tesseract-Protocol",
-      "heroImage": "/images/projects/tesseract/Tess-Hero.png",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944529/portfolio/projects/tesseract/Tess-Hero.png",
       "screenshots": [
         {
-          "src": "/images/projects/tesseract/Tess-Hero.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944529/portfolio/projects/tesseract/Tess-Hero.png",
           "caption": "Protocol landing"
         },
         {
@@ -406,10 +406,10 @@
       ],
       "liveUrl": "https://kredio-gamma.vercel.app",
       "githubUrl": "https://github.com/18Abhinav07/Kredio",
-      "heroImage": "/images/projects/kredio/Kredio-Hero.png",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944530/portfolio/projects/kredio/Kredio-Hero.png",
       "screenshots": [
         {
-          "src": "/images/projects/kredio/Kredio-Hero.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944530/portfolio/projects/kredio/Kredio-Hero.png",
           "caption": "Landing surface"
         },
         {
@@ -468,10 +468,10 @@
         }
       ],
       "liveUrl": "https://docs.clearsky.network",
-      "heroImage": "/images/projects/clearsky/CS-Hero.png",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944534/portfolio/projects/clearsky/CS-Hero.png",
       "screenshots": [
         {
-          "src": "/images/projects/clearsky/CS-Hero.png",
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779944534/portfolio/projects/clearsky/CS-Hero.png",
           "caption": "Landing surface"
         },
         {

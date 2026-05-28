@@ -139,7 +139,7 @@ export default function BeyondPage() {
             >
               <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
                 <div className="absolute inset-0 z-0">
-                  {t.cover.endsWith('.mp4') || t.cover.endsWith('.MOV') ? (
+                  {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
                     <video 
                       autoPlay 
                       loop 
