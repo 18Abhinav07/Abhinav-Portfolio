@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
 
 interface TravelCardProps {
   src: string;
@@ -51,7 +51,6 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
   };
 
   // Fail-safe: ensure skeleton disappears even if events don't fire 
-  // (e.g., cached images, or blocked video autoplay on low power mode)
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!isLoaded) {
@@ -81,9 +80,16 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
         className="relative w-full h-full rounded-xl bg-surface-variant/20 overflow-hidden border border-outline-variant/30 transition-all duration-500 ease-out group-hover:border-primary/50"
       >
         {/* Skeleton Loader */}
-        <div 
-          className={`absolute inset-0 bg-surface-container-highest animate-pulse z-10 transition-opacity duration-700 ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-        />
+        <AnimatePresence>
+          {!isLoaded && (
+            <motion.div 
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+            />
+          )}
+        </AnimatePresence>
 
         {/* Subtle Shine */}
         <div 

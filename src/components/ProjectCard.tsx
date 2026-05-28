@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
 import type { Project } from "@/content/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -61,11 +61,16 @@ export function ProjectCard({ project }: { project: Project }) {
           className="relative aspect-[16/10] w-full rounded-xl bg-surface-variant/20 overflow-hidden transition-all duration-500 ease-out group-hover:bg-surface-variant/40"
         >
           {/* Skeleton Loader */}
-          {!isLoaded && (
-            <div 
-              className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
-            />
-          )}
+          <AnimatePresence>
+            {!isLoaded && (
+              <motion.div 
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+              />
+            )}
+          </AnimatePresence>
 
           {/* Subtle Glow */}
           <div 
@@ -82,7 +87,7 @@ export function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
-          {/* Video Overlay Hint (if it were real video, we'd swap here) */}
+          {/* Video Overlay Hint */}
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
 
           {/* Catchy Tagline Overlay */}
