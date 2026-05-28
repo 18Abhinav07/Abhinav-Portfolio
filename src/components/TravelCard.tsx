@@ -52,12 +52,13 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
 
   // Fail-safe: ensure skeleton disappears even if events don't fire 
   useEffect(() => {
+    // Shorter fail-safe for individual cards
     const timer = setTimeout(() => {
       if (!isLoaded) {
         setIsLoaded(true);
         if (onLoad) onLoad();
       }
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, [isLoaded, onLoad]);
 
@@ -77,7 +78,7 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-full h-full rounded-xl bg-surface-variant/20 overflow-hidden border border-outline-variant/30 transition-all duration-500 ease-out group-hover:border-primary/50"
+        className="relative w-full h-full rounded-xl bg-surface-variant/10 overflow-hidden border border-outline-variant/30 transition-all duration-500 ease-out group-hover:border-primary/50"
       >
         {/* Skeleton Loader */}
         <AnimatePresence>
@@ -86,7 +87,7 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+              className="absolute inset-0 bg-surface-container-highest animate-pulse z-40"
             />
           )}
         </AnimatePresence>
@@ -105,6 +106,7 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
               muted 
               playsInline 
               onLoadedData={handleMediaLoad}
+              onCanPlay={handleMediaLoad}
               className="w-full h-full object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
             >
               <source src={src} />
@@ -115,7 +117,7 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
                 src={src}
                 alt={location}
                 fill
-                priority={index < 3}
+                priority={index < 2}
                 onLoad={handleMediaLoad}
                 className="object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -174,7 +174,7 @@ export default function BeyondPage() {
                         loop
                         muted
                         playsInline
-                        onLoadedData={() => setLoadedCovers(prev => prev + 1)}
+                        onCanPlay={() => setLoadedCovers(prev => prev + 1)}
                         className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700"
                       >
                         <source src={t.cover} />

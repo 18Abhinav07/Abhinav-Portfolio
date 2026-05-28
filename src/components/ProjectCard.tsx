@@ -37,9 +37,12 @@ export function ProjectCard({ project }: { project: Project }) {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 3000);
+    // Fail-safe: if image takes too long, reveal anyway
+    const timer = setTimeout(() => {
+      if (!isLoaded) setIsLoaded(true);
+    }, 5000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoaded]);
 
   return (
     <motion.div
@@ -58,7 +61,7 @@ export function ProjectCard({ project }: { project: Project }) {
             rotateY,
             transformStyle: "preserve-3d",
           }}
-          className="relative aspect-[16/10] w-full rounded-xl bg-surface-variant/20 overflow-hidden transition-all duration-500 ease-out group-hover:bg-surface-variant/40"
+          className="relative aspect-[16/10] w-full rounded-xl bg-surface-variant/10 overflow-hidden border border-outline-variant/20 transition-all duration-500 ease-out group-hover:bg-surface-variant/20"
         >
           {/* Skeleton Loader */}
           <AnimatePresence>
@@ -67,7 +70,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+                className="absolute inset-0 bg-surface-container-highest animate-pulse z-40"
               />
             )}
           </AnimatePresence>
@@ -85,6 +88,7 @@ export function ProjectCard({ project }: { project: Project }) {
             onLoad={() => setIsLoaded(true)}
             className={`object-cover transition-all duration-700 ease-out group-hover:scale-105 z-0 ${isLoaded ? 'opacity-80 group-hover:opacity-100' : 'opacity-0'}`}
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority={project.index === "01"}
           />
 
           {/* Video Overlay Hint */}

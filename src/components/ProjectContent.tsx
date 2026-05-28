@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Project } from "@/content/projects";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { ProjectLoader } from "@/components/ProjectLoader";
@@ -16,6 +16,7 @@ interface ProjectContentProps {
 export function ProjectContent({ project, nextProject }: ProjectContentProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImages, setLoadedImages] = useState(0);
+  const [individualLoads, setIndividualLoads] = useState<Record<string, boolean>>({});
   const totalImages = project.screenshots.length;
 
   useEffect(() => {
@@ -30,8 +31,11 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
     };
   }, [isLoading]);
 
-  const handleImageLoad = () => {
-    setLoadedImages((prev) => prev + 1);
+  const handleImageLoad = (src: string) => {
+    if (!individualLoads[src]) {
+      setIndividualLoads(prev => ({ ...prev, [src]: true }));
+      setLoadedImages((prev) => prev + 1);
+    }
   };
 
   useEffect(() => {
@@ -77,14 +81,25 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
         </header>
 
         <Reveal className="px-6 md:px-[80px] mb-[120px]" y={48}>
-          <div className="relative aspect-video w-full overflow-hidden brutalist-rule-t brutalist-rule-b brutalist-rule-l brutalist-rule-r">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-variant/10">
+            <AnimatePresence mode="wait">
+              {!individualLoads[project.heroImage] && (
+                <motion.div 
+                  key="skeleton"
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+                />
+              )}
+            </AnimatePresence>
             <Image
               src={project.heroImage}
               alt={project.name}
               fill
-              className="object-cover"
+              className={`object-cover transition-opacity duration-700 ${individualLoads[project.heroImage] ? 'opacity-100' : 'opacity-0'}`}
               sizes="(min-width: 768px) calc(100vw - 160px), 100vw"
-              onLoad={handleImageLoad}
+              onLoad={() => handleImageLoad(project.heroImage)}
               priority
             />
           </div>
@@ -145,14 +160,25 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
             <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
               {project.screenshots.slice(1).map((s, i) => (
                 <StaggerItem key={s.src} className="relative">
-                  <div className="relative aspect-video w-full overflow-hidden brutalist-rule-t brutalist-rule-b brutalist-rule-l brutalist-rule-r">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-variant/10">
+                    <AnimatePresence mode="wait">
+                      {!individualLoads[s.src] && (
+                        <motion.div 
+                          key="skeleton"
+                          initial={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.6 }}
+                          className="absolute inset-0 bg-surface-container-highest animate-pulse z-10"
+                        />
+                      )}
+                    </AnimatePresence>
                     <Image
                       src={s.src}
                       alt={s.caption || `${project.name} frame ${i + 2}`}
                       fill
-                      className="object-cover"
+                      className={`object-cover transition-opacity duration-700 ${individualLoads[s.src] ? 'opacity-100' : 'opacity-0'}`}
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      onLoad={handleImageLoad}
+                      onLoad={() => handleImageLoad(s.src)}
                     />
                   </div>
                   {s.caption && (
