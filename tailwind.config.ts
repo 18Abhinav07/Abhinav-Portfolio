@@ -9,25 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#16130e",
-        primary: { DEFAULT: "#e6c479", on: "#16130e" },
-        secondary: { DEFAULT: "#bdf532", on: "#16130e" },
+        // High-Energy Light — light cream canvas, high-velocity neon green + yellow accents.
+        bg: "#FAF9F6",
+        primary: { DEFAULT: "#BFFF00", on: "#07090F" }, // Neon Green
+        secondary: { DEFAULT: "#FAFF00", on: "#07090F" }, // Neon Yellow
+        accent: { DEFAULT: "#BFFF00", yellow: "#FAFF00" },
         surface: {
-          DEFAULT: "#16130e",
-          dim: "#100e09",
-          bright: "#1d1a14",
-          "container-lowest": "#0A0908",
-          "container-low": "#1a1610",
-          container: "#1f1b14",
-          "container-high": "#26221a",
-          "container-highest": "#2e2920",
+          DEFAULT: "#F3F4F6",
+          dim: "#E5E7EB",
+          bright: "#FAF9F6",
+          "container-lowest": "#FFFFFF",
+          "container-low": "#F9FAFB",
+          container: "#F3F4F6",
+          "container-high": "#E5E7EB",
+          "container-highest": "#D1D5DB",
         },
-        "on-surface": "#e9e1d9",
-        "on-surface-variant": "#bdb5a8",
-        "surface-variant": "#38342e",
-        outline: "#8a8276",
-        "outline-variant": "#4d4639",
-        error: "#ff6b6b",
+        "on-surface": "#07090F",
+        "on-surface-variant": "#4B5563",
+        "surface-variant": "#E5E7EB",
+        outline: "rgba(7, 9, 15, 0.1)",
+        "outline-variant": "rgba(7, 9, 15, 0.05)",
+        error: "#E11D48",
       },
       spacing: {
         "outer-gutter": "80px",
@@ -39,10 +41,9 @@ const config: Config = {
         "stack-xl": "64px",
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "Georgia", "serif"],
-        fraunces: ["var(--font-fraunces)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["ui-monospace", "monospace"],
+        display: ["var(--font-display)", "var(--font-hanken)", "system-ui", "sans-serif"],
+        sans: ["var(--font-hanken)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
       },
       fontSize: {
         "display-lg": ["clamp(3rem, 5vw + 2rem, 5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: "600" }],
@@ -59,10 +60,18 @@ const config: Config = {
         none: "0",
         xs: "2px",
         sm: "4px",
+        lg: "20px",
+        xl: "28px",
         pill: "9999px",
+      },
+      boxShadow: {
+        glow: "0 0 40px -8px rgba(94,232,255,0.35)",
+        "glow-violet": "0 0 48px -10px rgba(139,124,255,0.40)",
+        depth: "0 40px 100px -30px rgba(0,0,0,0.75)",
       },
       transitionTimingFunction: {
         editorial: "cubic-bezier(0.16, 1, 0.3, 1)",
+        cinematic: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
