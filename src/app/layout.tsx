@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Fraunces, Inter } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
@@ -7,25 +7,18 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Preloader } from "@/components/Preloader";
 import "@/styles/globals.css";
 
-const playfair = Playfair_Display({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-hanken",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const fraunces = Fraunces({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-jetbrains",
   display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -45,14 +38,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${hanken.variable} ${jetbrains.variable}`}>
       <head>
+        {/* Clash Display — geometric display face via Fontshare CDN (exposed as --font-display in globals.css) */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-surface text-on-surface antialiased pb-[64px] md:pb-0">
+      <body className="font-sans bg-bg text-on-surface antialiased pb-[64px] md:pb-0">
         <Preloader />
         <SmoothScroll />
         <TopNav />
