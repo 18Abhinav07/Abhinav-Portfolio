@@ -109,16 +109,16 @@ export default function BeyondPage() {
   }, [isLoading]);
 
   return (
-    <div className={`bg-surface-dim overflow-hidden ${selectedLocation ? 'h-screen' : ''}`}>
+    <div className={`bg-bg overflow-hidden ${selectedLocation ? 'h-screen' : ''}`}>
       {/* Intro Section */}
       <section className="px-6 md:px-outer-gutter pt-[120px] pb-[60px] relative">
         <div className="grid md:grid-cols-12 gap-column-gap">
-          <Reveal className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary" y={20}>
-            05 / Beyond · Field notes
+          <Reveal className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em]" y={20}>
+            <span className="bg-primary text-on-surface px-2 py-0.5 rounded font-bold">05 / Beyond · Field notes</span>
           </Reveal>
           <Reveal className="md:col-span-9 max-w-3xl" y={32} delay={0.1}>
             <h1 className="font-display text-display-lg leading-[0.95] tracking-[-0.02em] text-on-surface">
-              The rest <em className="italic text-primary">of the world.</em>
+              The rest <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">of the world.</em>
             </h1>
           </Reveal>
         </div>
@@ -139,7 +139,7 @@ export default function BeyondPage() {
             >
               <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
                 <div className="absolute inset-0 z-0">
-                  {t.cover.endsWith('.mp4') || t.cover.endsWith('.MOV') ? (
+                  {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
                     <video 
                       autoPlay 
                       loop 
@@ -162,7 +162,7 @@ export default function BeyondPage() {
 
                 <div className="absolute inset-0 z-10 p-stack-xl flex flex-col justify-between">
                   <div className="flex justify-between items-start">
-                    <div className="font-mono text-label-mono text-primary tracking-[0.2em]">
+                    <div className="font-mono text-label-mono text-on-surface font-bold tracking-[0.2em]">
                       {t.coordinates}
                     </div>
                     <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">
@@ -171,7 +171,7 @@ export default function BeyondPage() {
                   </div>
 
                   <div className="max-w-2xl">
-                    <motion.h3 className="font-display text-[8vw] md:text-[5vw] leading-none text-on-surface mb-stack-md group-hover:text-primary transition-colors duration-500">
+                    <motion.h3 className="font-display text-[8vw] md:text-[5vw] leading-none text-on-surface mb-stack-md group-hover:opacity-80 transition-opacity duration-500">
                       {t.location.split(',')[0]}
                       <span className="block text-body-lg font-sans font-normal text-on-surface-variant tracking-normal mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                         {t.note}
@@ -183,7 +183,7 @@ export default function BeyondPage() {
                     <div className="font-mono text-label-mono text-on-surface-variant">
                       {t.date}
                     </div>
-                    <div className="flex items-center gap-2 font-mono text-label-mono text-primary uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                    <div className="flex items-center gap-2 font-mono text-label-mono text-on-surface bg-primary px-2 py-0.5 rounded font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                       <span className="material-symbols-outlined text-sm">open_in_full</span>
                       Explore_Logs
                     </div>
@@ -202,15 +202,15 @@ export default function BeyondPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[10000] bg-surface flex flex-col"
+            className="fixed inset-0 z-[10000] bg-[#FAF9F6] flex flex-col"
           >
             {/* Modal Header */}
-            <div className="px-6 md:px-outer-gutter py-12 flex justify-between items-end border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md sticky top-0 z-[101]">
+            <div className="px-6 md:px-outer-gutter py-12 flex justify-between items-end border-b border-outline-variant/30 bg-[#FAF9F6]/80 backdrop-blur-md sticky top-0 z-[101]">
               <div>
                 <motion.h2 
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="font-display text-headline-lg text-primary mb-2"
+                  className="font-display text-headline-lg text-on-surface font-bold mb-2"
                 >
                   {selectedLocation.location}
                 </motion.h2>
@@ -235,7 +235,7 @@ export default function BeyondPage() {
             {/* Gallery Content */}
             <div 
               data-lenis-prevent
-              className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-outer-gutter bg-surface-dim custom-scrollbar"
+              className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-outer-gutter bg-[#FAF9F6] custom-scrollbar"
             >
               <div className="max-w-7xl mx-auto">
                 <div className="mb-16 max-w-2xl">
@@ -245,21 +245,24 @@ export default function BeyondPage() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-32">
-                  {selectedLocation.media.map((m, i) => (
-                    <div 
-                      key={m.src}
-                      className={i % 4 === 0 ? "md:col-span-2 md:aspect-video" : "aspect-square md:aspect-square"}
-                    >
-                      <TravelCard 
-                        src={encodeURI(m.src)}
-                        type={m.type as "image" | "video"}
-                        location={selectedLocation.location}
-                        date={selectedLocation.date}
-                        index={i}
-                        onLoad={() => setLoadedImages(prev => prev + 1)}
-                      />
-                    </div>
-                  ))}
+                  {selectedLocation.media.map((m, i) => {
+                    const isWide = i % 4 === 0 || i % 4 === 3;
+                    return (
+                      <div 
+                        key={m.src}
+                        className={isWide ? "md:col-span-2 aspect-[2/1] md:aspect-[2/1]" : "md:col-span-1 aspect-square md:aspect-square"}
+                      >
+                        <TravelCard 
+                          src={encodeURI(m.src)}
+                          type={m.type as "image" | "video"}
+                          location={selectedLocation.location}
+                          date={selectedLocation.date}
+                          index={i}
+                          onLoad={() => setLoadedImages(prev => prev + 1)}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -270,21 +273,21 @@ export default function BeyondPage() {
                 <motion.div 
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-[20000] bg-surface flex flex-col items-center justify-center p-outer-gutter"
+                  className="absolute inset-0 z-[20000] bg-[#FAF9F6] flex flex-col items-center justify-center p-outer-gutter"
                 >
                   <motion.div 
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     className="max-w-2xl w-full text-center"
                   >
-                    <div className="font-display text-headline-lg text-primary mb-2 animate-pulse">
+                    <div className="font-display text-headline-lg text-on-surface font-bold mb-2 animate-pulse">
                       {selectedLocation.location}
                     </div>
-                    <div className="font-mono text-label-mono text-on-surface-variant tracking-[0.3em] uppercase mb-12">
+                    <div className="font-mono text-label-mono text-on-surface-variant tracking-[0.3em] uppercase mb-12 font-bold">
                       Establishing_Satellite_Sync
                     </div>
                     
-                    <div className="h-[2px] w-full bg-outline-variant relative overflow-hidden rounded-full">
+                    <div className="h-[2px] w-full bg-outline relative overflow-hidden rounded-full">
                       <motion.div 
                         initial={{ x: "-100%" }}
                         animate={{ x: "0%" }}
@@ -293,9 +296,9 @@ export default function BeyondPage() {
                       />
                     </div>
                     
-                    <div className="mt-8 flex justify-between font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">
+                    <div className="mt-8 flex justify-between font-mono text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">
                       <span>COORD: {selectedLocation.coordinates}</span>
-                      <span className="text-primary animate-pulse">STATUS: DOWNLOADING_LOGS...</span>
+                      <span className="bg-primary text-on-surface px-2 py-0.5 rounded font-bold animate-pulse">STATUS: DOWNLOADING_LOGS...</span>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -310,15 +313,15 @@ export default function BeyondPage() {
           width: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(0,0,0,0.1);
+          background: rgba(0,0,0,0.05);
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #bdf532;
+          background: #07090F;
           border-radius: 10px;
         }
         .custom-scrollbar {
           scrollbar-width: thin;
-          scrollbar-color: #bdf532 rgba(0,0,0,0.1);
+          scrollbar-color: #07090F rgba(0,0,0,0.05);
         }
       `}</style>
     </div>

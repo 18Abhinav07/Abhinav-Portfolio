@@ -6,7 +6,7 @@ export function ContactTeaser() {
   return (
     <section className="px-6 md:px-[80px] py-[120px]">
       <div className="grid md:grid-cols-12 gap-column-gap items-center">
-        <Reveal className="md:col-span-5" y={40}>
+        <Reveal className="hidden md:block md:col-span-5" y={40}>
           <div className="aspect-square w-full bg-surface-container-low brutalist-rule-t brutalist-rule-b brutalist-rule-l brutalist-rule-r relative overflow-hidden flex items-center justify-center">
             <div className="absolute inset-0 grid-paper opacity-30" />
             <div className="relative z-10 flex flex-col items-center justify-center">
@@ -26,7 +26,7 @@ export function ContactTeaser() {
                </div>
             </div>
             
-            <div className="absolute top-stack-md left-stack-md font-mono text-label-mono uppercase tracking-[0.18em] text-secondary z-20">
+            <div className="absolute top-stack-md left-stack-md font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold z-20">
               <span className="inline-block h-1.5 w-1.5 rounded-pill bg-secondary pulse-dot mr-2" />
               Line open
             </div>
@@ -34,13 +34,13 @@ export function ContactTeaser() {
         </Reveal>
         <StaggerGroup className="md:col-span-7 flex flex-col gap-stack-lg">
           <StaggerItem>
-            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary">
-              05 / Contact · Pick up the line
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em]">
+              <span className="bg-primary text-on-surface px-2 py-0.5 rounded font-bold">05 / Contact · Pick up the line</span>
             </div>
           </StaggerItem>
           <StaggerItem>
             <h2 className="font-display text-headline-lg leading-[1.05] tracking-[-0.02em] text-on-surface">
-              Have something to build? <em className="italic text-primary">Pick up the line.</em>
+              Have something to build? <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">Pick up the line.</em>
             </h2>
           </StaggerItem>
           <StaggerItem>
