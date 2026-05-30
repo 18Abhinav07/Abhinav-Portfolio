@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface TravelCardProps {
   src: string;
@@ -16,8 +16,8 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { damping: 25, stiffness: 180 });
+  const mouseYSpring = useSpring(y, { damping: 25, stiffness: 180 });
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
@@ -46,7 +46,7 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.65, delay: index * 0.05, ease: [0.32, 0.72, 0, 1] }}
       className="group w-full h-full"
     >
       <motion.div
@@ -57,15 +57,10 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-full h-full rounded-xl bg-surface-variant/20 overflow-hidden border border-outline-variant/30 transition-all duration-500 ease-out group-hover:border-primary/50"
+        className="relative w-full h-full"
       >
-        {/* Subtle Shine */}
-        <div 
-          style={{ transform: "translateZ(30px)" }}
-          className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20" 
-        />
-
-        <div className="relative w-full h-full z-0">
+        {/* Sibling 1: Media Container (Clipped & styled with border) */}
+        <div className="absolute inset-0 rounded-xl bg-bg overflow-hidden border border-outline-variant/30 transition-all duration-500 ease-out group-hover:border-primary/50 z-0 pointer-events-none">
           {type === "video" ? (
             <video 
               autoPlay 
@@ -73,7 +68,8 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
               muted 
               playsInline 
               onLoadedData={onLoad}
-              className="w-full h-full object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
+              onError={onLoad} // Fail gracefully by showing the container
+              className="w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] scale-[1.01] group-hover:scale-105"
             >
               <source src={src} />
             </video>
@@ -81,26 +77,33 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
             <div className="w-full h-full relative">
               <Image
                 src={src}
-                alt={location}
+                alt={`Media from ${location} dated ${date}`}
                 fill
                 priority={index < 3}
                 onLoad={onLoad}
-                className="object-cover transition-all duration-700 scale-[1.01] group-hover:scale-110"
+                onError={onLoad} // Fail gracefully
+                className="object-cover transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] scale-[1.01] group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
         </div>
 
-        {/* Content Overlay */}
+        {/* Sibling 2: Subtle Shine (outside overflow boundary) */}
         <div 
-          style={{ transform: "translateZ(50px)" }}
-          className="absolute inset-0 z-30 p-6 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"
+          style={{ transform: "translateZ(20px)" }}
+          className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20" 
+        />
+
+        {/* Sibling 3: Floating text & gradient overlay (outside overflow boundary) */}
+        <div 
+          style={{ transform: "translateZ(45px)", transformStyle: "preserve-3d" }}
+          className="absolute inset-0 z-30 p-6 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl pointer-events-none"
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-1">
+          <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-white mb-1 font-bold">
             {date}
           </p>
-          <h4 className="font-display text-headline-sm text-white tracking-tight">
+          <h4 className="font-display italic text-headline-sm text-white tracking-tight drop-shadow-sm">
             Dispatch_{String(index + 1).padStart(2, '0')}
           </h4>
         </div>
