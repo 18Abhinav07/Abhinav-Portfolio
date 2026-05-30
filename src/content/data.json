@@ -181,22 +181,22 @@
         }
       ],
       "liveUrl": "https://payzoll.in",
-      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902036/portfolio/projects/payzoll/PayZoll-Stellar-Home.png",
+      "heroImage": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
       "screenshots": [
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902036/portfolio/projects/payzoll/PayZoll-Stellar-Home.png",
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Home.png",
           "caption": "Stellar dashboard \u00b7 home"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903594/portfolio/projects/payzoll/PayZoll-Stellar-Features-1.png",
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-1.png",
           "caption": "Feature surface I"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903593/portfolio/projects/payzoll/PayZoll-Stellar-Features-2.png",
+          "src": "/images/projects/payzoll/PayZoll-Stellar-Features-2.png",
           "caption": "Feature surface II"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903595/portfolio/projects/payzoll/PZ-Pharos-Home.png",
+          "src": "/images/projects/payzoll/PZ-Pharos-Home.png",
           "caption": "Pharos console \u00b7 3rd Place"
         }
       ],
@@ -242,75 +242,75 @@
           "caption": "Landing surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901971/portfolio/projects/openassets/Marketplace.png",
+          "src": "/images/projects/openassets/Marketplace.png",
           "caption": "RWA marketplace"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902031/portfolio/projects/openassets/Trade.png",
+          "src": "/images/projects/openassets/Trade.png",
           "caption": "Trade desk"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901956/portfolio/projects/openassets/Trade-Chart.png",
+          "src": "/images/projects/openassets/Trade-Chart.png",
           "caption": "Trade charts"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901983/portfolio/projects/openassets/Loan.png",
+          "src": "/images/projects/openassets/Loan.png",
           "caption": "Loan flow"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779902033/portfolio/projects/openassets/Auction.png",
+          "src": "/images/projects/openassets/Auction.png",
           "caption": "Auction engine"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901959/portfolio/projects/openassets/ActiveBids.png",
+          "src": "/images/projects/openassets/ActiveBids.png",
           "caption": "Active bids"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901967/portfolio/projects/openassets/Positions.png",
+          "src": "/images/projects/openassets/Positions.png",
           "caption": "Positions ledger"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901987/portfolio/projects/openassets/InterestChart.png",
+          "src": "/images/projects/openassets/InterestChart.png",
           "caption": "Interest curve"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901988/portfolio/projects/openassets/P2P.png",
+          "src": "/images/projects/openassets/P2P.png",
           "caption": "P2P matchmaking"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901968/portfolio/projects/openassets/SwapChart.png",
+          "src": "/images/projects/openassets/SwapChart.png",
           "caption": "Swap surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901965/portfolio/projects/openassets/METH-buy.png",
+          "src": "/images/projects/openassets/METH-buy.png",
           "caption": "mETH purchase"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901985/portfolio/projects/openassets/USDC-buy.png",
+          "src": "/images/projects/openassets/USDC-buy.png",
           "caption": "USDC on-ramp"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901984/portfolio/projects/openassets/MyAssets.png",
+          "src": "/images/projects/openassets/MyAssets.png",
           "caption": "Portfolio view"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901986/portfolio/projects/openassets/Faucet.png",
+          "src": "/images/projects/openassets/Faucet.png",
           "caption": "Faucet"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901955/portfolio/projects/openassets/Features.png",
+          "src": "/images/projects/openassets/Features.png",
           "caption": "Capability matrix"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901980/portfolio/projects/openassets/ExpandedRow.png",
+          "src": "/images/projects/openassets/ExpandedRow.png",
           "caption": "Asset row detail"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901954/portfolio/projects/openassets/Notifcations.png",
+          "src": "/images/projects/openassets/Notifcations.png",
           "caption": "Signals tray"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901970/portfolio/projects/openassets/Footer.png",
+          "src": "/images/projects/openassets/Footer.png",
           "caption": "Footer composition"
         }
       ],
@@ -357,19 +357,19 @@
           "caption": "Protocol landing"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903603/portfolio/projects/tesseract/Tess-Private.png",
+          "src": "/images/projects/tesseract/Tess-Private.png",
           "caption": "Private payment flow"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903601/portfolio/projects/tesseract/Tess-Batch.png",
+          "src": "/images/projects/tesseract/Tess-Batch.png",
           "caption": "Batch settlement"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903597/portfolio/projects/tesseract/Tess-Details.png",
+          "src": "/images/projects/tesseract/Tess-Details.png",
           "caption": "Transaction details"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903600/portfolio/projects/tesseract/Tess-Info.png",
+          "src": "/images/projects/tesseract/Tess-Info.png",
           "caption": "Info surface"
         }
       ],
@@ -413,23 +413,23 @@
           "caption": "Landing surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903608/portfolio/projects/kredio/Kredio-Working-Model.png",
+          "src": "/images/projects/kredio/Kredio-Working-Model.png",
           "caption": "Scoring model"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903615/portfolio/projects/kredio/Kredio-Tiers.png",
+          "src": "/images/projects/kredio/Kredio-Tiers.png",
           "caption": "Borrower tiers"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903606/portfolio/projects/kredio/Kredio-Swap.png",
+          "src": "/images/projects/kredio/Kredio-Swap.png",
           "caption": "Swap surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903607/portfolio/projects/kredio/Kredio-Docs.png",
+          "src": "/images/projects/kredio/Kredio-Docs.png",
           "caption": "Docs surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903621/portfolio/projects/kredio/Kredio-Footer.png",
+          "src": "/images/projects/kredio/Kredio-Footer.png",
           "caption": "Footer composition"
         }
       ],
@@ -475,7 +475,7 @@
           "caption": "Landing surface"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779903604/portfolio/projects/clearsky/CS-Features.png",
+          "src": "/images/projects/clearsky/CS-Features.png",
           "caption": "Capability matrix"
         }
       ],
@@ -620,7 +620,7 @@
       "date": "MAY 2025",
       "category": "Cryptography",
       "excerpt": "Deposit, wait, withdraw. A Distributor severs the link between depositors and recipients. The most boring path is the most private one.",
-      "aspect": "aspect-[3/4]",
+      "aspect": "aspect-square",
       "accent": "primary",
       "body": [
         {
@@ -753,12 +753,12 @@
           "type": "video"
         },
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901485/portfolio/Trips_and_Travels_/Goa/IMG_0947.mov",
-          "type": "video"
-        },
-        {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/fl_original/v1779901247/portfolio/Trips_and_Travels_/Goa/IMG_0953.jpg",
           "type": "image"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901485/portfolio/Trips_and_Travels_/Goa/IMG_0947.mov",
+          "type": "video"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/video/upload/fl_original/v1779901688/portfolio/Trips_and_Travels_/Goa/IMG_1230.mov",
