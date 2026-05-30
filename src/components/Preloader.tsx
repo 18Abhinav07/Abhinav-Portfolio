@@ -31,7 +31,7 @@ export function Preloader() {
             y: "-100%",
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
           }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-surface-dim"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FAF9F6]"
         >
           {/* Grid Background Overlay */}
           <div className="absolute inset-0 grid-paper opacity-10" />
@@ -42,14 +42,14 @@ export function Preloader() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="font-display text-[12vw] md:text-[8vw] font-bold tracking-tighter text-primary leading-none"
+              className="font-display text-[12vw] md:text-[8vw] font-bold tracking-tighter text-on-surface leading-none"
             >
               A.P
             </motion.div>
 
             {/* Progress Bar & Status */}
             <div className="w-[300px] md:w-[400px] space-y-stack-sm">
-              <div className="flex justify-between font-mono text-label-mono text-on-surface-variant uppercase tracking-widest">
+              <div className="flex justify-between font-mono text-label-mono text-on-surface-variant uppercase tracking-widest font-bold">
                 <span>Initializing_Core</span>
                 <span>{progress}%</span>
               </div>
@@ -67,7 +67,7 @@ export function Preloader() {
               key={Math.floor(progress / 20)}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-mono text-[10px] text-primary/50 uppercase tracking-[0.3em]"
+              className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] font-bold"
             >
               {progress < 20 && "Gathering_Ecosystem_Signals..."}
               {progress >= 20 && progress < 40 && "Hydrating_Resilient_Layers..."}
@@ -78,8 +78,8 @@ export function Preloader() {
           </div>
 
           {/* Brutalist Border Accents */}
-          <div className="absolute top-8 left-8 border-l border-t border-primary/20 w-12 h-12" />
-          <div className="absolute bottom-8 right-8 border-r border-b border-primary/20 w-12 h-12" />
+          <div className="absolute top-8 left-8 border-l border-t border-on-surface/20 w-12 h-12" />
+          <div className="absolute bottom-8 right-8 border-r border-b border-on-surface/20 w-12 h-12" />
         </motion.div>
       )}
     </AnimatePresence>
