@@ -40,8 +40,8 @@ export function Reveal({
   return (
     <Tag
       className={className}
-      initial={{ opacity: 0, y, filter: "blur(4px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount }}
       transition={{ duration: 0.9, ease: CINEMATIC_EASE, delay }}
     >
@@ -94,11 +94,10 @@ const staggerParent: Variants = {
 };
 
 const staggerChild: Variants = {
-  hidden: { opacity: 0, y: 18, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 18 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.8, ease: CINEMATIC_EASE },
   },
 };

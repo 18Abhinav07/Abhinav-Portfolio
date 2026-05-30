@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Clash Display — geometric display face via Fontshare CDN (exposed as --font-display in globals.css) */}
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
           rel="stylesheet"

@@ -74,16 +74,18 @@ export default function BeyondPage() {
       );
     }, trigger);
 
+    return () => {
+      ctx.revert();
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
     if (selectedLocation) {
       ScrollTrigger.getAll().forEach(t => t.disable());
     } else {
       ScrollTrigger.getAll().forEach(t => t.enable());
       ScrollTrigger.refresh();
     }
-
-    return () => {
-      ctx.revert();
-    };
   }, [selectedLocation]);
 
   const handleLocationClick = (loc: typeof data.travels[0]) => {
@@ -137,7 +139,7 @@ export default function BeyondPage() {
               className="w-screen h-full flex-shrink-0 px-6 md:px-outer-gutter py-12 flex items-center justify-center relative group cursor-pointer"
               onClick={() => handleLocationClick(t)}
             >
-              <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500">
+              <div className="relative w-full h-full overflow-hidden border border-outline-variant/30 glass-panel group-hover:border-primary/50 transition-colors duration-500 bg-surface-dim">
                 <div className="absolute inset-0 z-0">
                   {t.cover.toLowerCase().endsWith('.mp4') || t.cover.toLowerCase().endsWith('.mov') ? (
                     <video 
@@ -202,10 +204,10 @@ export default function BeyondPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[10000] bg-[#FAF9F6] flex flex-col"
+            className="fixed inset-0 z-[10000] bg-bg flex flex-col"
           >
             {/* Modal Header */}
-            <div className="px-6 md:px-outer-gutter py-12 flex justify-between items-end border-b border-outline-variant/30 bg-[#FAF9F6]/80 backdrop-blur-md sticky top-0 z-[101]">
+            <div className="px-6 md:px-outer-gutter py-12 flex justify-between items-end border-b border-outline-variant/30 bg-bg/80 backdrop-blur-md sticky top-0 z-[101]">
               <div>
                 <motion.h2 
                   initial={{ opacity: 0, x: -20 }}
@@ -235,7 +237,7 @@ export default function BeyondPage() {
             {/* Gallery Content */}
             <div 
               data-lenis-prevent
-              className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-outer-gutter bg-[#FAF9F6] custom-scrollbar"
+              className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-outer-gutter bg-bg custom-scrollbar"
             >
               <div className="max-w-7xl mx-auto">
                 <div className="mb-16 max-w-2xl">
@@ -273,7 +275,7 @@ export default function BeyondPage() {
                 <motion.div 
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-[20000] bg-[#FAF9F6] flex flex-col items-center justify-center p-outer-gutter"
+                  className="absolute inset-0 z-[20000] bg-bg flex flex-col items-center justify-center p-outer-gutter"
                 >
                   <motion.div 
                     initial={{ scale: 0.9, opacity: 0 }}

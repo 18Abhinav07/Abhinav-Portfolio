@@ -2,9 +2,30 @@
 
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Image as DreiImage, Float, Sparkles } from "@react-three/drei";
+import { Image as DreiImage, Float, Sparkles, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import { easing } from "maath";
+
+function Hero3DReadyGate() {
+  const { active, progress } = useProgress();
+  const fired = useRef(false);
+  useEffect(() => {
+    if (!active && progress === 100 && !fired.current) {
+      fired.current = true;
+      window.dispatchEvent(new CustomEvent("hero3d:ready"));
+    }
+  }, [active, progress]);
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (!fired.current) {
+        fired.current = true;
+        window.dispatchEvent(new CustomEvent("hero3d:ready"));
+      }
+    }, 3000);
+    return () => clearTimeout(t);
+  }, []);
+  return null;
+}
 
 // Define the 3 positions in space. Made them larger and spread out for a "full screen" feel.
 const SLOTS = [
@@ -114,6 +135,7 @@ export function Hero3D() {
         gl={{ alpha: true, antialias: true }}
       >
         <Scene />
+        <Hero3DReadyGate />
       </Canvas>
     </div>
   );

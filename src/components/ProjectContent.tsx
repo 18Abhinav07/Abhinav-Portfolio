@@ -56,7 +56,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
   return (
     <>
       <AnimatePresence>
-        {isLoading && <ProjectLoader project={project} />}
+        {isLoading && <ProjectLoader project={project} progress={totalImages > 0 ? Math.min(100, Math.floor((loadedImages / totalImages) * 100)) : 0} />}
       </AnimatePresence>
 
       <motion.article 
@@ -118,7 +118,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
           </div>
           <StaggerGroup className="md:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-stack-md">
             {project.metrics.map((m) => (
-              <StaggerItem key={m.label} className="border-l-2 border-primary pl-stack-md">
+              <StaggerItem key={m.label} className="border-t border-outline-variant/40 pt-stack-md">
                 <div className="font-display text-headline-md text-on-surface tracking-[-0.01em]">
                   {m.value}
                 </div>

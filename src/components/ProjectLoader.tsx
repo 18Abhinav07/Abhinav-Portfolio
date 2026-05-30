@@ -5,17 +5,18 @@ import type { Project } from "@/content/projects";
 
 interface ProjectLoaderProps {
   project: Project;
+  progress: number;
 }
 
-export function ProjectLoader({ project }: ProjectLoaderProps) {
+export function ProjectLoader({ project, progress }: ProjectLoaderProps) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-[10000] bg-[#FAF9F6] flex flex-col items-center justify-center p-outer-gutter"
+      className="fixed inset-0 z-[10000] bg-bg flex flex-col items-center justify-center p-outer-gutter"
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         className="max-w-2xl w-full text-center"
@@ -26,16 +27,14 @@ export function ProjectLoader({ project }: ProjectLoaderProps) {
         <div className="font-mono text-label-mono text-on-surface-variant tracking-[0.3em] uppercase mb-12">
           Syncing_Project_Surface
         </div>
-        
+
         <div className="h-[2px] w-full bg-outline relative overflow-hidden rounded-full">
-          <motion.div 
-            initial={{ x: "-100%" }}
-            animate={{ x: "0%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 bg-primary"
+          <div
+            className="absolute inset-0 bg-primary transition-[transform] duration-300 ease-out"
+            style={{ transform: `translateX(${progress - 100}%)` }}
           />
         </div>
-        
+
         <div className="mt-8 flex justify-between font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">
           <span>INDEX: {project.index}</span>
           <span className="text-on-surface font-bold animate-pulse bg-primary px-2 py-0.5 rounded">STATUS: DEPLOYING_ASSETS...</span>
