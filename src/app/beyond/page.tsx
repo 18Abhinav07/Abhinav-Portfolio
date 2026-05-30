@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "motion/react";
 import data from "@/content/data.json";
 import { Reveal } from "@/components/Reveal";
 import { TravelCard } from "@/components/TravelCard";
-import { SectionLoader } from "@/components/SectionLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,10 +17,6 @@ export default function BeyondPage() {
   const [selectedLocation, setSelectedLocation] = useState<typeof data.travels[0] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState(0);
-
-  const [isPageReady, setIsPageReady] = useState(false);
-  const [loadedCovers, setLoadedCovers] = useState(0);
-  const totalCovers = data.travels.length;
 
   // Body Lock & Scroll Management
   useEffect(() => {
@@ -99,18 +94,6 @@ export default function BeyondPage() {
     setIsLoading(true);
   };
 
-  useEffect(() => {
-    if (loadedCovers >= totalCovers) {
-      const timer = setTimeout(() => setIsPageReady(true), 800);
-      return () => clearTimeout(timer);
-    }
-  }, [loadedCovers, totalCovers]);
-
-  // Fail-safe for page load
-  useEffect(() => {
-    const timer = setTimeout(() => setIsPageReady(true), 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     if (selectedLocation && loadedImages >= selectedLocation.media.length) {

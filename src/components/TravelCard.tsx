@@ -88,8 +88,8 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
               loop 
               muted 
               playsInline 
-              onLoadedData={onLoad}
-              onError={onLoad} // Fail gracefully by showing the container
+              onLoadedData={handleMediaLoad}
+              onError={handleMediaLoad}
               className="w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] scale-[1.01] group-hover:scale-105"
             >
               <source src={src} />
@@ -101,8 +101,8 @@ export function TravelCard({ src, type, location, date, index, onLoad }: TravelC
                 alt={`Media from ${location} dated ${date}`}
                 fill
                 priority={index < 3}
-                onLoad={onLoad}
-                onError={onLoad} // Fail gracefully
+                onLoad={handleMediaLoad}
+                onError={handleMediaLoad}
                 className="object-cover transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] scale-[1.01] group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
