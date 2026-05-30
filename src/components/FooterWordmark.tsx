@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export function FooterWordmark() {
@@ -9,38 +9,46 @@ export function FooterWordmark() {
     target: ref,
     offset: ["start end", "end end"],
   });
+
+  const wordmarkY = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const wordmarkOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 0.06]);
+  const wordmarkScale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
   
-  // A very subtle, slow pan across the bottom, completely replacing the staggered letters.
+  // A subtle, slow pan across the bottom
   const x = useTransform(scrollYProgress, [0, 1], ["-2%", "1%"]);
+  // Shifting background gradients for atmospheric depth
+  const g1X = useTransform(scrollYProgress, [0, 1], ["30%", "20%"]);
+  const g2X = useTransform(scrollYProgress, [0, 1], ["70%", "80%"]);
 
   return (
     <div
       ref={ref}
       aria-hidden
-      className="relative overflow-hidden bg-[#0A0908] border-t border-[#4d4639]"
+      className="relative overflow-hidden pt-[10rem] pb-[4rem]"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+      <motion.div
+        className="pointer-events-none absolute inset-0 opacity-[0.15]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 40%, rgba(230,196,121,0.5), transparent 55%), radial-gradient(circle at 70% 60%, rgba(189,245,50,0.32), transparent 60%)",
+          y: wordmarkY,
+          backgroundImage: `
+            radial-gradient(circle at var(--g1-x) 40%, rgba(191,255,0,0.4), transparent 60%), 
+            radial-gradient(circle at var(--g2-x) 60%, rgba(250,255,0,0.3), transparent 65%)
+          `,
+          // @ts-expect-error - Framer Motion CSS variables mapping
+          "--g1-x": g1X,
+          "--g2-x": g2X,
         }}
       />
 
-      <div className="relative pt-[4rem] pb-[3rem]">
+      <div className="relative">
         <motion.h2
-          style={{ x }}
-          className="font-fraunces font-black text-[#f4ead8] opacity-[0.08] text-center whitespace-nowrap leading-[0.8] tracking-[-0.02em] select-none"
+          style={{ x, y: wordmarkY, opacity: wordmarkOpacity, scale: wordmarkScale }}
+          className="font-display font-bold text-on-surface text-center whitespace-nowrap leading-[0.8] tracking-[-0.04em] select-none"
         >
-          <span className="text-[clamp(4rem,12vw,10rem)]">ABHINAV PANGARIA</span>
+          <span className="text-[clamp(4rem,14vw,12rem)]">ABHINAV</span>
         </motion.h2>
-      </div>
-
-      <div className="relative flex justify-between items-center px-6 md:px-[80px] pb-stack-md font-mono text-[10px] uppercase tracking-[0.28em] text-on-surface-variant/40">
-        <span>· Editorial Index ·</span>
-        <span>N 26.85 / E 75.81</span>
-        <span>· MMXXVI ·</span>
       </div>
     </div>
   );
 }
+

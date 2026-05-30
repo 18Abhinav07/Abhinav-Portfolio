@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { ProjectLoader } from "@/components/ProjectLoader";
@@ -38,6 +38,11 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
     }
   };
 
+  const handleImageError = () => {
+    // Treat errors as "loaded" so we don't hang the UI forever
+    setLoadedImages((prev) => prev + 1);
+  };
+
   useEffect(() => {
     if (loadedImages >= totalImages) {
       // Artificial delay for that "Sync" feel, similar to Beyond
@@ -55,13 +60,17 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
   return (
     <>
       <AnimatePresence>
-        {isLoading && <ProjectLoader project={project} />}
+        {isLoading && <ProjectLoader project={project} progress={totalImages > 0 ? Math.min(100, Math.floor((loadedImages / totalImages) * 100)) : 0} />}
       </AnimatePresence>
 
-      <article className={isLoading ? "invisible" : "visible"}>
+      <motion.article 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <header className="px-6 md:px-[80px] pt-[120px] pb-stack-xl">
           <div className="grid md:grid-cols-12 gap-column-gap">
-            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary">
+            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold">
               {project.index} · {project.ecosystem}
               <div className="mt-stack-md text-on-surface-variant">
                 {project.role}
@@ -107,7 +116,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
 
         <section className="px-6 md:px-[80px] mb-[120px]">
           <div className="grid md:grid-cols-12 gap-column-gap">
-            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary">
+            <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold">
               Brief
             </div>
             <div className="md:col-span-9 max-w-3xl">
@@ -119,12 +128,12 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
         </section>
 
         <section className="px-6 md:px-[80px] mb-[120px] grid md:grid-cols-12 gap-column-gap">
-          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-md md:mb-0">
+          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-md md:mb-0">
             Metrics
           </div>
           <StaggerGroup className="md:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-stack-md">
             {project.metrics.map((m) => (
-              <StaggerItem key={m.label} className="border-l-2 border-primary pl-stack-md">
+              <StaggerItem key={m.label} className="border-t border-outline-variant/40 pt-stack-md">
                 <div className="font-display text-headline-md text-on-surface tracking-[-0.01em]">
                   {m.value}
                 </div>
@@ -137,7 +146,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
         </section>
 
         <section className="px-6 md:px-[80px] mb-[120px] grid md:grid-cols-12 gap-column-gap">
-          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-md md:mb-0">
+          <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-md md:mb-0">
             Stack
           </div>
           <div className="md:col-span-9 flex flex-wrap gap-stack-sm">
@@ -154,7 +163,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
 
         {project.screenshots.length > 1 && (
           <section className="px-6 md:px-[80px] mb-[120px]">
-            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-lg">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
               Surface · {project.screenshots.length.toString().padStart(2, "0")} frames
             </div>
             <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
@@ -179,6 +188,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                       className={`object-cover transition-opacity duration-700 ${individualLoads[s.src] ? 'opacity-100' : 'opacity-0'}`}
                       sizes="(min-width: 768px) 50vw, 100vw"
                       onLoad={() => handleImageLoad(s.src)}
+                      onError={handleImageError}
                     />
                   </div>
                   {s.caption && (
@@ -199,7 +209,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-primary-on rounded-pill hover:bg-secondary hover:text-secondary-on transition-colors"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-on-surface font-bold rounded-pill hover:bg-secondary hover:text-on-surface transition-colors"
               >
                 Live site →
               </a>
@@ -209,7 +219,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-primary transition-colors"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
               >
                 Source →
               </a>
@@ -223,19 +233,19 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
             className="group flex items-end justify-between"
           >
             <div>
-              <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-primary mb-stack-sm">
+              <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-sm">
                 Next · {nextProject.index}
               </div>
-              <div className="font-display text-headline-lg tracking-[-0.02em] text-on-surface group-hover:text-secondary transition-colors">
+              <div className="font-display text-headline-lg tracking-[-0.02em] text-on-surface group-hover:opacity-80 transition-opacity">
                 {nextProject.name}.
               </div>
             </div>
-            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant group-hover:text-primary transition-colors">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant group-hover:text-on-surface font-bold transition-colors">
               →
             </div>
           </Link>
         </nav>
-      </article>
+      </motion.article>
     </>
   );
 }
