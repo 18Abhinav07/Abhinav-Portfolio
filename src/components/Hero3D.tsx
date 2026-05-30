@@ -2,43 +2,37 @@
 
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Image as DreiImage, Float } from "@react-three/drei";
+import { Image as DreiImage, Float, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 import { easing } from "maath";
 
-// Define the 3 positions in space
+// Define the 3 positions in space. Made them larger and spread out for a "full screen" feel.
 const SLOTS = [
   // Slot 0: Front (Right)
-  { pos: [0.8, 0.5, 0.8], scale: [3.5, 4.5], op: 1.0, gray: 0.4, color: "#ffffff" },
+  { pos: [1.5, 0.2, 1.5], scale: [4.5, 6], op: 0.9, gray: 0.2, color: "#ffffff" },
   // Slot 1: Middle (Left)
-  { pos: [-1, -1, 0.2], scale: [3, 4], op: 0.6, gray: 0.0, color: "#bdf532" },
+  { pos: [-2, -0.5, -0.5], scale: [3.5, 4.8], op: 0.5, gray: 0.5, color: "#bdf532" },
   // Slot 2: Back (Center)
-  { pos: [0, 0, -0.5], scale: [4.5, 6], op: 0.4, gray: 0.0, color: "#e4c278" },
+  { pos: [0.5, 1, -2], scale: [5, 7], op: 0.2, gray: 0.8, color: "#e4c278" },
 ];
 
 function ShufflingImage({ url, slotIndex }: { url: string; slotIndex: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
-
-  // Keep track of the initial slot to avoid popping from [0,0,0] on first render
   const [initialSlot] = useState(slotIndex);
 
   useFrame((state, delta) => {
     if (!meshRef.current) return;
     const target = SLOTS[slotIndex];
 
-    // Smoothly animate position
-    easing.damp3(meshRef.current.position, target.pos as [number, number, number], 0.5, delta);
+    easing.damp3(meshRef.current.position, target.pos as [number, number, number], 0.8, delta);
+    easing.damp3(meshRef.current.scale, [target.scale[0], target.scale[1], 1], 0.8, delta);
 
-    // DreiImage internally applies the scale prop. We must animate the mesh's scale to match.
-    easing.damp3(meshRef.current.scale, [target.scale[0], target.scale[1], 1], 0.5, delta);
-
-    // Smoothly animate material properties (opacity, grayscale, color tint)
     if (meshRef.current.material) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mat = meshRef.current.material as any;
-      easing.damp(mat, "opacity", target.op, 0.5, delta);
-      easing.damp(mat, "grayscale", target.gray, 0.5, delta);
-      easing.dampC(mat.color, target.color, 0.5, delta);
+      easing.damp(mat, "opacity", target.op, 0.8, delta);
+      easing.damp(mat, "grayscale", target.gray, 0.8, delta);
+      easing.dampC(mat.color, target.color, 0.8, delta);
     }
   });
 
@@ -47,6 +41,7 @@ function ShufflingImage({ url, slotIndex }: { url: string; slotIndex: number }) 
       ref={meshRef}
       url={url}
       transparent
+      toneMapped={false}
       position={SLOTS[initialSlot].pos as [number, number, number]}
       scale={[SLOTS[initialSlot].scale[0], SLOTS[initialSlot].scale[1]]}
     />
@@ -57,36 +52,49 @@ function Scene() {
   const group = useRef<THREE.Group>(null);
   const [order, setOrder] = useState(0);
 
-  // Cycle the images every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setOrder((prev) => (prev + 1) % 3);
-    }, 6000);
+    }, 5000); // Faster shuffle for more kinetic energy
     return () => clearInterval(interval);
   }, []);
 
-  // Subtle mouse parallax tracking for the entire cluster
+  // Aggressive mouse parallax tracking
   useFrame((state, delta) => {
     if (!group.current) return;
     const { pointer } = state;
+    // Rotate based on mouse, but keep it smooth
     easing.dampE(
       group.current.rotation,
-      [pointer.y * 0.15, pointer.x * -0.15, 0],
-      0.2,
+      [pointer.y * 0.2, pointer.x * -0.2, 0],
+      0.25,
+      delta
+    );
+    // Translate slightly based on mouse
+    easing.damp3(
+      group.current.position,
+      [pointer.x * 0.5, pointer.y * 0.5, 0],
+      0.25,
       delta
     );
   });
 
   return (
-    <group ref={group} scale={0.85}>
-      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
+    <group ref={group}>
+      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
         <ShufflingImage url="/images/Abhinav/photo-1.png" slotIndex={(0 + order) % 3} />
         <ShufflingImage url="/images/Abhinav/photo-2.png" slotIndex={(1 + order) % 3} />
         <ShufflingImage url="/images/Abhinav/photo-3.png" slotIndex={(2 + order) % 3} />
       </Float>
 
-      {/* Decorative grid plane */}
-      <gridHelper args={[20, 40, "#4d4639", "#221f1a"]} position={[0, -3.5, -2]} rotation={[Math.PI / 2, 0, 0]} />
+      {/* Volumetric Depth: Floating dust/sparks */}
+      <Sparkles count={150} scale={12} size={2} speed={0.4} opacity={0.3} color="#BFFF00" />
+      <Sparkles count={50} scale={15} size={4} speed={0.2} opacity={0.2} color="#000000" />
+      
+      {/* Immersive base lighting for light theme */}
+      <ambientLight intensity={0.4} />
+      <directionalLight position={[5, 5, 5]} intensity={1.2} />
+      <pointLight position={[-5, -5, -5]} intensity={0.5} color="#FAFF00" />
     </group>
   );
 }
@@ -98,12 +106,13 @@ export function Hero3D() {
   if (!mounted) return null;
 
   return (
-    <div className="absolute inset-0 z-10 select-none pointer-events-none">
+    // CRITICAL: Removed pointer-events-none so mouse parallax actually works!
+    <div className="absolute inset-0 z-0 select-none">
       <Canvas
-        camera={{ position: [0, 0, 6], fov: 45 }}
+        camera={{ position: [0, 0, 8], fov: 45 }}
         dpr={[1, 2]}
+        gl={{ alpha: true, antialias: true }}
       >
-        <ambientLight intensity={0.5} />
         <Scene />
       </Canvas>
     </div>
