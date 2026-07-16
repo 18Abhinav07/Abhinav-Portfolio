@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { episodes, getEpisode } from "@/content/episodes";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 export function generateStaticParams() {
   return episodes.map((e) => ({ slug: e.slug }));
@@ -44,6 +46,21 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </header>
+
+      {e.image && (
+        <Reveal className="px-6 md:px-[80px] mb-[80px]" y={48}>
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-variant/10">
+            <Image
+              src={e.image}
+              alt={e.title}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) calc(100vw - 160px), 100vw"
+              priority
+            />
+          </div>
+        </Reveal>
+      )}
 
       <section className="px-6 md:px-[80px] py-[120px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-column-gap">
@@ -95,6 +112,21 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
                 </Reveal>
               );
             })}
+
+            {e.videos && e.videos.length > 0 && (
+              <StaggerGroup className="grid grid-cols-1 gap-stack-lg mt-stack-xl">
+                {e.videos.map((v) => (
+                  <StaggerItem key={v.youtubeId}>
+                    {v.title && (
+                      <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
+                        {v.title}
+                      </div>
+                    )}
+                    <YouTubeEmbed youtubeId={v.youtubeId} title={v.title || e.title} />
+                  </StaggerItem>
+                ))}
+              </StaggerGroup>
+            )}
           </div>
         </div>
       </section>

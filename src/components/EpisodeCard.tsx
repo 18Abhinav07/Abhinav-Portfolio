@@ -1,11 +1,8 @@
 import Link from "next/link";
 import type { Episode } from "@/content/episodes";
 
-export function EpisodeCard({ episode }: { episode: Episode }) {
-  const idx = parseInt(episode.index, 10);
-  const isLast = idx === 5; // The 5th episode
-  
-  // 2-2-1 Format: span 6 for first four, span 12 for the fifth.
+export function EpisodeCard({ episode, isLast = false }: { episode: Episode; isLast?: boolean }) {
+  // 2-2-1 Format: span 6 for regular episodes, span 12 for the finale.
   const span = isLast ? "md:col-span-12" : "md:col-span-6";
   const aspectClass = isLast ? "md:aspect-[2.5/1] aspect-[4/3] min-h-[240px]" : "aspect-[4/3]";
 

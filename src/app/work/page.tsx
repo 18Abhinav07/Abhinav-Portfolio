@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
   title: "Work · Abhinav Pangaria",
-  description: "Five production systems across Stellar, Mantle, Polkadot, and EVM networks.",
+  description: "Six production systems across Stellar, Mantle, Polkadot, Casper, and EVM networks.",
 };
 
 export default function WorkPage() {
@@ -19,7 +19,7 @@ export default function WorkPage() {
         </Reveal>
         <Reveal className="md:col-span-9 max-w-2xl" y={28} delay={0.1}>
           <h1 className="font-display text-headline-lg leading-[1.05] tracking-[-0.02em] text-on-surface mb-stack-md">
-            Five rails. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">From Demos to Mainnet</em>
+            Six rails. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">From Demos to Mainnet</em>
           </h1>
           <p className="text-body-md text-on-surface-variant">
             Systems that clear. Hover to explore the architecture, the metrics, and the code.

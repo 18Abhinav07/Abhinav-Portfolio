@@ -12,6 +12,8 @@ export type Episode = {
   aspect: string;
   accent: "primary" | "secondary";
   locked?: boolean;
+  image?: string;
+  videos?: { title?: string; youtubeId: string }[];
   body: { kind: "p" | "h2" | "quote" | "phase"; text: string }[];
 };
 

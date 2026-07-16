@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // High-Energy Light — light cream canvas, high-velocity neon green + yellow accents.
+        // High-Energy Light: light cream canvas, high-velocity neon green + yellow accents.
         bg: "#FAF9F6",
         primary: { DEFAULT: "#BFFF00", on: "#07090F" }, // Neon Green
         secondary: { DEFAULT: "#FAFF00", on: "#07090F" }, // Neon Yellow

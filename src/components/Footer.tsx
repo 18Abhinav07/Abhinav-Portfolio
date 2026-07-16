@@ -24,7 +24,7 @@ export function Footer() {
         }}
       />
 
-      {/* Contact content — sits above the name watermark */}
+      {/* Contact content: sits above the name watermark */}
       <div className="px-6 md:px-[80px] relative z-20 pt-[80px] md:pt-[140px] pb-[80px]">
         <StaggerGroup className="grid md:grid-cols-12 gap-column-gap mb-10">
           <div className="md:col-span-7">
@@ -81,7 +81,7 @@ export function Footer() {
         </StaggerGroup>
       </div>
 
-      {/* Bedrock Signature: useInView once:true — isInView never reverts to false after firing */}
+      {/* Bedrock Signature: useInView once:true, isInView never reverts to false after firing */}
       <div className="relative bottom-0 left-0 right-0 pointer-events-none select-none z-10 overflow-hidden">
         <motion.h2
           ref={wordmarkRef}

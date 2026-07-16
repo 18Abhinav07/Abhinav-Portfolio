@@ -15,6 +15,7 @@ export type Project = {
   githubUrl?: string;
   heroImage: string;
   screenshots: { src: string; caption: string }[];
+  videos?: { title?: string; youtubeId: string }[];
   accent: "primary" | "secondary";
 };
 

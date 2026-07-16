@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${hanken.variable} ${jetbrains.variable}`}>
       <head>
-        {/* Clash Display — geometric display face via Fontshare CDN (exposed as --font-display in globals.css) */}
+        {/* Clash Display: geometric display face via Fontshare CDN (exposed as --font-display in globals.css) */}
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

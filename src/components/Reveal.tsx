@@ -4,7 +4,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 /**
- * Luminous Depth cinematic easing — gentle, unhurried, long tail.
+ * Luminous Depth cinematic easing: gentle, unhurried, long tail.
  * cubic-bezier(0.16, 1, 0.3, 1)
  */
 const CINEMATIC_EASE = [0.16, 1, 0.3, 1] as const;

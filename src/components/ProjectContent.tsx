@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { ProjectLoader } from "@/components/ProjectLoader";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 interface ProjectContentProps {
   project: Project;
@@ -196,6 +197,23 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                       {s.caption}
                     </div>
                   )}
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </section>
+        )}
+
+        {project.videos && project.videos.length > 0 && (
+          <section className="px-6 md:px-[80px] mb-[120px]">
+            <StaggerGroup className="grid grid-cols-1 gap-stack-lg">
+              {project.videos.map((v) => (
+                <StaggerItem key={v.youtubeId}>
+                  {v.title && (
+                    <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
+                      {v.title}
+                    </div>
+                  )}
+                  <YouTubeEmbed youtubeId={v.youtubeId} title={v.title || project.name} />
                 </StaggerItem>
               ))}
             </StaggerGroup>
