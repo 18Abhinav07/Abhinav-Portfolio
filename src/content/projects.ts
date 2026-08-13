@@ -13,6 +13,8 @@ export type Project = {
   metrics: { label: string; value: string }[];
   liveUrl?: string;
   githubUrl?: string;
+  presentationUrl?: string;
+  docsUrl?: string;
   heroImage: string;
   screenshots: { src: string; caption: string }[];
   videos?: { title?: string; youtubeId: string }[];

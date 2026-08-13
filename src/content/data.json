@@ -150,8 +150,144 @@
   ],
   "projects": [
     {
-      "slug": "veil",
+      "slug": "agentops",
       "index": "01",
+      "name": "AgentOps",
+      "tagline": "The governance layer for autonomous agents on Casper.",
+      "description": "AI agents are about to hold real spending power. AgentOps is the policy firewall that makes that safe, checking every payment, trade, and deploy an agent attempts against operator-defined rules in real time, signing or denying on the spot, then anchoring the decision as immutable proof on the Casper blockchain. One organization-level budget governs Casper x402 payments, CSPR.trade swaps, and direct Casper deploys simultaneously.",
+      "year": "2026",
+      "ecosystem": "Casper Network",
+      "role": "Lead Architect & Engineer",
+      "stack": [
+        "Rust / Odra",
+        "Casper x402",
+        "MCP",
+        "PostgreSQL",
+        "Server-Sent Events"
+      ],
+      "metrics": [
+        {
+          "label": "Audit",
+          "value": "On-chain GuardRegistry"
+        },
+        {
+          "label": "Rails",
+          "value": "x402 · Swaps · Deploys"
+        },
+        {
+          "label": "Integration",
+          "value": "MCP-native"
+        }
+      ],
+      "liveUrl": "https://agentops.up.railway.app",
+      "githubUrl": "https://github.com/AgenticOperations/AOPS-PMOA",
+      "presentationUrl": "https://canva.link/ja7l3zsexb11suy",
+      "docsUrl": "https://aops.tiiny.site",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
+          "caption": "Operator dashboard"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
+          "caption": "Policy engine"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
+          "caption": "Auth & org setup"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
+          "caption": "Capability matrix"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
+          "caption": "Live decision stream"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
+          "caption": "Audit export"
+        }
+      ],
+      "videos": [
+        {
+          "title": "AOPS Demo",
+          "youtubeId": "eulHWqBkedQ"
+        }
+      ],
+      "accent": "primary"
+    },
+    {
+      "slug": "pods",
+      "index": "02",
+      "name": "Pods",
+      "tagline": "NIM-backed accountability for small groups. Commit, show up, earn, repeat.",
+      "description": "Pods is a NIM-backed accountability app for small groups on Nimiq Pay. Commit NIM upfront, submit proof for scheduled activities like shipping code, fitness, reading, or study, and get payouts proportional to your presence. The creator reviews proof but never funds or receives participant money, so every settlement stays deterministic and disclosed.",
+      "year": "2026",
+      "ecosystem": "Nimiq",
+      "role": "Lead Architect & Engineer",
+      "stack": [
+        "Next.js 16",
+        "Nimiq Mini-App SDK",
+        "@nimiq/core",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "TypeScript"
+      ],
+      "metrics": [
+        {
+          "label": "Model",
+          "value": "NIM Escrow Pool"
+        },
+        {
+          "label": "Settlement",
+          "value": "Proportional Payout"
+        },
+        {
+          "label": "Verified",
+          "value": "Physical 2-Wallet Gate"
+        }
+      ],
+      "liveUrl": "https://pods-nimiq-activity.up.railway.app/",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Landing.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Landing.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Feed-Review.png",
+          "caption": "Creator review & approval"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Feed-Announcements.png",
+          "caption": "Pod activity feed"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Settlement.png",
+          "caption": "Deterministic settlement"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Today.png",
+          "caption": "Discover public Pods"
+        }
+      ],
+      "videos": [
+        {
+          "title": "Pods Demo",
+          "youtubeId": "9ylVcZGGJKU"
+        }
+      ],
+      "accent": "secondary"
+    },
+    {
+      "slug": "veil",
+      "index": "03",
       "name": "VEIL",
       "tagline": "Privacy as a wallet primitive. Shielded notes, private sends, and prediction markets on Stellar.",
       "description": "A private wallet and prediction market built on Stellar testnet. Public USDC converts into spendable shielded notes, private note-to-note transfers, batch payouts, and market participation all run through the same note model, so privacy is part of the wallet flow rather than bolted on. A backend prover and relayer generate proofs, simulate transactions, and settle pool state on-chain.",
@@ -225,79 +361,8 @@
       "accent": "primary"
     },
     {
-      "slug": "agentops",
-      "index": "02",
-      "name": "AgentOps",
-      "tagline": "The governance layer for autonomous agents on Casper.",
-      "description": "AI agents are about to hold real spending power. AgentOps is the policy firewall that makes that safe, checking every payment, trade, and deploy an agent attempts against operator-defined rules in real time, signing or denying on the spot, then anchoring the decision as immutable proof on the Casper blockchain. One organization-level budget governs Casper x402 payments, CSPR.trade swaps, and direct Casper deploys simultaneously.",
-      "year": "2026",
-      "ecosystem": "Casper Network",
-      "role": "Lead Architect & Engineer",
-      "stack": [
-        "Rust / Odra",
-        "Casper x402",
-        "MCP",
-        "PostgreSQL",
-        "Server-Sent Events"
-      ],
-      "metrics": [
-        {
-          "label": "Audit",
-          "value": "On-chain GuardRegistry"
-        },
-        {
-          "label": "Rails",
-          "value": "x402 · Swaps · Deploys"
-        },
-        {
-          "label": "Integration",
-          "value": "MCP-native"
-        }
-      ],
-      "liveUrl": "https://aops-casper.up.railway.app/",
-      "githubUrl": "https://github.com/AgenticOperations/Casper-AGOPS.Client",
-      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
-      "screenshots": [
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
-          "caption": "Landing surface"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
-          "caption": "Operator dashboard"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
-          "caption": "Policy engine"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
-          "caption": "Auth & org setup"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
-          "caption": "Capability matrix"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
-          "caption": "Live decision stream"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
-          "caption": "Audit export"
-        }
-      ],
-      "videos": [
-        {
-          "title": "Casper Hackathon Build",
-          "youtubeId": "xy9PJHcfa8I"
-        }
-      ],
-      "accent": "secondary"
-    },
-    {
       "slug": "kredio",
-      "index": "03",
+      "index": "04",
       "name": "Kredio",
       "tagline": "DeFi with memory. Polkadot's on-chain credit layer.",
       "description": "The decentralized credit layer for Polkadot. Kredio uses hybrid EVM ↔ PolkaVM atomic calls to score borrowers against on-chain behavior. Featuring the YieldMind intelligence layer and NeuralScorer for real-time manipulation detection, it enables zero-oracle risk assessment across parachains via XCM.",
@@ -359,11 +424,11 @@
           "youtubeId": "zNR5cX0gdCA"
         }
       ],
-      "accent": "primary"
+      "accent": "secondary"
     },
     {
       "slug": "openassets",
-      "index": "04",
+      "index": "05",
       "name": "OpenAssets",
       "tagline": "The Mantle-native gateway bridging the RWA liquidity gap.",
       "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
@@ -479,11 +544,11 @@
           "youtubeId": "RYDPzdRAqPg"
         }
       ],
-      "accent": "secondary"
+      "accent": "primary"
     },
     {
       "slug": "payzoll",
-      "index": "05",
+      "index": "06",
       "name": "PayZoll",
       "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
       "description": "The financial 'OS' for the Web3 economy. Originally built for the Stellar Build Better hackathon, PayZoll executes multi-hop path payments to settle global payroll in a single click. From contract-level path formation to automated asset swaps and institutional-grade dashboards, it bridges the legacy-fiat gap with production-grade efficiency.",
@@ -538,11 +603,11 @@
           "youtubeId": "yv8EjbytD2A"
         }
       ],
-      "accent": "primary"
+      "accent": "secondary"
     },
     {
       "slug": "tesseract",
-      "index": "06",
+      "index": "07",
       "name": "Tesseract",
       "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
       "description": "Deposit, wait, withdraw. Built to expand Stellar Disbursement Platform with Privacy, Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
@@ -597,7 +662,7 @@
           "caption": "Info surface"
         }
       ],
-      "accent": "secondary"
+      "accent": "primary"
     }
   ],
   "episodes": [

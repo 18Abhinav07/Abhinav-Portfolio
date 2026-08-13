@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export function YouTubeEmbed({ youtubeId, title }: { youtubeId: string; title: string }) {
   const [playing, setPlaying] = useState(false);
+  const [thumbFailed, setThumbFailed] = useState(false);
 
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-variant/10">
@@ -24,9 +25,16 @@ export function YouTubeEmbed({ youtubeId, title }: { youtubeId: string; title: s
           className="group absolute inset-0 h-full w-full"
         >
           <Image
-            src={`https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`}
+            src={`https://img.youtube.com/vi/${youtubeId}/${thumbFailed ? "hqdefault" : "maxresdefault"}.jpg`}
             alt=""
             fill
+            unoptimized
+            onError={() => setThumbFailed(true)}
+            onLoad={(e) => {
+              // YouTube serves a 120x90 grey placeholder with HTTP 200 when
+              // maxresdefault doesn't exist for a video, instead of a 404.
+              if (e.currentTarget.naturalWidth <= 120) setThumbFailed(true);
+            }}
             className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-on-surface/20 transition-colors duration-500 group-hover:bg-on-surface/10" />

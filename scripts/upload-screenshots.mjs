@@ -16,8 +16,7 @@ cloudinary.config({
 const ROOT = path.join(__dirname, "..", "..", "Project Screenshots");
 
 const targets = [
-  { localDir: path.join(ROOT, "Aops"), cloudFolder: "portfolio/projects/aops" },
-  { localDir: path.join(ROOT, "Veil"), cloudFolder: "portfolio/projects/veil" },
+  { localDir: path.join(ROOT, "Pods"), cloudFolder: "portfolio/projects/pods" },
 ];
 
 const results = {};

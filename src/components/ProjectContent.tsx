@@ -220,7 +220,7 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
           </section>
         )}
 
-        {(project.liveUrl || project.githubUrl) && (
+        {(project.liveUrl || project.githubUrl || project.presentationUrl || project.docsUrl) && (
           <section className="px-6 md:px-[80px] mb-[120px] flex flex-wrap gap-stack-md">
             {project.liveUrl && (
               <a
@@ -240,6 +240,26 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                 className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
               >
                 Source →
+              </a>
+            )}
+            {project.presentationUrl && (
+              <a
+                href={project.presentationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
+              >
+                Deck →
+              </a>
+            )}
+            {project.docsUrl && (
+              <a
+                href={project.docsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
+              >
+                Docs →
               </a>
             )}
           </section>
