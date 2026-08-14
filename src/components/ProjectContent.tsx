@@ -8,6 +8,7 @@ import type { Project } from "@/content/projects";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { ProjectLoader } from "@/components/ProjectLoader";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
+import { DeckEmbed } from "@/components/DeckEmbed";
 
 interface ProjectContentProps {
   project: Project;
@@ -220,7 +221,16 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
           </section>
         )}
 
-        {(project.liveUrl || project.githubUrl || project.presentationUrl || project.docsUrl) && (
+        {project.presentationUrl && (
+          <section className="px-6 md:px-[80px] mb-[120px]">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
+              Presentation Deck
+            </div>
+            <DeckEmbed url={project.presentationUrl} title={`${project.name} Deck`} />
+          </section>
+        )}
+
+        {(project.liveUrl || project.githubUrl || project.docsUrl) && (
           <section className="px-6 md:px-[80px] mb-[120px] flex flex-wrap gap-stack-md">
             {project.liveUrl && (
               <a
@@ -240,16 +250,6 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
                 className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
               >
                 Source →
-              </a>
-            )}
-            {project.presentationUrl && (
-              <a
-                href={project.presentationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
-              >
-                Deck →
               </a>
             )}
             {project.docsUrl && (
