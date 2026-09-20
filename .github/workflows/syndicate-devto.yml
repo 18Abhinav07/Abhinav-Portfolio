@@ -1,0 +1,50 @@
+name: Syndicate dispatch to dev.to
+
+# Manual only, by design. A push trigger would syndicate drafts and half-edits;
+# publishing stays a decision, not a side effect of committing.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Dispatch slug (filename without .md)"
+        required: true
+        type: string
+      publish:
+        description: "Publish live on dev.to (unchecked = save as draft there)"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to commit the devtoId write-back
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Push to dev.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          node scripts/sync-devto.mjs "${{ inputs.slug }}" \
+            ${{ inputs.publish && '--publish' || '' }}
+
+      - name: Commit devtoId if this was the first sync
+        run: |
+          if [[ -n "$(git status --porcelain src/content/dispatches)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/content/dispatches
+            git commit -m "chore(dispatches): record dev.to id for ${{ inputs.slug }}"
+            git push
+          else
+            echo "No frontmatter change — article already had a devtoId."
+          fi

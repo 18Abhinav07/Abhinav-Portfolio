@@ -8,22 +8,27 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "sync:devto": "node scripts/sync-devto.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
+    "@shikijs/markdown-it": "^4.4.3",
     "@types/three": "^0.184.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
     "lenis": "^1.1.20",
     "maath": "^0.10.8",
+    "markdown-it": "^15.0.2",
     "motion": "^11.13.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "resend": "^4.0.1",
+    "shiki": "^4.4.3",
     "three": "^0.184.0"
   },
   "devDependencies": {
@@ -33,6 +38,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/dom-speech-recognition": "^0.0.11",
+    "@types/markdown-it": "^14.2.0",
     "@types/node": "^22.10.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

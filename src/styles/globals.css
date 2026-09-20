@@ -237,3 +237,104 @@ html.lenis body { height: auto; }
     animation: glow-orb 8s ease-in-out infinite;
   }
 }
+
+/* ── Dispatch prose ──────────────────────────────────────────────────────────
+   Long-form reading surface. Scoped to .dispatch-prose so it never leaks into
+   the rest of the site, which is laid out component-by-component. */
+@layer components {
+  .dispatch-prose {
+    color: #07090F;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+
+  .dispatch-prose > * + * { margin-top: 1.5em; }
+
+  .dispatch-prose h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-top: 2.5em;
+    padding-top: 1.25em;
+    border-top: 1px solid rgba(7, 9, 15, 0.1);
+  }
+
+  .dispatch-prose h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 2em;
+  }
+
+  .dispatch-prose a {
+    color: #07090F;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(7, 9, 15, 0.35);
+    transition: background-color 0.2s ease;
+  }
+  .dispatch-prose a:hover { background-color: #BFFF00; }
+
+  .dispatch-prose strong { font-weight: 600; }
+
+  .dispatch-prose ul,
+  .dispatch-prose ol { padding-left: 1.4em; }
+  .dispatch-prose ul { list-style: disc; }
+  .dispatch-prose ol { list-style: decimal; }
+  .dispatch-prose li + li { margin-top: 0.5em; }
+  .dispatch-prose li::marker { color: #4B5563; }
+
+  .dispatch-prose blockquote {
+    border-left: 3px solid #BFFF00;
+    padding-left: 1.25em;
+    color: #4B5563;
+  }
+
+  /* Inline code — excludes code inside shiki-highlighted blocks. */
+  .dispatch-prose :not(pre) > code {
+    font-family: var(--font-jetbrains), ui-monospace, monospace;
+    font-size: 0.875em;
+    background: #F3F4F6;
+    border: 1px solid rgba(7, 9, 15, 0.08);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+  }
+
+  /* Shiki output. Theme colors are inlined on the spans; this is just the frame. */
+  .dispatch-prose pre {
+    font-family: var(--font-jetbrains), ui-monospace, monospace;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(7, 9, 15, 0.12);
+    border-radius: 4px;
+    padding: 1.25em;
+    overflow-x: auto;
+  }
+
+  .dispatch-prose img {
+    border: 1px solid rgba(7, 9, 15, 0.12);
+    border-radius: 4px;
+  }
+
+  .dispatch-prose hr {
+    border: 0;
+    border-top: 1px solid rgba(7, 9, 15, 0.1);
+  }
+
+  .dispatch-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .dispatch-prose th,
+  .dispatch-prose td {
+    border: 1px solid rgba(7, 9, 15, 0.12);
+    padding: 0.6em 0.8em;
+    text-align: left;
+  }
+  .dispatch-prose th { background: #F3F4F6; font-weight: 600; }
+}

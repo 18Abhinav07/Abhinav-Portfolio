@@ -2,8 +2,11 @@ import { describe, it, expect } from "vitest";
 import { site, coordinates, dispatches, signals } from "./site";
 
 describe("site content", () => {
-  it("nav has 4 entries", () => {
-    expect(site.nav.length).toBe(4);
+  it("nav covers every top-level route", () => {
+    const hrefs = site.nav.map((n: { href: string }) => n.href);
+    expect(hrefs).toEqual(
+      expect.arrayContaining(["/work", "/dispatches", "/journey", "/beyond", "/contact"]),
+    );
   });
 
   it("nav hrefs start with /", () => {
