@@ -55,3 +55,31 @@ it does not go in the post. Say "I do not have data on that" rather than estimat
 Covers and diagrams are HTML templates rendered to PNG and hosted on Cloudinary.
 The full guide (visual tokens, sizes, render and upload commands, how the images
 behave on dev.to and X) is in `scripts/graphics/README.md`. Follow it for every new post.
+
+## Dispatch playbook (discover, build, publish, promote)
+
+The end to end flow. Each step names the file that holds the detail; follow those,
+not memory.
+
+1. **Discover.** Ideas come from real build artifacts: repo signals, run logs,
+   tracker state. growth-run `evidence` mode turns them into Pipeline rows with an
+   evidence pack (`content-engine/skills/growth-run/references/writing.md`).
+2. **Draft.** growth-run `write` drafts onto the Pipeline row page, with
+   `TODO-screenshot` placeholders for images. The user reviews and sets Approved.
+3. **Build.** Copy the draft to `src/content/dispatches/<slug>.md` with
+   `draft: true`. Make covers and diagrams per `scripts/graphics/README.md`, upload,
+   replace every placeholder. Series: register in `src/content/series.json`.
+4. **Gate.** Evidence check against the Pipeline row, dash grep, then
+   `npm run lint && npm test && npm run build` with the route prerendered.
+5. **Publish.** Flip to `draft: false`. Commit and push only on the user's ok.
+   Every live URL must return 200 before anything links to it.
+6. **Syndicate.** `npm run sync:devto <slug>` (draft), user checks, `--publish`,
+   commit the `devtoId`. Only for `syndicate: ["devto"]`, never essays.
+7. **Promote.** content-ship step 4 writes the X rows into the Notion Inbox with
+   `Draft`, `Image`, `Link`, `Scheduled`, `Why "DAY N ..."`; images are pre-staged
+   in `content-engine/engine/state/x-media/`. growth-run ships one scheduled Post
+   or Thread per IST day, only on `ship N` in chat, and only after the live check.
+   LinkedIn is posted by the user by hand.
+
+Tweet limit is 280 characters with each URL counted as 23 (no X Premium). Tag the
+tool's company (`@testmuai` for Kane CLI work) in X and LinkedIn posts about it.

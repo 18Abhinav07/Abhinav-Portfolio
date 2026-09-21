@@ -37,10 +37,13 @@ const page = (width, height, body, extraCss = "") => `<!doctype html>
 
 /* ------------------------------------------------------------------ covers */
 
-const SERIES_LABEL = "Your agent might actually lie to you";
+// Two series share the GuardianKane covers. S1 is the hackathon gate, S2 the full build.
+const S1 = { label: "Your agent might actually lie to you", parts: 3 };
+const S2 = { label: "GuardianKane: it will not let your agent lie", parts: 2 };
+const WORDS = ["zero", "one", "two", "three", "four", "five"];
 
 const coverCss = `
-  .cover { position: relative; width: 1600px; height: 672px; background: ${INK}; color: #fff; overflow: hidden; }
+  .cover { position: relative; width: 1600px; height: 100vh; background: ${INK}; color: #fff; overflow: hidden; }
   .grid { position: absolute; inset: 0;
     background-image: linear-gradient(rgba(191,255,0,0.07) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(191,255,0,0.07) 1px, transparent 1px);
@@ -57,14 +60,14 @@ const coverCss = `
   .motif { position: absolute; right: 70px; top: 50%; transform: translateY(-50%); width: 540px; height: 460px; }
 `;
 
-const cover = ({ part, title, motif }) =>
+const cover = ({ series = S1, part, title, motif, height = 672 }) =>
   page(
     1600,
-    672,
+    height,
     `<div class="cover"><div class="grid"></div><div class="glow"></div>
       <div class="left">
-        <div class="kicker mono">${SERIES_LABEL}</div>
-        <div class="part mono">${part ? `Part ${String(part).padStart(2, "0")} of 06` : "A series in six parts"}</div>
+        <div class="kicker mono">${series.label}</div>
+        <div class="part mono">${part ? `Part ${String(part).padStart(2, "0")} of ${String(series.parts).padStart(2, "0")}` : `A series in ${WORDS[series.parts]} parts`}</div>
         <div class="title display">${title}</div>
         <div class="foot mono">GuardianKane &middot; Kane CLI &middot; Claude Code</div>
       </div>
@@ -79,6 +82,26 @@ const chip = (x, y, text, { fill = "rgba(255,255,255,0.06)", stroke = "rgba(255,
     <rect width="${width}" height="${size * 2.2}" rx="${size * 0.55}" fill="${fill}" stroke="${stroke}"/>
     <text x="16" y="${size * 1.45}" font-family="JetBrains Mono" font-size="${size}" fill="${color}">${text}</text>
   </g>`;
+};
+
+// One tile per part, stacked. The lead tile is lime.
+const seriesTiles = (tiles) => {
+  const h = tiles.length === 2 ? 170 : 130;
+  const pitch = h + 22;
+  const top = (460 - (tiles.length * pitch - 22)) / 2;
+  return `<svg viewBox="0 0 540 460" width="540" height="460">
+    ${tiles
+      .map(([n, label, sub], i) => {
+        const lead = i === 0;
+        return `<g transform="translate(10,${top + i * pitch})">
+          <rect width="520" height="${h}" rx="16" fill="${lead ? "rgba(191,255,0,0.12)" : "rgba(255,255,255,0.04)"}" stroke="${lead ? LIME : "rgba(255,255,255,0.16)"}"/>
+          <text x="28" y="${h / 2 + 18}" font-family="Clash Display" font-weight="600" font-size="54" fill="${LIME}">${n}</text>
+          <text x="120" y="${h / 2 - 4}" font-family="Clash Display" font-weight="600" font-size="28" fill="#fff">${label}</text>
+          <text x="120" y="${h / 2 + 28}" font-family="JetBrains Mono" font-size="15" fill="rgba(255,255,255,0.6)">${sub}</text>
+        </g>`;
+      })
+      .join("")}
+  </svg>`;
 };
 
 const motifs = {
@@ -161,26 +184,40 @@ const motifs = {
     ${chip(170, 404, "BLOCKED_NEEDS_HUMAN", { w: 320, size: 20, stroke: HUMAN, color: HUMAN })}
   </svg>`,
 
-  series: `<svg viewBox="0 0 540 460" width="540" height="460">
-    ${[
-      ["01", "Broken chart"],
-      ["02", "Wiring Kane"],
-      ["03", "Unwritten req"],
-      ["04", "Null result"],
-      ["05", "The verifier"],
-      ["06", "Three strikes"],
-    ]
-      .map(([n, label], i) => {
-        const x = 10 + (i % 2) * 270;
-        const y = 10 + Math.floor(i / 2) * 150;
-        return `<g transform="translate(${x},${y})">
-          <rect width="250" height="130" rx="16" fill="${i === 0 ? "rgba(191,255,0,0.12)" : "rgba(255,255,255,0.04)"}" stroke="${i === 0 ? LIME : "rgba(255,255,255,0.16)"}"/>
-          <text x="22" y="62" font-family="Clash Display" font-weight="600" font-size="44" fill="${LIME}">${n}</text>
-          <text x="22" y="104" font-family="JetBrains Mono" font-size="16" fill="#fff">${label}</text>
+  phases: `<svg viewBox="0 0 540 460" width="540" height="460">
+    ${["PRD tool", "Stop-hook gate", "12-phase loop"]
+      .map((label, i) => {
+        const y = 10 + i * 128;
+        const on = i === 2;
+        return `<g transform="translate(${20 + i * 40},${y})">
+          <rect width="${300 + i * 60}" height="100" rx="16" fill="${on ? "rgba(191,255,0,0.12)" : "rgba(255,255,255,0.04)"}" stroke="${on ? LIME : "rgba(255,255,255,0.16)"}"/>
+          <text x="22" y="40" font-family="JetBrains Mono" font-size="15" fill="${MUTED}">ERA ${i + 1}</text>
+          <text x="22" y="76" font-family="Clash Display" font-weight="600" font-size="30" fill="${on ? LIME : "#fff"}">${label}</text>
         </g>`;
       })
       .join("")}
+    ${Array.from({ length: 13 }, (_, i) => `<rect x="${118 + i * 28}" y="420" width="20" height="20" rx="4" fill="${LIME}" opacity="${0.35 + i * 0.05}"/>`).join("")}
+    <text x="20" y="436" font-family="JetBrains Mono" font-size="15" fill="${MUTED}">P0..P12</text>
   </svg>`,
+
+  graph: `<svg viewBox="0 0 540 460" width="540" height="460">
+    ${[
+      [120, 110, 250, 200], [250, 200, 400, 110], [250, 200, 400, 300], [250, 200, 130, 330],
+      [400, 110, 480, 220], [400, 300, 480, 220], [130, 330, 260, 400], [260, 400, 400, 300],
+    ]
+      .map(([x1, y1, x2, y2]) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>`)
+      .join("")}
+    <circle cx="250" cy="200" r="30" fill="${LIME}"/>
+    <circle cx="120" cy="110" r="18" fill="#fff"/>
+    <circle cx="400" cy="110" r="18" fill="#fff"/>
+    <circle cx="400" cy="300" r="22" fill="none" stroke="${LIME}" stroke-width="4"/>
+    <circle cx="480" cy="220" r="16" fill="${FAIL}"/>
+    <circle cx="130" cy="330" r="18" fill="#fff"/>
+    <circle cx="260" cy="400" r="16" fill="${FAIL}"/>
+    ${chip(20, 20, "code · feature · claim", { size: 17, stroke: LIME, color: LIME })}
+    ${chip(300, 400, "14 gaps", { w: 140, size: 17, stroke: FAIL, color: FAIL })}
+  </svg>`,
+
 };
 
 /* ---------------------------------------------------------------- diagrams */
@@ -420,14 +457,81 @@ const stateDiagram = diagram(
   <div class="src">Source: .claude/hooks/guardian-kane-stop.js (MAX_ATTEMPTS = 3, STALE_MS = 5 min) and README state machine</div>`,
 );
 
+const ownershipDiagram = diagram(
+  1600,
+  700,
+  `<div class="eyebrow mono">GuardianKane &middot; who owns what</div>
+  <h1 class="display">Who owns what after the rebuild</h1>
+  <div class="sub">The Kane-native plan narrowed GuardianKane to orchestration. Most of the twelve phases wired up data that Kane CLI or my own hooks already produced.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px">
+    <div class="box ink"><div class="mono" style="font-size:14px;color:${LIME}">KANE CLI OWNS</div>
+      <p style="margin-top:10px;font-size:17px">The claim graph, review, coverage and gaps, reconcile, and the recorded reasoning behind every generated test.</p>
+      <span class="code" style="background:#1d2230;color:#fff">context review --approve</span> <span class="code" style="background:#1d2230;color:#fff">cover gaps --json</span> <span class="code" style="background:#1d2230;color:#fff">maintain reconcile --plan</span> <span class="code" style="background:#1d2230;color:#fff">context explain</span></div>
+    <div class="box lime"><div class="mono" style="font-size:14px">GUARDIANKANE OWNS</div>
+      <p style="margin-top:10px;font-size:17px;color:${INK}">Tasks, phases, the Stop-hook gate, the file-touch record, and the dashboard that makes all of it visible.</p>
+      <span class="code">task-tracker.md</span> <span class="code">Stop hook</span> <span class="code">PostToolUse hook</span> <span class="code">dashboard</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px">
+    <div class="box"><h3>Gate</h3><p>0 review gate &middot; 1 per-AC evidence &middot; 11 secret scan</p></div>
+    <div class="box"><h3>Knowledge</h3><p>3 context injection &middot; 7 reconcile sync</p></div>
+    <div class="box"><h3>Guardrails</h3><p>2 phase model &middot; 4 scope guard &middot; 10 file lock</p></div>
+    <div class="box"><h3>Visibility</h3><p>5 gaps &middot; 6 review card &middot; 8 trace &middot; 9 stuck tasks &middot; 12 browser review</p></div>
+  </div>
+  <div style="display:flex;gap:14px;margin-top:22px;align-items:center">
+    <div class="mono" style="font-size:15px;color:#4B5563">Unit tests, as recorded in the phase specs and a fresh run:</div>
+    <span class="code" style="font-size:16px">241 after Phase 1</span><span class="arrow" style="font-size:22px">&rarr;</span>
+    <span class="code" style="font-size:16px">387 after Phase 11</span><span class="arrow" style="font-size:22px">&rarr;</span>
+    <span class="code lime" style="font-size:16px;background:${LIME}">460 of 460 today</span>
+  </div>
+  <div class="src">Source: adventures-with-kane JOURNEY.md, docs/superpowers specs, vitest run on the repo</div>`,
+);
+
+const bridgeDiagram = diagram(
+  1600,
+  720,
+  `<div class="eyebrow mono">GuardianKane &middot; the chat bridge</div>
+  <h1 class="display">How the dashboard talks to a live Claude Code session</h1>
+  <div class="sub">The dashboard is a child process of the session. Messages go in through an undocumented local socket; replies come back from the Stop hook, not from the agent remembering to answer.</div>
+  <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:10px;margin-top:36px;align-items:stretch">
+    <div class="box"><h3>Dashboard chat</h3><p>You type into "Ask GuardianKane". The server writes a pending-reply marker.</p><span class="code">/api/chat/send</span> <span class="code">chat-pending.json</span></div>
+    <div class="arrow">&rarr;</div>
+    <div class="box ink"><h3>Messaging socket</h3><p>An auth line with the session token, then a user message, written to the socket the session exposes to its children.</p><span class="code" style="background:#1d2230;color:#fff">CLAUDE_CODE_MESSAGING_SOCKET</span></div>
+    <div class="arrow">&rarr;</div>
+    <div class="box"><h3>Claude Code</h3><p>Reads it as a user turn. Works, claims done, tries to stop.</p></div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;padding-right:150px"><div class="arrow" style="height:44px">&darr;</div></div>
+  <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:10px;align-items:stretch">
+    <div class="box"><h3>Four tabs</h3><p>Code graph, Memory graph, PRD graph, Kane activity. Panels poll JSON written by the hooks and the graph build.</p><span class="code">graph-status.json</span> <span class="code">scope-status.json</span></div>
+    <div class="arrow">&larr;</div>
+    <div class="box lime"><h3>Reply posted</h3><p style="color:${INK}">If a marker is pending, the hook posts the verdict text it already computed.</p><span class="code">/api/chat/reply</span></div>
+    <div class="arrow">&larr;</div>
+    <div class="box ink"><h3>Stop hook</h3><p>Runs the gate as always, then checks for a pending chat marker.</p><span class="code" style="background:#1d2230;color:#fff">lib/dashboard-reply.js</span></div>
+  </div>
+  <div class="src">Source: adventures-with-kane dashboard/lib/agent-bridge.js, commit b2356c4</div>`,
+);
+
+const s1Tiles = seriesTiles([
+  ["01", "The broken chart", "the gate, and why it exists"],
+  ["02", "The unasked question", "four experiments, one pattern"],
+  ["03", "Who checks the checker", "the verifier, the log, the cap"],
+]);
+const s2Tiles = seriesTiles([
+  ["01", "The rebuild", "PRD tool, gate, twelve phases"],
+  ["02", "The visual layer", "graphs, activity, live chat"],
+]);
+
 export const graphics = [
-  { name: "cover-series", width: 1600, height: 672, html: cover({ part: 0, title: "Your agent might <em>actually lie</em> to you", motif: motifs.series }) },
-  { name: "cover-1", width: 1600, height: 672, html: cover({ part: 1, title: "My agent shipped a <em>broken chart</em> and told me it was done", motif: motifs.chart }) },
-  { name: "cover-2", width: 1600, height: 672, html: cover({ part: 2, title: "How I wired <em>Kane CLI</em> into Claude Code", motif: motifs.wiring }) },
-  { name: "cover-3", width: 1600, height: 672, html: cover({ part: 3, title: "The requirement <em>nobody wrote</em>", motif: motifs.prd }) },
-  { name: "cover-4", width: 1600, height: 672, html: cover({ part: 4, title: "The experiment where <em>nothing happened</em>", motif: motifs.nullresult }) },
-  { name: "cover-5", width: 1600, height: 672, html: cover({ part: 5, title: "Who verifies <em>the verifier?</em>", motif: motifs.verifier }) },
-  { name: "cover-6", width: 1600, height: 672, html: cover({ part: 6, title: "Three strikes, <em>then a human</em>", motif: motifs.strikes }) },
+  { name: "cover-s1", width: 1600, height: 672, html: cover({ part: 0, title: "Your agent might <em>actually lie</em> to you", motif: s1Tiles }) },
+  { name: "cover-s1-1", width: 1600, height: 672, html: cover({ part: 1, title: "My agent shipped a <em>broken chart</em> and told me it was done", motif: motifs.chart }) },
+  { name: "cover-s1-2", width: 1600, height: 672, html: cover({ part: 2, title: "The requirement <em>nobody wrote</em>", motif: motifs.prd }) },
+  { name: "cover-s1-3", width: 1600, height: 672, html: cover({ part: 3, title: "Who verifies <em>the verifier?</em>", motif: motifs.verifier }) },
+  { name: "cover-s2", width: 1600, height: 672, html: cover({ series: S2, part: 0, title: "GuardianKane: it will not let your agent <em>lie</em>", motif: s2Tiles }) },
+  { name: "cover-s2-1", width: 1600, height: 672, html: cover({ series: S2, part: 1, title: "The second build was mostly <em>wiring</em>", motif: motifs.phases }) },
+  { name: "cover-s2-2", width: 1600, height: 672, html: cover({ series: S2, part: 2, title: "Making verification <em>visible</em>", motif: motifs.graph }) },
+  { name: "x-thread-1", width: 1600, height: 900, html: cover({ part: 0, height: 900, title: "Your agent might <em>actually lie</em> to you", motif: s1Tiles }) },
+  { name: "x-thread-2", width: 1600, height: 900, html: cover({ series: S2, part: 0, height: 900, title: "From a Stop hook to a <em>twelve-phase</em> loop", motif: motifs.phases }) },
+  { name: "diagram-ownership", width: 1600, height: 700, html: ownershipDiagram },
+  { name: "diagram-bridge", width: 1600, height: 720, html: bridgeDiagram },
   { name: "diagram-loop", width: 1600, height: 860, html: loopDiagram },
   { name: "diagram-eras", width: 1600, height: 600, html: erasDiagram },
   { name: "diagram-grilling", width: 1600, height: 650, html: grillDiagram },

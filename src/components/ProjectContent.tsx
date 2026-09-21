@@ -13,9 +13,14 @@ import { DeckEmbed } from "@/components/DeckEmbed";
 interface ProjectContentProps {
   project: Project;
   nextProject: Project;
+  /** Dispatches written about this project, in reading order. */
+  writing?: { slug: string; title: string; part?: number; series?: string }[];
+  series?: { slug: string; title: string }[];
 }
 
-export function ProjectContent({ project, nextProject }: ProjectContentProps) {
+const DEVTO_PROFILE = "https://dev.to/abhinav_pangaria";
+
+export function ProjectContent({ project, nextProject, writing = [], series = [] }: ProjectContentProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImages, setLoadedImages] = useState(0);
   const [individualLoads, setIndividualLoads] = useState<Record<string, boolean>>({});
@@ -227,6 +232,70 @@ export function ProjectContent({ project, nextProject }: ProjectContentProps) {
               Presentation Deck
             </div>
             <DeckEmbed url={project.presentationUrl} title={`${project.name} Deck`} />
+          </section>
+        )}
+
+        {writing.length > 0 && (
+          <section className="px-6 md:px-[80px] mb-[120px]">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
+              Read the build story
+            </div>
+            {[
+              ...series.map((sr) => ({ key: sr.slug, series: sr, items: writing.filter((w) => w.series === sr.slug) })),
+              {
+                key: "standalone",
+                series: undefined,
+                items: writing.filter((w) => !series.some((sr) => sr.slug === w.series)),
+              },
+            ]
+              .filter((g) => g.items.length > 0)
+              .map((g) => (
+                <div key={g.key} className="mb-stack-lg">
+                  {g.series && (
+                    <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant font-bold mb-stack-md">
+                      {g.series.title}
+                    </div>
+                  )}
+                  <ol className="brutalist-rule-t">
+                    {g.items.map((w) => (
+                      <li key={w.slug} className="brutalist-rule-b">
+                        <Link
+                          href={`/dispatches/${w.slug}`}
+                          className="group flex items-baseline gap-stack-md py-stack-md"
+                        >
+                          {w.part !== undefined && (
+                            <span className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant font-bold shrink-0">
+                              {String(w.part).padStart(2, "0")}
+                            </span>
+                          )}
+                          <span className="font-display text-headline-sm text-on-surface group-hover:opacity-80 transition-opacity">
+                            {w.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            <div className="mt-stack-lg flex flex-wrap gap-stack-md">
+              {series.map((sr) => (
+                <Link
+                  key={sr.slug}
+                  href={`/dispatches/series/${sr.slug}`}
+                  className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-on-surface font-bold rounded-pill hover:bg-secondary hover:text-on-surface transition-colors"
+                >
+                  {series.length > 1 ? `${sr.title} →` : "The full series →"}
+                </Link>
+              ))}
+              <a
+                href={DEVTO_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
+              >
+                Also on dev.to →
+              </a>
+            </div>
           </section>
         )}
 

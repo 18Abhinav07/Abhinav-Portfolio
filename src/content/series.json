@@ -2,10 +2,20 @@
   {
     "slug": "your-agent-might-lie",
     "title": "Your Agent Might Actually Lie to You",
-    "tagline": "Six field notes from building a gate that makes a coding agent prove it is done.",
-    "description": "I built GuardianKane for the Kane CLI hackathon: a Claude Code Stop hook that refuses to let the agent finish until Kane CLI has checked the work in a real browser. These six pieces are what the build, four paired experiments, and a re-read of my own logs taught me about trusting an agent's claim of done.",
-    "cover": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790002782/portfolio/dispatches/agents-lie/cover-series.png",
-    "coverAlt": "Series cover: Your agent might actually lie to you, with six numbered part tiles.",
+    "tagline": "Three parts on the hackathon build: a Stop hook that will not let a coding agent say done until a real browser agrees.",
+    "description": "I built GuardianKane for the TestMuAI Kane CLI hackathon, where it placed 2nd. This is the story of that first version: why the gate exists, the four paired experiments that tested it, and what I found when I re-read my own logs and had to ask who checks the checker.",
+    "cover": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006260/portfolio/dispatches/agents-lie/cover-s1.png",
+    "coverAlt": "Series cover: Your agent might actually lie to you, with three stacked part tiles: the broken chart, the unasked question, and who checks the checker.",
+    "project": "guardiankane",
+    "repo": "https://github.com/18Abhinav07/adventures-with-kane"
+  },
+  {
+    "slug": "guardiankane",
+    "title": "GuardianKane: It Will Not Let Your Agent Lie",
+    "tagline": "Two parts on the full build: the twelve-phase rebuild, and the visual layer that makes verification something you can see.",
+    "description": "After the hackathon, GuardianKane went from a Stop hook to a reviewed, phased loop with a scope guard, a file lock, a secret scan, and a dashboard of code, memory, and PRD graphs with a chat panel wired into the live Claude Code session. Part 1 is how the rebuild happened and why most of it was wiring. Part 2 is the tour, including the bugs the dashboard exposed in the gate itself.",
+    "cover": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006265/portfolio/dispatches/agents-lie/cover-s2.png",
+    "coverAlt": "Series cover: GuardianKane, it will not let your agent lie, with two stacked part tiles: the rebuild, and the visual layer.",
     "project": "guardiankane",
     "repo": "https://github.com/18Abhinav07/adventures-with-kane"
   }
