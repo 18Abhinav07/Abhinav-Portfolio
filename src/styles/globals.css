@@ -38,7 +38,7 @@ html.lenis body { height: auto; }
     overflow-x: hidden;
   }
 
-  /* Fixed gradient mesh — radial neon green + yellow blooms behind all content */
+  /* Fixed gradient mesh: radial neon green + yellow blooms behind all content */
   body::before {
     content: "";
     position: fixed;
@@ -86,7 +86,7 @@ html.lenis body { height: auto; }
 }
 
 @layer components {
-  /* Hairline rules — luminous outline (names kept; components depend) */
+  /* Hairline rules: luminous outline (names kept; components depend) */
   .brutalist-rule-t { border-top: var(--rule-weight) solid var(--rule-color); }
   .brutalist-rule-b { border-bottom: var(--rule-weight) solid var(--rule-color); }
   .brutalist-rule-l { border-left: var(--rule-weight) solid var(--rule-color); }
@@ -107,7 +107,7 @@ html.lenis body { height: auto; }
     gap: 24px;
   }
 
-  /* Display emphasis — used by manifesto / large editorial text */
+  /* Display emphasis: used by manifesto / large editorial text */
   .editorial-text {
     font-family: var(--font-display);
     font-size: 1.25rem;
@@ -130,7 +130,7 @@ html.lenis body { height: auto; }
   }
 
 
-  /* Glassmorphic panel — translucent surface with 1px luminous cyan edge */
+  /* Glassmorphic panel: translucent surface with 1px luminous cyan edge */
   .glass-panel {
     background: rgba(11, 14, 22, 0.55);
     backdrop-filter: blur(18px) saturate(140%);
@@ -168,7 +168,7 @@ html.lenis body { height: auto; }
     animation: radar-spin 3s linear infinite;
   }
 
-  /* Button components — luminous cyan primary, glass secondary */
+  /* Button components: luminous cyan primary, glass secondary */
   .btn-primary {
     @apply font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-on-surface font-bold rounded-pill
     hover:shadow-glow hover:scale-[1.02]
@@ -196,7 +196,7 @@ html.lenis body { height: auto; }
     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100;
   }
 
-  /* Input components — glass field with cyan focus */
+  /* Input components: glass field with cyan focus */
   .input-field {
     @apply bg-surface-container-lowest/60 border border-outline px-stack-md py-stack-sm text-body-md text-on-surface rounded-lg backdrop-blur-sm
     hover:border-primary/40 hover:bg-surface-dim/60
@@ -204,7 +204,7 @@ html.lenis body { height: auto; }
     transition-all duration-300 ease-out placeholder:text-on-surface-variant/50;
   }
 
-  /* Double-Bezel / Nested Enclosures — glass shell with luminous cyan edge */
+  /* Double-Bezel / Nested Enclosures: glass shell with luminous cyan edge */
   .double-bezel-outer {
     @apply ring-1 ring-primary/[0.10] bg-on-surface/[0.015] p-2 rounded-xl backdrop-blur-md transition-all duration-500 ease-out;
   }
@@ -246,6 +246,52 @@ html.lenis body { height: auto; }
     color: #07090F;
     font-size: 1.0625rem;
     line-height: 1.75;
+  }
+
+  /* The measure is applied to running text, not to the container.
+     Capping the container instead would make it impossible for anything inside
+     to be wider, so code blocks, images and tables could never reach the full
+     column no matter what max-width they were given.
+
+     ~71 characters per line: past roughly 75ch the eye loses the start of the
+     next line on the return sweep. Code, images and tables have no measure to
+     respect and are deliberately left out of this list. */
+  .dispatch-prose > p,
+  .dispatch-prose > h2,
+  .dispatch-prose > h3,
+  .dispatch-prose > h4,
+  .dispatch-prose > ul,
+  .dispatch-prose > ol,
+  .dispatch-prose > blockquote,
+  .dispatch-prose > hr {
+    max-width: 37rem;
+  }
+
+  /* markdown-it wraps a standalone image in a paragraph, so it inherits the
+     measure from the rule above. A paragraph whose only child is an image is a
+     figure in everything but name, and is exempt. */
+  .dispatch-prose > p:has(> img:only-child) {
+    max-width: none;
+  }
+
+  .dispatch-prose img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+  }
+
+  /* A paragraph that is entirely emphasised, directly after an image, is a caption. */
+  .dispatch-prose > p:has(> img:only-child) + p > em:only-child {
+    display: block;
+    margin-top: -0.75em;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.8125rem;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #4B5563;
   }
 
   .dispatch-prose > * + * { margin-top: 1.5em; }
@@ -293,7 +339,7 @@ html.lenis body { height: auto; }
     color: #4B5563;
   }
 
-  /* Inline code — excludes code inside shiki-highlighted blocks. */
+  /* Inline code: excludes code inside shiki-highlighted blocks. */
   .dispatch-prose :not(pre) > code {
     font-family: var(--font-jetbrains), ui-monospace, monospace;
     font-size: 0.875em;
@@ -337,4 +383,43 @@ html.lenis body { height: auto; }
     text-align: left;
   }
   .dispatch-prose th { background: #F3F4F6; font-weight: 600; }
+}
+
+/* ── Dispatch extras ─────────────────────────────────────────────────────────
+   Callouts (GitHub alert syntax in the markdown) and image zoom. */
+@layer components {
+  .dispatch-prose blockquote.callout {
+    border-left: 0;
+    border: 1px solid rgba(7, 9, 15, 0.12);
+    border-radius: 10px;
+    background: #FFFFFF;
+    padding: 1em 1.25em;
+    color: #07090F;
+  }
+  .dispatch-prose blockquote.callout::before {
+    display: block;
+    margin-bottom: 0.4em;
+    font-family: var(--font-jetbrains), ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .dispatch-prose blockquote.callout > * + * { margin-top: 0.75em; }
+  .dispatch-prose blockquote.callout-note { box-shadow: inset 4px 0 0 #BFFF00; }
+  .dispatch-prose blockquote.callout-note::before { content: "Note"; }
+  .dispatch-prose blockquote.callout-tip { box-shadow: inset 4px 0 0 #BFFF00; background: #F7FFE0; }
+  .dispatch-prose blockquote.callout-tip::before { content: "Tip"; }
+  .dispatch-prose blockquote.callout-important { box-shadow: inset 4px 0 0 #07090F; }
+  .dispatch-prose blockquote.callout-important::before { content: "Important"; }
+  .dispatch-prose blockquote.callout-warning,
+  .dispatch-prose blockquote.callout-caution { box-shadow: inset 4px 0 0 #FF6B5B; background: #FFF6F4; }
+  .dispatch-prose blockquote.callout-warning::before { content: "Warning"; }
+  .dispatch-prose blockquote.callout-caution::before { content: "Caution"; }
+
+  .dispatch-prose h2 { scroll-margin-top: 8rem; }
+  .dispatch-prose img { cursor: zoom-in; }
+
+  .medium-zoom-overlay,
+  .medium-zoom-image--opened { z-index: 120; }
 }

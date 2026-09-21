@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "sync:devto": "node scripts/sync-devto.mjs"
+    "sync:devto": "node scripts/sync-devto.mjs",
+    "stats:devto": "node scripts/devto-stats.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -23,6 +24,7 @@
     "lenis": "^1.1.20",
     "maath": "^0.10.8",
     "markdown-it": "^15.0.2",
+    "medium-zoom": "^1.1.0",
     "motion": "^11.13.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",

@@ -230,8 +230,8 @@
       "slug": "guardiankane",
       "index": "02",
       "name": "Guardian Kane",
-      "tagline": "The loop that makes an agent's \"done\" something it has to prove — not just say.",
-      "description": "Guardian Kane is a reviewed, phased, scope-guarded verification loop wrapped around Claude Code — not just a Stop-hook check (that's where it started; the current build spans twelve numbered phases). Every PRD use-case and generated test has to clear a review gate before it counts as real. A phased task tracker attributes every task, claim, and file to a build phase. Per-task verification then drives a real local browser through a scripted test plus an independent defect sweep before a task can advance to KANE_VERIFIED — three failed attempts escalate to a human instead of looping forever. Underneath that: a local Jaccard-similarity bug-memory store, a real-time scope guard, a secret-scan security gate, file-level task locking, and a four-tab dashboard (code graph, memory graph, PRD graph with gaps & drift, live activity) with a chat bridge straight into the running agent. Proven across four paired A/B builds — including the flagship ORBITAL financial dashboard — where the Kane-gated build caught real functional and visual defects an unassisted baseline shipped straight to \"done.\"",
+      "tagline": "The loop that makes an agent's \"done\" something it has to prove, not just say.",
+      "description": "Guardian Kane is a reviewed, phased, scope-guarded verification loop wrapped around Claude Code, not just a Stop-hook check (that's where it started; the current build spans twelve numbered phases). Every PRD use-case and generated test has to clear a review gate before it counts as real. A phased task tracker attributes every task, claim, and file to a build phase. Per-task verification then drives a real local browser through a scripted test plus an independent defect sweep before a task can advance to KANE_VERIFIED. Three failed attempts escalate to a human instead of looping forever. Underneath that: a local Jaccard-similarity bug-memory store, a real-time scope guard, a secret-scan security gate, file-level task locking, and a four-tab dashboard (code graph, memory graph, PRD graph with gaps & drift, live activity) with a chat bridge straight into the running agent. Proven across four paired A/B builds, including the flagship ORBITAL financial dashboard, where the unassisted baseline reported \"done\" on a doubled chart and an off-spec alerts layout, and the gated build shipped neither.",
       "year": "2026",
       "ecosystem": "Claude Code Tooling",
       "role": "Lead Architect & Engineer",
@@ -267,44 +267,44 @@
       "screenshots": [
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Hero-Dashboard.png",
-          "caption": "GuardianKane dashboard — code graph + live verification chat"
+          "caption": "GuardianKane dashboard: code graph + live verification chat"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/CodeGraph-Tests.png",
-          "caption": "Code graph — focus & selection, one-click Generate tests"
+          "caption": "Code graph: focus & selection, one-click Generate tests"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/MemoryGraph.png",
-          "caption": "Memory graph — per-file pass/fail history across runs"
+          "caption": "Memory graph: per-file pass/fail history across runs"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-PRDGraph.png",
-          "caption": "PRD graph — gaps & drift tracking"
+          "caption": "PRD graph: gaps & drift tracking"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-Activity.png",
-          "caption": "Kane activity — the verification loop live"
+          "caption": "Kane activity: the verification loop live"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Kane-Alerts.png",
-          "caption": "Kane-verified — alerts matching spec"
+          "caption": "Kane-verified: alerts matching spec"
         },
         {
           "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Baseline-Alerts.png",
-          "caption": "Baseline — alerts deviate from spec"
+          "caption": "Baseline: alerts deviate from spec"
         }
       ],
       "videos": [
         {
-          "title": "Full System Demo — Current Build",
+          "title": "Full System Demo: Current Build",
           "youtubeId": "TfVm0yNzBJE"
         },
         {
-          "title": "14-Minute Deep Dive — Stop-Hook Era",
+          "title": "14-Minute Deep Dive: Stop-Hook Era",
           "youtubeId": "efTl_ZSmXUw"
         },
         {
-          "title": "3-Minute Trimmed Cut — Stop-Hook Era",
+          "title": "3-Minute Trimmed Cut: Stop-Hook Era",
           "youtubeId": "-4gbIv9hv_M"
         }
       ],

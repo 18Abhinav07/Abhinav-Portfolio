@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "your-agent-might-lie",
+    "title": "Your Agent Might Actually Lie to You",
+    "tagline": "Six field notes from building a gate that makes a coding agent prove it is done.",
+    "description": "I built GuardianKane for the Kane CLI hackathon: a Claude Code Stop hook that refuses to let the agent finish until Kane CLI has checked the work in a real browser. These six pieces are what the build, four paired experiments, and a re-read of my own logs taught me about trusting an agent's claim of done.",
+    "cover": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790002782/portfolio/dispatches/agents-lie/cover-series.png",
+    "coverAlt": "Series cover: Your agent might actually lie to you, with six numbered part tiles.",
+    "project": "guardiankane",
+    "repo": "https://github.com/18Abhinav07/adventures-with-kane"
+  }
+]

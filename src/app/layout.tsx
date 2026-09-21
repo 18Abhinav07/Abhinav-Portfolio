@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import { TopNav } from "@/components/TopNav";
+import { SITE_URL } from "@/content/site-url";
 import { Footer } from "@/components/Footer";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   title: "Abhinav Pangaria · Builder of resilient systems.",
   description:
     "Web3 engineer working across payments, privacy, on-chain credit, and agent infrastructure. PayZoll, Tesseract, OpenAssets, Kredio, Clear Sky.",
-  metadataBase: new URL("https://abhinavpangaria.com"),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: "/favicon.svg",
   },

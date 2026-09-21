@@ -1,8 +1,9 @@
 import { getDispatches } from "@/content/dispatches";
+import { SITE_URL } from "@/content/site-url";
 
 export const dynamic = "force-static";
 
-const SITE = "https://abhinavpangaria.com";
+const SITE = SITE_URL;
 
 const escape = (s: string) =>
   s
@@ -12,7 +13,7 @@ const escape = (s: string) =>
     .replace(/"/g, "&quot;");
 
 /**
- * How developer-audience readers actually subscribe. Summary-only by design —
+ * How developer-audience readers actually subscribe. Summary-only by design;
  * the full piece lives on the canonical page.
  */
 export function GET() {

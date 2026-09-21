@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
   title: "Work · Abhinav Pangaria",
-  description: "Eight production systems across Stellar, Mantle, Polkadot, Casper, Nimiq, and EVM networks — plus the agentic verification tooling that ships them.",
+  description: "Eight production systems across Stellar, Mantle, Polkadot, Casper, Nimiq, and EVM networks, plus the agentic verification tooling that ships them.",
 };
 
 export default function WorkPage() {
