@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSeriesParts, formatDate } from "@/content/dispatches";
+import { getSeriesParts, formatDate, ogImage } from "@/content/dispatches";
 import { SERIES, getSeries } from "@/content/series";
 import { getProject } from "@/content/projects";
 import { SITE_URL } from "@/content/site-url";
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${s.title} · Abhinav Pangaria`,
     description: s.tagline,
     alternates: { canonical: url },
-    openGraph: { title: s.title, description: s.tagline, url, type: "website", images: [{ url: s.cover, width: 1600, height: 672, alt: s.coverAlt }] },
-    twitter: { card: "summary_large_image", title: s.title, description: s.tagline, images: [s.cover], creator: "@abhinavpangaria" },
+    openGraph: { title: s.title, description: s.tagline, url, type: "website", images: [{ url: ogImage(s.cover), width: 1200, height: 630, alt: s.coverAlt }] },
+    twitter: { card: "summary_large_image", title: s.title, description: s.tagline, images: [ogImage(s.cover)], creator: "@abhinavpangaria" },
   };
 }
 

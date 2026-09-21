@@ -299,3 +299,12 @@ export const formatDate = (date: string) =>
     day: "numeric",
     timeZone: "UTC",
   });
+
+/**
+ * The 1200x630 share card for a cover: Cloudinary letterboxes it on ink and serves a
+ * PNG, since link unfurlers cannot all decode avif or webp. A static URL, so nothing
+ * has to run at request time on Cloudflare Pages.
+ */
+export function ogImage(cover: string): string {
+  return cover.replace("/f_auto,q_auto/", "/c_pad,w_1200,h_630,b_rgb:07090F,f_png/");
+}

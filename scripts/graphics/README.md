@@ -92,9 +92,11 @@ labels, code, and numbers. One lime highlight per cover title (the `<em>` words)
 
 ## Where the images work
 
-**Portfolio.** Rendered by markdown-it with click to zoom. The OG card reuses the
-cover: `opengraph-image.tsx` swaps `f_auto,q_auto` for `f_png` because the OG
-renderer cannot decode AVIF or WebP, then letterboxes it to 1200x630.
+**Portfolio.** Rendered by markdown-it with click to zoom. The share card reuses the
+cover: `ogImage()` in `src/content/dispatches.ts` swaps `f_auto,q_auto` for a
+Cloudinary transform that letterboxes it on ink to 1200x630 as a PNG (unfurlers
+cannot all decode AVIF or WebP). It is a static URL on purpose: Cloudflare Pages
+cannot run a Node `opengraph-image` route, and one broke the build on 2026-09-21.
 
 **dev.to.** `sync-devto.mjs` sends `cover` as `main_image`. Body images are
 absolute Cloudinary URLs, so they render on dev.to unchanged. Never use a relative

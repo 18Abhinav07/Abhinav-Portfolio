@@ -7,6 +7,7 @@ import {
   renderMarkdown,
   extractHeadings,
   formatDate,
+  ogImage,
   type Dispatch,
 } from "@/content/dispatches";
 import { getSeries } from "@/content/series";
@@ -41,12 +42,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url,
       publishedTime: d.date,
       tags: d.tags,
+      images: d.cover ? [{ url: ogImage(d.cover), width: 1200, height: 630, alt: d.coverAlt ?? d.title }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: d.title,
       description: d.summary,
       creator: "@abhinavpangaria",
+      images: d.cover ? [ogImage(d.cover)] : undefined,
     },
   };
 }
