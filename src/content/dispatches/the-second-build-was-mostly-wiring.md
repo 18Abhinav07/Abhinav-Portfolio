@@ -1,16 +1,30 @@
 ---
-title: "The Second Build Was Mostly Wiring"
-date: "2026-09-21"
-summary: "GuardianKane started as a PRD-to-task tool, became a Stop-hook gate, and then got rebuilt across twelve numbered phases. The lesson of the rebuild: most of it was connecting data that Kane CLI or my own hooks already produced, and the first phase fixed a bug that broke every fresh install."
-tags: ["AI Agents", "Claude Code", "Testing", "Architecture"]
-project: "guardiankane"
-kind: "teardown"
-series: "guardiankane"
+title: The Second Build Was Mostly Wiring
+date: '2026-09-21'
+summary: >-
+  GuardianKane started as a PRD-to-task tool, became a Stop-hook gate, and then
+  got rebuilt across twelve numbered phases. The lesson of the rebuild: most of
+  it was connecting data that Kane CLI or my own hooks already produced, and the
+  first phase fixed a bug that broke every fresh install.
+tags:
+  - AI Agents
+  - Claude Code
+  - Testing
+  - Architecture
+project: guardiankane
+kind: teardown
+series: guardiankane
 seriesPart: 1
-cover: "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006266/portfolio/dispatches/agents-lie/cover-s2-1.png"
-coverAlt: "Part 01 of 02 cover: three stacked eras, PRD tool, Stop-hook gate, and 12-phase loop, with thirteen phase markers, under the title The second build was mostly wiring."
-syndicate: ["devto"]
+cover: >-
+  https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006266/portfolio/dispatches/agents-lie/cover-s2-1.png
+coverAlt: >-
+  Part 01 of 02 cover: three stacked eras, PRD tool, Stop-hook gate, and
+  12-phase loop, with thirteen phase markers, under the title The second build
+  was mostly wiring.
+syndicate:
+  - devto
 draft: false
+devtoId: 4711715
 ---
 
 My first series, [Your agent might actually lie to you](/dispatches/series/your-agent-might-lie),

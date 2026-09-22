@@ -1,16 +1,31 @@
 ---
-title: "Making Verification Visible"
-date: "2026-09-21"
-summary: "A pass or fail line at the end of a turn is not enough to trust an agent's build. A tour of GuardianKane's dashboard: the code, memory, and PRD graphs, the Kane activity feed, a chat panel wired into the live Claude Code session through an undocumented socket, and the bugs the dashboard exposed in the gate itself."
-tags: ["AI Agents", "Claude Code", "Testing", "Developer Tools"]
-project: "guardiankane"
-kind: "teardown"
-series: "guardiankane"
+title: Making Verification Visible
+date: '2026-09-21'
+summary: >-
+  A pass or fail line at the end of a turn is not enough to trust an agent's
+  build. A tour of GuardianKane's dashboard: the code, memory, and PRD graphs,
+  the Kane activity feed, a chat panel wired into the live Claude Code session
+  through an undocumented socket, and the bugs the dashboard exposed in the gate
+  itself.
+tags:
+  - AI Agents
+  - Claude Code
+  - Testing
+  - Developer Tools
+project: guardiankane
+kind: teardown
+series: guardiankane
 seriesPart: 2
-cover: "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006267/portfolio/dispatches/agents-lie/cover-s2-2.png"
-coverAlt: "Part 02 of 02 cover: a small node graph with a lime centre node and red gap markers, labelled code, feature, claim and 14 gaps, under the title Making verification visible."
-syndicate: ["devto"]
+cover: >-
+  https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006267/portfolio/dispatches/agents-lie/cover-s2-2.png
+coverAlt: >-
+  Part 02 of 02 cover: a small node graph with a lime centre node and red gap
+  markers, labelled code, feature, claim and 14 gaps, under the title Making
+  verification visible.
+syndicate:
+  - devto
 draft: false
+devtoId: 4711716
 ---
 
 The hackathon gate had one output: a line in the terminal saying a task passed, failed,

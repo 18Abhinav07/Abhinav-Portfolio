@@ -1,16 +1,30 @@
 ---
-title: "Who Verifies the Verifier?"
-date: "2026-09-21"
-summary: "On the densest build, eight tasks failed a browser check and one of them was a real bug. The rest were the verifier, and then my own write-up turned them into findings. Notes on checking the thing that checks, and on a three-strike retry cap the agent could quietly reset."
-tags: ["AI Agents", "Testing", "Verification", "Claude Code"]
-project: "guardiankane"
-kind: "teardown"
-series: "your-agent-might-lie"
+title: Who Verifies the Verifier?
+date: '2026-09-21'
+summary: >-
+  On the densest build, eight tasks failed a browser check and one of them was a
+  real bug. The rest were the verifier, and then my own write-up turned them
+  into findings. Notes on checking the thing that checks, and on a three-strike
+  retry cap the agent could quietly reset.
+tags:
+  - AI Agents
+  - Testing
+  - Verification
+  - Claude Code
+project: guardiankane
+kind: teardown
+series: your-agent-might-lie
 seriesPart: 3
-cover: "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006264/portfolio/dispatches/agents-lie/cover-s1-3.png"
-coverAlt: "Part 03 of 03 cover: verdict chips reading status failed, confirmed false, and automation_bug, beside a magnifier with a lime question mark, under the title Who verifies the verifier?"
-syndicate: ["devto"]
+cover: >-
+  https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006264/portfolio/dispatches/agents-lie/cover-s1-3.png
+coverAlt: >-
+  Part 03 of 03 cover: verdict chips reading status failed, confirmed false, and
+  automation_bug, beside a magnifier with a lime question mark, under the title
+  Who verifies the verifier?
+syndicate:
+  - devto
 draft: false
+devtoId: 4711714
 ---
 
 The premise of this series is that you should not take an agent's word that it is

@@ -1,16 +1,29 @@
 ---
-title: "The Requirement Nobody Wrote"
-date: "2026-09-21"
-summary: "A four-line todo PRD said priority defaults to Medium and nothing else. One build asked how a task becomes High; the other never did. Then I built a trap for the gate and both builds walked straight past it. Four paired experiments, and the pattern they drew: the gap grows with the density of the spec."
-tags: ["AI Agents", "Testing", "Product", "Claude Code"]
-project: "guardiankane"
-kind: "teardown"
-series: "your-agent-might-lie"
+title: The Requirement Nobody Wrote
+date: '2026-09-21'
+summary: >-
+  A four-line todo PRD said priority defaults to Medium and nothing else. One
+  build asked how a task becomes High; the other never did. Then I built a trap
+  for the gate and both builds walked straight past it. Four paired experiments,
+  and the pattern they drew: the gap grows with the density of the spec.
+tags:
+  - AI Agents
+  - Testing
+  - Product
+  - Claude Code
+project: guardiankane
+kind: teardown
+series: your-agent-might-lie
 seriesPart: 2
-cover: "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006263/portfolio/dispatches/agents-lie/cover-s1-2.png"
-coverAlt: "Part 02 of 03 cover: a PRD page with a dashed lime box around a missing line, under the title The requirement nobody wrote"
-syndicate: ["devto"]
+cover: >-
+  https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006263/portfolio/dispatches/agents-lie/cover-s1-2.png
+coverAlt: >-
+  Part 02 of 03 cover: a PRD page with a dashed lime box around a missing line,
+  under the title The requirement nobody wrote
+syndicate:
+  - devto
 draft: false
+devtoId: 4711713
 ---
 
 The smallest PRD in my experiments has a section called "Priority badge". It asks for a

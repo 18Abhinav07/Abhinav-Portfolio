@@ -1,16 +1,29 @@
 ---
-title: "My Agent Shipped a Broken Chart and Told Me It Was Done"
-date: "2026-09-21"
-summary: "Two builds, one PRD. One rendered a clean performance chart. The other drew the same line twice and reported the task complete. How that gap turned a planning tool into a Claude Code Stop hook that makes the agent prove its work in a real browser, and what the gate caught first."
-tags: ["AI Agents", "Claude Code", "Testing", "Verification"]
-project: "guardiankane"
-kind: "teardown"
-series: "your-agent-might-lie"
+title: My Agent Shipped a Broken Chart and Told Me It Was Done
+date: '2026-09-21'
+summary: >-
+  Two builds, one PRD. One rendered a clean performance chart. The other drew
+  the same line twice and reported the task complete. How that gap turned a
+  planning tool into a Claude Code Stop hook that makes the agent prove its work
+  in a real browser, and what the gate caught first.
+tags:
+  - AI Agents
+  - Claude Code
+  - Testing
+  - Verification
+project: guardiankane
+kind: teardown
+series: your-agent-might-lie
 seriesPart: 1
-cover: "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006262/portfolio/dispatches/agents-lie/cover-s1-1.png"
-coverAlt: "Part 01 of 03 cover: a line chart drawn twice, slightly offset, under the title My agent shipped a broken chart and told me it was done"
-syndicate: ["devto"]
+cover: >-
+  https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1790006262/portfolio/dispatches/agents-lie/cover-s1-1.png
+coverAlt: >-
+  Part 01 of 03 cover: a line chart drawn twice, slightly offset, under the
+  title My agent shipped a broken chart and told me it was done
+syndicate:
+  - devto
 draft: false
+devtoId: 4711712
 ---
 
 The chart looked fine in the code.
