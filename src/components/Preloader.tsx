@@ -38,12 +38,12 @@ export function Preloader() {
     window.addEventListener("hero3d:ready", () => advance("hero3d", 100), { once: true });
 
     // Failsafe: if hero3d never fires (no 3D scene or WebGL unavailable)
-    const failsafe = setTimeout(() => advance("hero3d", 100), 4000);
+    const failsafe = setTimeout(() => advance("hero3d", 100), 1200);
 
     // Idle ticks to show activity while waiting for real gates
     const ticker = setInterval(() => {
       setProgress(p => {
-        if (p >= 40) { clearInterval(ticker); return p; }
+        if (p >= 95) { clearInterval(ticker); return p; }
         return p + 2;
       });
     }, 80);
@@ -96,11 +96,11 @@ export function Preloader() {
               animate={{ opacity: 1, y: 0 }}
               className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] font-bold"
             >
-              {progress < 25 && "Gathering_Ecosystem_Signals..."}
-              {progress >= 25 && progress < 50 && "Hydrating_Resilient_Layers..."}
-              {progress >= 50 && progress < 80 && "Syncing_Privacy_Primitives..."}
-              {progress >= 80 && progress < 100 && "Validating_Mainnet_Scars..."}
-              {progress >= 100 && "Compiling_Aesthetic_OS..."}
+              {progress < 25 && "Resolving_Dependencies..."}
+              {progress >= 25 && progress < 50 && "Hydrating_Layers..."}
+              {progress >= 50 && progress < 80 && "Linking_Modules..."}
+              {progress >= 80 && progress < 100 && "Warming_Render_Pipeline..."}
+              {progress >= 100 && "Ready."}
             </motion.div>
           </div>
 

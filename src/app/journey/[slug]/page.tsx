@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { episodes, getEpisode } from "@/content/episodes";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
+import { SITE_URL } from "@/content/site-url";
+import { breadcrumbSchema, isoMonth, pageGraph, PERSON_ID } from "@/content/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return episodes.map((e) => ({ slug: e.slug }));
@@ -13,7 +16,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const e = getEpisode(slug);
   if (!e) return {};
-  return { title: `${e.title} · Journey`, description: e.excerpt };
+  const url = `${SITE_URL}/journey/${e.slug}`;
+  return {
+    title: `${e.title} · Journey · Abhinav Pangaria`,
+    description: e.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${e.title}: ${e.subtitle}`,
+      description: e.excerpt,
+      url,
+      type: "article",
+      ...(e.image ? { images: [{ url: e.image, alt: e.title }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: e.title,
+      description: e.excerpt,
+      creator: "@abhinavpangaria",
+    },
+  };
 }
 
 export default async function EpisodePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -26,6 +47,28 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
 
   return (
     <article>
+      <JsonLd
+        data={pageGraph(
+          {
+            "@type": "Article",
+            "@id": `${SITE_URL}/journey/${e.slug}#episode`,
+            headline: e.title,
+            alternativeHeadline: e.subtitle,
+            description: e.excerpt,
+            url: `${SITE_URL}/journey/${e.slug}`,
+            ...(isoMonth(e.date) ? { datePublished: isoMonth(e.date) } : {}),
+            articleSection: e.category,
+            author: { "@id": PERSON_ID },
+            publisher: { "@id": PERSON_ID },
+            inLanguage: "en",
+          },
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Journey", path: "/journey" },
+            { name: e.title, path: `/journey/${e.slug}` },
+          ]),
+        )}
+      />
       <header className="px-6 md:px-[80px] pt-[120px] pb-stack-xl brutalist-rule-b">
         <div className="grid md:grid-cols-12 gap-column-gap">
           <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold">

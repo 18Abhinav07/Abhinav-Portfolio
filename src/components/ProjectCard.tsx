@@ -106,7 +106,7 @@ export function ProjectCard({ project }: { project: Project }) {
               className="absolute top-6 right-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 scale-100 md:scale-90 md:group-hover:scale-100 z-30 pointer-events-none"
             >
               <span className="px-3 py-1.5 rounded-full border border-on-surface/10 bg-white/40 backdrop-blur-md font-mono text-[9px] text-on-surface tracking-[0.2em] uppercase shadow-lg">
-                {project.index} {" // "} {project.year.split(" · ")[0]}
+                {project.index} {" // "} {project.year}
               </span>
             </div>
 
@@ -115,7 +115,7 @@ export function ProjectCard({ project }: { project: Project }) {
               className="absolute bottom-6 left-6 right-6 z-30 pointer-events-none"
             >
               <span className="inline-block bg-primary text-on-surface font-mono font-bold text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 rounded-sm mb-2 shadow-sm">
-                {project.ecosystem}
+                {project.domain}
               </span>
               <h3 className="font-display italic text-headline-sm md:text-headline-md tracking-tight text-on-surface drop-shadow-sm break-words line-clamp-2">
                 {project.name}

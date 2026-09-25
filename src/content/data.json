@@ -3,7 +3,7 @@
     "name": "Abhinav Pangaria",
     "wordmark": "ABHINAV PANGARIA",
     "shortBio": "Builder of resilient systems.",
-    "longBio": "Engineer working across Web3 payments, privacy primitives, on-chain credit, and agent infrastructure. Production shipping across Stellar, Mantle, Polkadot, and Base. Equally at home in research, writing, and architectural design.",
+    "longBio": "Engineer who takes a problem down to the primitive it is missing and builds that. Orchestration and verification harnesses that make an autonomous agent prove its work rather than report it. Cryptographic systems that stop a public ledger from naming who paid whom. Settlement backends where a retry is theft and there is nothing to roll back. Retrieval and data pipelines inside a bank's asset and wealth management division, where the bottleneck was never the model. Rust, Go, Python and TypeScript across five runtimes, most of it owned end to end from the contract up to the dashboard.",
     "email": "abhinavpangaria2003@gmail.com",
     "socials": [
       {
@@ -38,9 +38,9 @@
       }
     ],
     "chips": [
-      "$100K SCF GRANT",
-      "OPEN CAMPUS INCUBATION",
-      "ENTREPRENEUR",
+      "STELLAR SCF GRANTEE",
+      "EX CO-FOUNDER",
+      "JP MORGAN CHASE",
       "LEAD ARCHITECT"
     ],
     "nav": [
@@ -114,7 +114,7 @@
     },
     {
       "date": "DEC 2025",
-      "title": "Notes from a year of mainnet deploys.",
+      "title": "Notes from a year of settlement work.",
       "readTime": "10 MIN READ",
       "href": "#"
     },
@@ -166,6 +166,7 @@
       "description": "AI agents are about to hold real spending power. AgentOps is the policy firewall that makes that safe, checking every payment, trade, and deploy an agent attempts against operator-defined rules in real time, signing or denying on the spot, then anchoring the decision as immutable proof on the Casper blockchain. One organization-level budget governs Casper x402 payments, CSPR.trade swaps, and direct Casper deploys simultaneously.",
       "year": "2026",
       "ecosystem": "Casper Network",
+      "domain": "Agent Governance",
       "role": "Lead Architect & Engineer",
       "stack": [
         "Rust / Odra",
@@ -176,16 +177,16 @@
       ],
       "metrics": [
         {
+          "label": "Decision",
+          "value": "Signed or Denied Pre-signature"
+        },
+        {
           "label": "Audit",
-          "value": "On-chain GuardRegistry"
+          "value": "Hash-chained, On-chain Registry"
         },
         {
-          "label": "Rails",
+          "label": "Actions Governed",
           "value": "x402 · Swaps · Deploys"
-        },
-        {
-          "label": "Integration",
-          "value": "MCP-native"
         }
       ],
       "liveUrl": "https://agentops.up.railway.app",
@@ -239,6 +240,7 @@
       "description": "Guardian Kane is a reviewed, phased, scope-guarded verification loop wrapped around Claude Code, not just a Stop-hook check (that's where it started; the current build spans twelve numbered phases). Every PRD use-case and generated test has to clear a review gate before it counts as real. A phased task tracker attributes every task, claim, and file to a build phase. Per-task verification then drives a real local browser through a scripted test plus an independent defect sweep before a task can advance to KANE_VERIFIED. Three failed attempts escalate to a human instead of looping forever. Underneath that: a local Jaccard-similarity bug-memory store, a real-time scope guard, a secret-scan security gate, file-level task locking, and a four-tab dashboard (code graph, memory graph, PRD graph with gaps & drift, live activity) with a chat bridge straight into the running agent. Proven across four paired A/B builds, including the flagship ORBITAL financial dashboard, where the unassisted baseline reported \"done\" on a doubled chart and an off-spec alerts layout, and the gated build shipped neither.",
       "year": "2026",
       "ecosystem": "Claude Code Tooling",
+      "domain": "Verification Systems",
       "role": "Lead Architect & Engineer",
       "stack": [
         "Node.js (ESM)",
@@ -263,7 +265,7 @@
           "value": "3-Strike → Human"
         },
         {
-          "label": "Proof",
+          "label": "Measured On",
           "value": "4 Paired A/B Builds"
         }
       ],
@@ -323,6 +325,7 @@
       "description": "Pods is a NIM-backed accountability app for small groups on Nimiq Pay. Commit NIM upfront, submit proof for scheduled activities like shipping code, fitness, reading, or study, and get payouts proportional to your presence. The creator reviews proof but never funds or receives participant money, so every settlement stays deterministic and disclosed.",
       "year": "2026",
       "ecosystem": "Nimiq",
+      "domain": "Settlement Design",
       "role": "Lead Architect & Engineer",
       "stack": [
         "Next.js 16",
@@ -386,6 +389,7 @@
       "description": "A private wallet and prediction market built on Stellar testnet. Public USDC converts into spendable shielded notes, private note-to-note transfers, batch payouts, and market participation all run through the same note model, so privacy is part of the wallet flow rather than bolted on. A backend prover and relayer generate proofs, simulate transactions, and settle pool state on-chain.",
       "year": "2026",
       "ecosystem": "Stellar",
+      "domain": "Applied Cryptography",
       "role": "Lead Architect & Engineer",
       "stack": [
         "Stellar SDK",
@@ -400,8 +404,8 @@
           "value": "Shielded Note Pool"
         },
         {
-          "label": "Markets",
-          "value": "Private Prediction"
+          "label": "Surfaces",
+          "value": "Private Sends, Batches, Markets"
         },
         {
           "label": "Network",
@@ -458,28 +462,29 @@
       "index": "05",
       "name": "Kredio",
       "tagline": "DeFi with memory. Polkadot's on-chain credit layer.",
-      "description": "The decentralized credit layer for Polkadot. Kredio uses hybrid EVM ↔ PolkaVM atomic calls to score borrowers against on-chain behavior. Featuring the YieldMind intelligence layer and NeuralScorer for real-time manipulation detection, it enables zero-oracle risk assessment across parachains via XCM.",
+      "description": "A credit layer for Polkadot that scores a borrower from on-chain behaviour rather than an oracle feed, so there is no price or reputation input to manipulate and nothing to bribe. Scoring runs across two runtimes at once through hybrid EVM and PolkaVM atomic calls, and the resulting score travels between parachains over XCM, which means a borrower's history follows them instead of restarting on every chain.",
       "year": "2024 · 2026",
       "ecosystem": "Polkadot · Paseo",
-      "role": "Sole · Builder",
+      "domain": "Credit Systems",
+      "role": "Sole Builder",
       "stack": [
         "ink! Wasm",
         "Solidity (EVM)",
-        "Polkadot XCM",
-        "NeuralScorer AI"
+        "PolkaVM",
+        "Polkadot XCM"
       ],
       "metrics": [
         {
-          "label": "Network",
-          "value": "Polkadot Asset Hub"
+          "label": "Scoring",
+          "value": "On-chain History, No Oracle"
         },
         {
-          "label": "Security",
-          "value": "NeuralScorer AI"
+          "label": "Reach",
+          "value": "Cross-parachain via XCM"
         },
         {
-          "label": "Routing",
-          "value": "YieldMind Engine"
+          "label": "Runtimes",
+          "value": "EVM and PolkaVM"
         }
       ],
       "liveUrl": "https://kredio-gamma.vercel.app",
@@ -525,9 +530,10 @@
       "name": "OpenAssets",
       "tagline": "The Mantle-native gateway bridging the RWA liquidity gap.",
       "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
-      "year": "2026",
+      "year": "2025 · 2026",
       "ecosystem": "Mantle Network",
-      "role": "Lead Architect, Desinger and · Fullstack builder",
+      "domain": "Compliance Infrastructure",
+      "role": "Lead Architect, Designer & Engineer",
       "stack": [
         "EVM",
         "ERC-3643",
@@ -645,30 +651,34 @@
       "index": "07",
       "name": "PayZoll",
       "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
-      "description": "The financial 'OS' for the Web3 economy. Originally built for the Stellar Build Better hackathon, PayZoll executes multi-hop path payments to settle global payroll in a single click. From contract-level path formation to automated asset swaps and institutional-grade dashboards, it bridges the legacy-fiat gap with production-grade efficiency.",
-      "year": "2024 · Present",
+      "description": "Cross-border payroll and treasury for teams whose members all hold different assets. I was sole technical owner of the payment infrastructure on a two-person founding team. The Stellar Disbursement Platform went from single-tenant to a multi-tenant distributed system running batch payroll for many organizations at once, with signing keys derived in AWS KMS instead of stored as raw tokens and payroll records encrypted at rest with pgcrypto. The interesting constraint was throughput: SDP was capped at eight channel accounts, roughly two transactions per second. Soroban's authorization-tree model let a single channel account fan out into many parallel contract calls, which took it to about 200.",
+      "year": "2025 · 2026",
       "ecosystem": "Stellar",
-      "role": "Lead Architect & Engineer · Solo Coder (Stellar Core)",
+      "domain": "Payments Infrastructure",
+      "role": "Ex Co-founder · Lead Architect",
       "stack": [
-        "Rust",
+        "Rust / Soroban",
         "Go",
-        "Stellar SDK",
+        "TypeScript",
         "NestJS",
-        "Stellar Disbursement Platform",
-        "PostgreSQL"
+        "PostgreSQL (pgcrypto)",
+        "Redis",
+        "AWS (KMS, EKS)",
+        "GCP (GKE)",
+        "Kubernetes"
       ],
       "metrics": [
         {
+          "label": "Throughput",
+          "value": "2 to 200 tx/sec"
+        },
+        {
+          "label": "Scope",
+          "value": "Sole technical owner"
+        },
+        {
           "label": "Origin",
           "value": "Stellar Build Better · 1st"
-        },
-        {
-          "label": "Pharos Camp",
-          "value": "3rd Place Win"
-        },
-        {
-          "label": "Status",
-          "value": "Mainnet Live"
         }
       ],
       "liveUrl": "https://payzoll.in",
@@ -705,8 +715,9 @@
       "name": "Tesseract",
       "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
       "description": "Deposit, wait, withdraw. Built to expand Stellar Disbursement Platform with Privacy, Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
-      "year": "2024 · 2026",
+      "year": "2025 · 2026",
       "ecosystem": "Stellar · Soroban",
+      "domain": "Applied Cryptography",
       "role": "Sole Builder",
       "stack": [
         "NestJS",
@@ -719,16 +730,16 @@
       ],
       "metrics": [
         {
-          "label": "Improve",
-          "value": "SDP with Privacy"
+          "label": "Extends",
+          "value": "Stellar Disbursement Platform"
         },
         {
-          "label": "Rotation",
-          "value": "Channel Accounts"
+          "label": "Unlinkability",
+          "value": "Channel Account Rotation"
         },
         {
-          "label": "Privacy",
-          "value": "Temporal Decorrel."
+          "label": "Timing",
+          "value": "Temporal Decorrelation"
         }
       ],
       "liveUrl": "https://tesseractprotocol.xyz",
@@ -789,7 +800,7 @@
         },
         {
           "kind": "phase",
-          "text": "Phase 06 / Selection"
+          "text": "Phase 09 / Selection"
         },
         {
           "kind": "h2",
@@ -833,7 +844,7 @@
         },
         {
           "kind": "phase",
-          "text": "Phase 07 / Governance"
+          "text": "Phase 08 / Governance"
         },
         {
           "kind": "h2",
@@ -877,7 +888,7 @@
         },
         {
           "kind": "phase",
-          "text": "Phase 08 / Continuity"
+          "text": "Phase 07 / Continuity"
         },
         {
           "kind": "h2",
@@ -903,7 +914,7 @@
       "title": "Privacy as Primitive.",
       "subtitle": "Building temporal decorrelation on Stellar.",
       "era": "S01 · 2025 : 2026",
-      "date": "MAY 2025",
+      "date": "NOV 2025",
       "category": "Cryptography",
       "excerpt": "Deposit, wait, withdraw. A Distributor severs the link between depositors and recipients. The most boring path is the most private one.",
       "aspect": "aspect-square",
@@ -915,7 +926,7 @@
         },
         {
           "kind": "phase",
-          "text": "Phase 05 / Mastery"
+          "text": "Phase 06 / Mastery"
         },
         {
           "kind": "h2",
@@ -945,7 +956,7 @@
         },
         {
           "kind": "phase",
-          "text": "Phase 04 / Primitives"
+          "text": "Phase 05 / Primitives"
         },
         {
           "kind": "h2",
@@ -962,20 +973,54 @@
       ]
     },
     {
-      "slug": "payzoll-journey",
+      "slug": "jpmc-internship",
       "index": "06",
-      "title": "The Mainnet Season.",
-      "subtitle": "Scaling from incubation to Stellar mainnet.",
-      "era": "S01 · 2024 : 2026",
-      "date": "MAR 2024",
-      "category": "Inflection",
-      "excerpt": "PayZoll evolved from an Open Campus incubation into a global rails provider. Institutional capital moving through systems that don't sleep.",
+      "title": "The Bank Floor.",
+      "subtitle": "Python, retrieval, and a bug queue that took a week.",
+      "era": "S01 · 2025 : 2025",
+      "date": "MAY 2025",
+      "category": "Systems",
+      "excerpt": "Three months inside JP Morgan Chase, Asset and Wealth Management. A RAG triage service written in Python that pulled bug resolution from about a week down to a day, and Snowflake pipelines that cut manual reporting by over 60% across the division.",
       "aspect": "aspect-video",
       "accent": "secondary",
       "body": [
         {
           "kind": "p",
-          "text": "PayZoll began as a thesis on friction. Capital moves slowly between borders and blockchains. Starting with the Educhain Open Campus incubation, we built for scale. The $100K SCF grant from the Stellar Development Foundation turned the prototype into a company. We focused on the vision of capital that moves now, not later."
+          "text": "A bank is where you find out what the word internal actually costs. In the Asset and Wealth Management division the bug queue had a shape everybody had stopped questioning: a ticket arrives, an engineer goes looking through Jira history and Confluence pages for the last time something like this happened, and about a week later it is resolved. Nobody was doing anything wrong. The knowledge simply was not retrievable."
+        },
+        {
+          "kind": "phase",
+          "text": "Phase 04 / Retrieval"
+        },
+        {
+          "kind": "h2",
+          "text": "The fix was retrieval, not process."
+        },
+        {
+          "kind": "p",
+          "text": "I built the triage service from scratch in Python, served through FastAPI, with Confluence documentation and Jira ticket data as the corpus. Given a new ticket it returns the prior incidents that genuinely resemble it and the resolution path that worked on them. Bug resolution went from roughly a week to about a day."
+        },
+        {
+          "kind": "p",
+          "text": "The second half of the work was data movement rather than retrieval: real-time Snowflake pipelines on AWS, replacing reporting that people were assembling by hand, cutting that effort by over 60% across the division. Different problem, same lesson I keep meeting. Most of what looks like a people problem is an interface between two systems that nobody owns."
+        }
+      ]
+    },
+    {
+      "slug": "payzoll-journey",
+      "index": "07",
+      "title": "The Settlement Season.",
+      "subtitle": "From the first prototype to a settled payment path.",
+      "era": "S01 · 2025 : 2026",
+      "date": "JAN 2025",
+      "category": "Inflection",
+      "excerpt": "A prototype I built through an Open Campus incubation and a Stellar hackathon became an SCF-backed company. I owned the Stellar core: path formation, settlement, and the disbursement integration.",
+      "aspect": "aspect-video",
+      "accent": "secondary",
+      "body": [
+        {
+          "kind": "p",
+          "text": "PayZoll began as a thesis on friction. Capital moves slowly between borders and blockchains. I was on it from the first prototype: through the Educhain Open Campus incubation, then the Stellar Build Better hackathon, then the build that carried the SCF application. A $100K grant from the Stellar Development Foundation turned that prototype into a company, and I stayed on the Stellar side of the engineering as a co-founder."
         },
         {
           "kind": "phase",
@@ -987,25 +1032,29 @@
         },
         {
           "kind": "p",
-          "text": "Today, we are integrating with Mudrex (Saber) to harden the liquidity bridge. We chose Rust and Go because they are languages of operators, not narratives. Scaling to Stellar mainnet isn't just a milestone, it's the result of building infrastructure that actually clears at 3am on a Sunday."
+          "text": "I was the sole technical owner of the payment infrastructure, and the work was less glamorous than the pitch. Redesigning the Stellar Disbursement Platform from single-tenant into a multi-tenant distributed system. Moving signing keys out of raw token storage and into hardware-derived material in AWS KMS, so no organization's funds or data were ever exposed to another's. Rebuilding the transaction queue with distributed workers and a real-time event layer, because the old \"optimistic done\" status marked payments successful before on-chain confirmation, and a payment that lies about itself is worse than one that fails loudly. Then a fund-recovery service to unwind partial failures without losing funds."
+        },
+        {
+          "kind": "p",
+          "text": "The ceiling I remember best was arithmetic. The platform could hold eight channel accounts, which meant about two transactions per second, which meant a large payroll took longer than a payroll is allowed to take. Soroban's authorization-tree model turned out to allow one channel account to fan out into many parallel contract calls, and that moved it to roughly 200 per second. Rust and Go, learned as needed. The part that stayed with me is not any deploy, it is what a payment system has to get right at 3am on a Sunday, when there is nobody to reverse anything."
         }
       ]
     },
     {
       "slug": "hackathon-arc",
-      "index": "07",
+      "index": "08",
       "title": "The Crucible.",
       "subtitle": "4-day sprints and solo marathons.",
       "era": "S01 · 2023 : 2024",
       "date": "FEB 2024",
       "category": "Velocity",
-      "excerpt": "A series of high-stakes wins across Stellar, Polkadot, and Mantle. From a 4-day solo marathon mastering path payments to winning honorary awards in new ecosystems, this is where technical intuition was forged.",
+      "excerpt": "Four-day sprints and one solo marathon across Stellar, Polkadot, and Mantle. Where the habit of reading the protocol before writing the code got formed.",
       "aspect": "aspect-square",
       "accent": "primary",
       "body": [
         {
           "kind": "p",
-          "text": "The arc reached its peak during the 4-day Stellar 'Build Better' Hackathon. Entering as a newcomer, I chose a high-risk path: solo-coding the entire infrastructure. I spent the first 12 hours deep in the core protocol docs, mapping out a solution others deemed impossible for a sprint: a complex multi-hop path payment system that handled asset conversion mid-flow. It secured 1st place and validated a core thesis: deep technical empathy is the ultimate force multiplier."
+          "text": "The arc reached its peak during the four-day Stellar Build Better hackathon. Entering as a newcomer, I took the high-risk path and solo-coded the infrastructure. The first twelve hours went into the core protocol docs rather than the editor, mapping a multi-hop path payment that converted assets mid-flow. It placed first, and the lesson that stuck was about the twelve hours, not the placement."
         },
         {
           "kind": "phase",
@@ -1021,19 +1070,23 @@
         },
         {
           "kind": "p",
-          "text": "The momentum shifted to Polkadot, where I built Kredio. As a newcomer to Substrate, I implemented cross-chain credit scoring via XCM, earning an Honorary Award. This continued with the Mantle Global Hackathon, where my team and I architected OpenAssets. These weren't trophies, they were the evidence of the production-grade architect I am today."
+          "text": "The momentum shifted to Polkadot, where I built Kredio. New to Substrate, I implemented cross-chain credit scoring over XCM and it earned an Honorary Award. Then the Mantle Global Hackathon, where my team and I architected OpenAssets. What I took from both was narrower than a trophy: how a score computed from public history gets farmed, and why compliance has to live inside the transfer rather than in a document beside it."
+        },
+        {
+          "kind": "p",
+          "text": "The tally, for anyone counting: first at Stellar Build Better, a win at VietBuidl U2U, a win at the Mantle Global Hackathon, third at Pharos Builder Camp, and an honorary award from Polkadot for arriving at Substrate as a newcomer. Five placements across five different ecosystems, which is less a record than a description of how I learn a stack: build the hardest thing it allows, under a deadline, in front of people who know it better than I do."
         }
       ]
     },
     {
       "slug": "college-foundations",
-      "index": "08",
+      "index": "09",
       "title": "The Apprenticeship.",
       "subtitle": "Theory meets the wire at IIIT.",
       "era": "S01 · 2022 : 2023",
       "date": "NOV 2022",
       "category": "Origins",
-      "excerpt": "IIIT Guwahati, first semester. A 9.55 CGPA and a stubborn refusal to write throwaway code. Algorithms by day, debugging Linux stacks at 2am.",
+      "excerpt": "IIIT Guwahati, first semester. Writing malloc from scratch to understand segfaults, and a stubborn refusal to write throwaway code. Algorithms by day, Linux stacks at 2am.",
       "aspect": "aspect-[3/4]",
       "accent": "secondary",
       "body": [
@@ -1051,7 +1104,7 @@
         },
         {
           "kind": "p",
-          "text": "The 9.55 CGPA wasn't about the grades, it was about the discipline of completion. I learned early that taste comes from quantity. The path from first-year to mainnet isn't a leap, it is a thousand boring repetitions until you stop being surprised by your own mistakes."
+          "text": "What I was actually learning was the distance between a textbook example and the wire. Reimplementing things that already existed, badly at first, until the failure modes stopped being surprising. The path from a first-year exercise to a system other people depend on is not a leap, it is a thousand boring repetitions."
         }
       ]
     }

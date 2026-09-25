@@ -34,3 +34,8 @@ yarn-error.log*
 .vercel
 # rendered dispatch graphics (sources live in scripts/graphics)
 scripts/graphics/out/
+
+# local only, never part of the portfolio build
+.claude/
+# a separate clone of github.com/18Abhinav07/18Abhinav07 that lives here for convenience
+github-profile-repo/

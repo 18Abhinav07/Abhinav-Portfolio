@@ -20,6 +20,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import dotenv from "dotenv";
+import { unwrapMarkdown } from "./lib/unwrap-markdown.mjs";
 
 // Local runs read DEVTO_API_KEY from .env; CI passes it as a real env var, which wins.
 dotenv.config({ path: path.join(path.dirname(fileURLToPath(import.meta.url)), "..", ".env"), quiet: true });
@@ -85,10 +86,11 @@ if (data.series && !series) {
  * Translate portfolio markdown into what dev.to renders:
  *  - root-relative links become absolute, or they 404 on dev.to
  *  - GitHub alert callouts (> [!NOTE]) become a bold label, since dev.to has no alerts
+ *  - hard-wrapped paragraphs are joined, since dev.to renders each newline as <br>
  *  - a footer points the reader home, with the series when there is one
  */
 function toDevto(body) {
-  let out = body
+  let out = unwrapMarkdown(body)
     .replace(/\]\(\//g, `](${SITE}/`)
     .replace(/^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$/gim, (_, kind) => {
       const label = kind[0].toUpperCase() + kind.slice(1).toLowerCase();

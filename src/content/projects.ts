@@ -8,6 +8,8 @@ export type Project = {
   description: string;
   year: string;
   ecosystem: string;
+  /** Problem class this project belongs to. Shown on cards in place of the chain name. */
+  domain: string;
   role: string;
   stack: string[];
   metrics: { label: string; value: string }[];

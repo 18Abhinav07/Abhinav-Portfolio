@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { episodes, getEpisode } from "./episodes";
 
 describe("episodes content", () => {
-  it("has 8 episodes", () => {
-    expect(episodes.length).toBe(8);
+  it("has 9 episodes", () => {
+    expect(episodes.length).toBe(9);
   });
 
   it("has unique slugs", () => {

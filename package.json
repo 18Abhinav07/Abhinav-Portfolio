@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "sync:devto": "node scripts/sync-devto.mjs",
-    "stats:devto": "node scripts/devto-stats.mjs"
+    "stats:devto": "node scripts/devto-stats.mjs",
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

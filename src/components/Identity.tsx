@@ -18,7 +18,7 @@ export function Identity() {
               <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-on-surface-variant font-medium leading-relaxed">
                 FILE · AP-002.MD
                 <br />
-                EDIT · 2026-05-29
+                EDIT · 2026-09-25
               </div>
             </StaggerItem>
           </StaggerGroup>
@@ -32,19 +32,35 @@ export function Identity() {
           <div className="grid md:grid-cols-2 gap-stack-xl text-body-md text-on-surface-variant font-medium leading-relaxed">
             <Reveal delay={0.2}>
               <p>
-                The work spans five ecosystems: Stellar, Mantle,
-                Polkadot, and Base. Payments rails, privacy primitives,
-                on-chain credit, RWA infrastructure, and the agent systems that
-                sit on top. Different problems, the same bias toward the boring,
+                A verification loop wrapped around a coding agent: twelve
+                phases, 460 unit tests, a scope guard, a bug memory keyed by
+                similarity, and a real browser driving the feature before any
+                task is allowed to advance. A policy firewall deciding what an
+                autonomous agent may spend before its key ever signs, with the
+                decision anchored where nobody can revise it. Shielded note
+                pools and channel-account rotation, so the most boring path
+                through a payment system is also the most private one. Credit
+                scored across two runtimes and carried between parachains with
+                no oracle in the risk path. Cross-border payroll formed and
+                swapped along a payment path, where a retry is theft. Different
+                problems, one bias: toward the boring,
                 exhausting middle of the stack.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <p>
-                Co-founder and lead architect/engineer at PayZoll. Stellar SCF grantee.
-                Open campus incubation. Author of the Tesseract privacy protocol.
-                Builder of Kredio on-chain credit. Most of what I am proud of
-                is in production, clearing every day without my name attached.
+                Sole builder on two of these, lead architect and engineer on the
+                rest, and sole technical owner of the payment infrastructure at
+                the one that became a company. A summer inside JP Morgan Chase,
+                asset and wealth management, where the problem was retrieval
+                rather than consensus and the fix was a Python service that took
+                bug triage from a week to a day. Stellar SCF grantee, open campus
+                incubation, five hackathon wins. The shape of the work is the
+                same every time: own it from the protocol or the contract up
+                through the service layer to the dashboard someone actually looks
+                at, then write up what it taught from the artifacts the build
+                left behind rather than from memory. A ninth system is in active
+                development.
               </p>
             </Reveal>
           </div>

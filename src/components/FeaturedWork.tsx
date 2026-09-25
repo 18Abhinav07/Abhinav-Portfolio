@@ -18,14 +18,14 @@ export function FeaturedWork() {
       <div className="relative z-10">
         <div className="grid md:grid-cols-12 gap-column-gap mb-20 md:mb-28">
           <Reveal className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em]" y={20}>
-            <span className="bg-primary text-on-surface px-2 py-0.5 rounded font-bold">03 / Featured · Selected Rails</span>
+            <span className="bg-primary text-on-surface px-2 py-0.5 rounded font-bold">03 / Featured · Selected Systems</span>
           </Reveal>
           <Reveal className="md:col-span-9 max-w-2xl" y={28} delay={0.1}>
             <h2 className="font-display text-headline-lg leading-[1.05] tracking-[-0.02em] text-on-surface mb-stack-md">
-              Selected rails. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">From Demos to Mainnet</em>
+              Two systems. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">Owned end to end.</em>
             </h2>
             <p className="text-body-md text-on-surface-variant leading-relaxed">
-              A brief preview of live financial systems, compliant RWA primitives, and privacy layers running in production.
+              A policy firewall that decides what an autonomous agent may spend before its key signs, and a verification loop that makes a coding agent prove its work instead of reporting it. The rest of the range is one page away.
             </p>
           </Reveal>
         </div>
@@ -51,7 +51,7 @@ export function FeaturedWork() {
             href="/work"
             className="group flex items-center gap-3 px-6 py-3.5 rounded-full border border-outline bg-surface-container-high/40 text-on-surface hover:border-primary hover:bg-primary hover:text-on-surface hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] uppercase font-mono text-[10px] tracking-widest font-semibold"
           >
-            <span>View all production rails</span>
+            <span>View all eight systems</span>
             <div className="w-5 h-5 rounded-full bg-on-surface/[0.04] group-hover:bg-white/40 flex items-center justify-center text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500">
               ↗
             </div>

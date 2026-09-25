@@ -13,6 +13,9 @@ import {
 import { getSeries } from "@/content/series";
 import { getProject } from "@/content/projects";
 import { dispatchUrl } from "@/content/site-url";
+import { topicsForDispatch } from "@/content/topics";
+import { articleSchema, breadcrumbSchema, pageGraph } from "@/content/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { ReadingProgress } from "@/components/dispatches/ReadingProgress";
 import { TableOfContents } from "@/components/dispatches/TableOfContents";
 import { ProseEnhancer } from "@/components/dispatches/ProseEnhancer";
@@ -111,8 +114,21 @@ export default async function DispatchPage({ params }: { params: Promise<{ slug:
   const shareText = encodeURIComponent(d.title);
   const shareUrl = encodeURIComponent(url);
 
+  const topics = topicsForDispatch(d.slug);
+
   return (
     <article className="px-6 md:px-[80px] pt-[120px] pb-[120px]">
+      <JsonLd
+        data={pageGraph(
+          articleSchema(d),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Dispatches", path: "/dispatches" },
+            ...(series ? [{ name: series.title, path: `/dispatches/series/${series.slug}` }] : []),
+            { name: d.title, path: `/dispatches/${d.slug}` },
+          ]),
+        )}
+      />
       <ReadingProgress targetId="dispatch-body" />
       <ProseEnhancer />
 
@@ -254,6 +270,23 @@ export default async function DispatchPage({ params }: { params: Promise<{ slug:
             >
               All {parts.length} parts of {series.title} →
             </Link>
+          )}
+
+          {topics.length > 0 && (
+            <div className="mt-stack-xl pt-stack-lg border-t border-outline">
+              <div className={`${label} text-on-surface-variant mb-4`}>Part of</div>
+              <div className="flex flex-wrap gap-3">
+                {topics.map((t) => (
+                  <Link
+                    key={t.slug}
+                    href={`/topics/${t.slug}`}
+                    className="px-4 py-2 rounded-full border border-outline font-mono text-[11px] uppercase tracking-[0.14em] text-on-surface-variant hover:border-on-surface hover:text-on-surface transition-colors"
+                  >
+                    {t.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>

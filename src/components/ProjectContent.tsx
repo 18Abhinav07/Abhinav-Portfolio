@@ -16,11 +16,13 @@ interface ProjectContentProps {
   /** Dispatches written about this project, in reading order. */
   writing?: { slug: string; title: string; part?: number; series?: string }[];
   series?: { slug: string; title: string }[];
+  /** Topic hubs this project belongs to. */
+  topics?: { slug: string; title: string }[];
 }
 
 const DEVTO_PROFILE = "https://dev.to/abhinav_pangaria";
 
-export function ProjectContent({ project, nextProject, writing = [], series = [] }: ProjectContentProps) {
+export function ProjectContent({ project, nextProject, writing = [], series = [], topics = [] }: ProjectContentProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImages, setLoadedImages] = useState(0);
   const [individualLoads, setIndividualLoads] = useState<Record<string, boolean>>({});
@@ -78,7 +80,7 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
         <header className="px-6 md:px-[80px] pt-[120px] pb-stack-xl">
           <div className="grid md:grid-cols-12 gap-column-gap">
             <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold">
-              {project.index} · {project.ecosystem}
+              {project.index} · {project.domain}
               <div className="mt-stack-md text-on-surface-variant">
                 {project.role}
                 <br />
@@ -136,7 +138,7 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
 
         <section className="px-6 md:px-[80px] mb-[120px] grid md:grid-cols-12 gap-column-gap">
           <div className="md:col-span-3 font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-md md:mb-0">
-            Metrics
+            At a glance
           </div>
           <StaggerGroup className="md:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-stack-md">
             {project.metrics.map((m) => (
@@ -157,7 +159,9 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
             Stack
           </div>
           <div className="md:col-span-9 flex flex-wrap gap-stack-sm">
-            {project.stack.map((t) => (
+            {/* The runtime sits in the stack row, not the header: it is a deployment
+                target, not the problem this project solves. */}
+            {[project.ecosystem, ...project.stack].map((t) => (
               <span
                 key={t}
                 className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-sm py-1.5 border border-outline-variant rounded-pill text-on-surface-variant"
@@ -229,7 +233,7 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
         {project.presentationUrl && (
           <section className="px-6 md:px-[80px] mb-[120px]">
             <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
-              Presentation Deck
+              Presentation
             </div>
             <DeckEmbed url={project.presentationUrl} title={`${project.name} Deck`} />
           </section>
@@ -295,6 +299,25 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
               >
                 Also on dev.to →
               </a>
+            </div>
+          </section>
+        )}
+
+        {topics.length > 0 && (
+          <section className="px-6 md:px-[80px] mb-[120px]">
+            <div className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface font-bold mb-stack-lg">
+              Part of
+            </div>
+            <div className="flex flex-wrap gap-stack-md">
+              {topics.map((t) => (
+                <Link
+                  key={t.slug}
+                  href={`/topics/${t.slug}`}
+                  className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary font-bold transition-colors"
+                >
+                  {t.title} →
+                </Link>
+              ))}
             </div>
           </section>
         )}

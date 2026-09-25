@@ -5,6 +5,8 @@ import { SERIES, getSeries } from "@/content/series";
 import { getProject } from "@/content/projects";
 import { SITE_URL } from "@/content/site-url";
 import { Reveal } from "@/components/Reveal";
+import { articleSchema, breadcrumbSchema, pageGraph } from "@/content/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -40,6 +42,27 @@ export default async function SeriesPage({ params }: { params: Promise<{ slug: s
 
   return (
     <section className="px-6 md:px-[80px] py-[120px]">
+      <JsonLd
+        data={pageGraph(
+          {
+            "@type": "CollectionPage",
+            "@id": `${SITE_URL}/dispatches/series/${s.slug}#series`,
+            name: s.title,
+            headline: s.tagline,
+            description: s.description,
+            url: `${SITE_URL}/dispatches/series/${s.slug}`,
+            keywords: topics,
+            // Each part is declared here as well as on its own page, so a crawler
+            // that only reads the series page still sees the whole argument.
+            hasPart: parts.map((p) => articleSchema(p)),
+          },
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Dispatches", path: "/dispatches" },
+            { name: s.title, path: `/dispatches/series/${s.slug}` },
+          ]),
+        )}
+      />
       <nav className="font-mono text-label-mono uppercase tracking-[0.18em] text-on-surface-variant mb-12">
         <Link href="/dispatches" className="text-on-surface font-bold hover:text-on-surface-variant transition-colors">
           ← Dispatches

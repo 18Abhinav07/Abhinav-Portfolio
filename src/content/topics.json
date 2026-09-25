@@ -1,0 +1,259 @@
+[
+  {
+    "slug": "agent-verification",
+    "index": "01",
+    "title": "Agent output verification",
+    "headline": "Proving an AI agent is actually done",
+    "question": "How do you verify that an AI coding agent actually finished the work it says it finished?",
+    "answer": "An agent reports \"done\" from its own account of what it did, which is not evidence. Verification means an independent check that the built thing matches the requirement: a real browser driving the feature, a test the agent did not write for itself, and a review gate each generated use case has to clear before it counts. Guardian Kane is my build of that loop, twelve numbered phases wrapped around Claude Code, and four paired A/B builds where the ungated run reported done on a doubled chart while the gated run shipped neither defect.",
+    "keywords": [
+      "AI agent verification",
+      "verify AI generated code",
+      "agent said done but was not done",
+      "Claude Code verification loop",
+      "AI coding agent testing",
+      "mutation testing AI code",
+      "agent hallucination in code review",
+      "automated QA for AI code",
+      "Playwright browser verification",
+      "test generation pipeline",
+      "mutation testing score"
+    ],
+    "projects": [
+      "guardiankane"
+    ],
+    "dispatches": [
+      "agent-shipped-a-broken-chart",
+      "the-requirement-nobody-wrote",
+      "who-verifies-the-verifier"
+    ],
+    "related": [
+      "claude-code-tooling",
+      "agent-spend-governance"
+    ]
+  },
+  {
+    "slug": "agent-spend-governance",
+    "index": "02",
+    "title": "Agent payments and spend policy",
+    "headline": "Governing what an autonomous agent is allowed to spend",
+    "question": "How do you control what an autonomous AI agent is allowed to pay, trade, or deploy?",
+    "answer": "Once an agent holds a key it holds spending power, and the question stops being what it should do and becomes what it is permitted to do. The answer is a policy layer in front of the key: every payment, swap, and deploy checked against operator rules before it is signed, denied on the spot when it breaks one, and the decision anchored where nobody can revise it afterwards. AgentOps is my build of that on Casper, one organization budget governing x402 payments, CSPR.trade swaps, and direct deploys through an on-chain GuardRegistry, exposed to agents over MCP.",
+    "keywords": [
+      "AI agent spending limits",
+      "autonomous agent payments",
+      "x402 agent payments",
+      "agent policy firewall",
+      "MCP payment governance",
+      "agent wallet guardrails",
+      "Casper x402"
+    ],
+    "projects": [
+      "agentops"
+    ],
+    "dispatches": [],
+    "related": [
+      "agent-verification",
+      "backend-for-money"
+    ]
+  },
+  {
+    "slug": "stellar-soroban",
+    "index": "03",
+    "title": "Stellar and Soroban",
+    "headline": "Three systems on Stellar, each solving a different problem",
+    "question": "What can you actually build on Stellar and Soroban beyond simple payments?",
+    "answer": "Stellar is usually described as a payments rail, and the interesting work starts where a plain payment stops being enough. I have built three systems on it. PayZoll runs multi-tenant batch payroll on the Stellar Disbursement Platform, and the constraint that defined it was throughput: SDP holds eight channel accounts, about two transactions per second, and Soroban's authorization tree lets one channel account fan out into many parallel contract calls, which moved it to roughly 200. Tesseract extends the same platform with channel-account rotation so the depositor and the recipient cannot be linked. VEIL is a shielded note pool giving a Stellar wallet private transfers and prediction markets on testnet. PayZoll came first in the Stellar Build Better hackathon and carries a $100K SCF grant.",
+    "keywords": [
+      "Stellar development",
+      "Soroban smart contracts",
+      "Stellar path payments",
+      "Stellar Disbursement Platform",
+      "build on Stellar",
+      "Stellar SDK NestJS",
+      "SCF grant project",
+      "Soroban authorization tree",
+      "Stellar channel accounts",
+      "multi-tenant disbursement"
+    ],
+    "projects": [
+      "payzoll",
+      "tesseract",
+      "veil"
+    ],
+    "dispatches": [],
+    "related": [
+      "onchain-privacy",
+      "web3-payroll"
+    ]
+  },
+  {
+    "slug": "onchain-privacy",
+    "index": "04",
+    "title": "On-chain privacy and ZK",
+    "headline": "Making a public ledger stop leaking who paid whom",
+    "question": "How do you make payments private on a public blockchain without leaving the chain?",
+    "answer": "A public ledger is a permanent record of who paid whom, which is fine for auditors and hostile to payroll, and privacy bolted on afterwards tends to be the path nobody takes. Two approaches I have built: shielded notes, where public USDC converts into notes and transfers, batch payouts, and market positions all move inside the same note model, and temporal decorrelation, where deposit, wait, and withdraw are severed by rotating channel accounts and layered encryption. VEIL is the first, Tesseract the second, and both are built so the most boring path through the system is also the most private one.",
+    "keywords": [
+      "on-chain privacy",
+      "zero knowledge payments",
+      "shielded notes",
+      "private stablecoin transfer",
+      "Noir circuits",
+      "privacy preserving payroll",
+      "blockchain transaction linkability"
+    ],
+    "projects": [
+      "veil",
+      "tesseract"
+    ],
+    "dispatches": [],
+    "related": [
+      "stellar-soroban",
+      "web3-payroll"
+    ]
+  },
+  {
+    "slug": "rwa-tokenization",
+    "index": "05",
+    "title": "RWA tokenization",
+    "headline": "Off-chain cash flows as compliant on-chain primitives",
+    "question": "How do real-world assets get tokenized and stay compliant once they are on-chain?",
+    "answer": "Tokenizing a real-world asset is the easy half; the hard half is that the token stays subject to rules the chain does not know about, so compliance has to live in the transfer itself rather than in a document beside it. OpenAssets is my execution layer for that on Mantle: ERC-3643 T-REX permissioned transfers, an OAID credit identity so an address carries its own eligibility, mETH-backed leverage vaults, and a Token-Day engine that stops yield sniping by weighting the holding period rather than the balance at a snapshot. Built for the Mantle Global Hackathon.",
+    "keywords": [
+      "RWA tokenization",
+      "ERC-3643 T-REX",
+      "real world assets on-chain",
+      "permissioned token transfers",
+      "Mantle network RWA",
+      "institutional DeFi compliance",
+      "mETH leverage vault"
+    ],
+    "projects": [
+      "openassets"
+    ],
+    "dispatches": [],
+    "related": [
+      "onchain-credit",
+      "backend-for-money"
+    ]
+  },
+  {
+    "slug": "onchain-credit",
+    "index": "06",
+    "title": "On-chain credit",
+    "headline": "Lending that remembers who you are",
+    "question": "How do you underwrite credit on-chain without an oracle and without over-collateralizing everything?",
+    "answer": "DeFi lending mostly solved trust by demanding more collateral than the loan, which works and also means no credit actually exists. The alternative is to score the borrower from behavior already recorded on-chain, which removes the oracle from the risk path but adds a new problem: a score computed from public history can be farmed. Kredio is my build of that for Polkadot, hybrid EVM to PolkaVM atomic calls for scoring, NeuralScorer watching for manipulation in real time, the YieldMind routing layer, and XCM so the assessment travels across parachains.",
+    "keywords": [
+      "on-chain credit score",
+      "undercollateralized lending",
+      "DeFi credit layer",
+      "Polkadot XCM",
+      "ink! smart contracts",
+      "PolkaVM EVM interop",
+      "oracle free risk assessment"
+    ],
+    "projects": [
+      "kredio"
+    ],
+    "dispatches": [],
+    "related": [
+      "rwa-tokenization",
+      "backend-for-money"
+    ]
+  },
+  {
+    "slug": "web3-payroll",
+    "index": "07",
+    "title": "Web3 payroll and disbursement",
+    "headline": "Paying a distributed team without the fiat detour",
+    "question": "How do you run cross-border payroll and treasury for a crypto-native team?",
+    "answer": "Paying a team across borders normally means a chain of correspondent banks, a two day wait, and a spread nobody itemizes. Doing it on-chain replaces that with a different set of problems, and most of them are not payment problems. Many organizations have to share one platform without ever touching each other's funds or data, which means multi-tenant isolation, per-tenant credentials, non-custodial signing keys derived in a KMS rather than stored as raw tokens, and payroll records encrypted at rest. Then the queue has to stop marking payments successful before on-chain confirmation, and something has to unwind a partial batch without losing funds. That is the system I was sole technical owner of at PayZoll, from contract level up to the treasury dashboard.",
+    "keywords": [
+      "crypto payroll",
+      "web3 payroll platform",
+      "cross border stablecoin payments",
+      "Stellar path payments",
+      "onchain treasury management",
+      "pay contractors in crypto",
+      "multi-hop asset swap",
+      "multi-tenant payroll platform",
+      "non-custodial key management",
+      "AWS KMS signing keys"
+    ],
+    "projects": [
+      "payzoll",
+      "pods"
+    ],
+    "dispatches": [],
+    "related": [
+      "stellar-soroban",
+      "onchain-privacy"
+    ]
+  },
+  {
+    "slug": "backend-for-money",
+    "index": "08",
+    "title": "Backends that cannot afford to be wrong",
+    "headline": "What breaks when the payload is value",
+    "question": "What does a backend have to get right when the thing it is moving is money?",
+    "answer": "A backend that moves money has a property most backends do not: a retry can be theft, a lost write can be a missing salary, and there is no support ticket that reverses a settled chain transaction. So the design pushes toward determinism, replayable state, isolated per-tenant credentials, and a queue that only calls a payment done once the chain agrees. Across PayZoll, Tesseract, AgentOps and OpenAssets that has meant Rust, Go, NestJS and TypeScript over PostgreSQL, Redis and distributed workers, running on Kubernetes across AWS and GCP with Prometheus and Grafana watching it, and the ledger rather than the service holding the truth. The same instinct transfers outside crypto: at JP Morgan Chase it was Python and FastAPI over Snowflake pipelines, where the failure mode was a stale report rather than a lost payment, but the question was the same one about who owns the truth.",
+    "keywords": [
+      "backend engineer web3",
+      "payment system architecture",
+      "idempotent payment processing",
+      "NestJS backend architecture",
+      "Rust backend blockchain",
+      "distributed systems money",
+      "settlement engine design",
+      "distributed systems engineer",
+      "exactly once processing",
+      "event driven architecture",
+      "Python backend",
+      "FastAPI backend",
+      "Kubernetes AWS GCP",
+      "Snowflake data pipelines",
+      "RAG retrieval service"
+    ],
+    "projects": [
+      "payzoll",
+      "tesseract",
+      "agentops",
+      "openassets"
+    ],
+    "dispatches": [],
+    "related": [
+      "agent-spend-governance",
+      "rwa-tokenization"
+    ]
+  },
+  {
+    "slug": "claude-code-tooling",
+    "index": "09",
+    "title": "Claude Code tooling",
+    "headline": "Hooks, skills, and MCP as a build system",
+    "question": "How do you extend Claude Code with hooks, skills, and MCP servers?",
+    "answer": "Claude Code gives you three extension points and they do different jobs: hooks fire on the agent's lifecycle so you can gate what it is about to do, skills carry the procedure you want followed instead of whatever it remembers, and an MCP server hands it tools and resources it could not otherwise reach. Guardian Kane uses all three, a Stop hook that grew into a twelve phase loop, a skill holding the procedure, and a kane-cli underneath, with a four tab dashboard showing the code graph, memory graph, PRD graph, and live activity. I have written up what the second build taught me about how much of it is wiring.",
+    "keywords": [
+      "Claude Code hooks",
+      "Claude Code skills",
+      "MCP server development",
+      "Claude Code Stop hook",
+      "agent tooling architecture",
+      "extend Claude Code",
+      "AI developer tools"
+    ],
+    "projects": [
+      "guardiankane"
+    ],
+    "dispatches": [
+      "the-second-build-was-mostly-wiring",
+      "making-verification-visible"
+    ],
+    "related": [
+      "agent-verification",
+      "agent-spend-governance"
+    ]
+  }
+]

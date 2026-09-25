@@ -43,6 +43,12 @@ export const DiscordIcon = (props: IconProps) => (
 );
 
 
+export const DevToIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6.3v4.36h.29c.38 0 .66-.07.84-.23.18-.16.27-.45.27-.88v-2.14c0-.43-.09-.72-.27-.88zM0 4.94v14.12A1.94 1.94 0 0 0 1.94 21h20.12A1.94 1.94 0 0 0 24 19.06V4.94A1.94 1.94 0 0 0 22.06 3H1.94A1.94 1.94 0 0 0 0 4.94zm9.13 8.3c0 .88-.25 1.56-.73 2.05-.48.49-1.15.73-2.01.73H4.6V8.02h1.85c.83 0 1.48.24 1.95.71.47.48.73 1.14.73 2v2.51zm4.4-3.42h-2.09v1.4h1.28v1.61h-1.28v1.4h2.09v1.61h-2.9a.8.8 0 0 1-.8-.8V8.82c0-.44.36-.8.8-.8h2.9v1.8zm4.63 5.59c-.19.44-.44.66-.82.66-.38 0-.63-.22-.82-.66l-1.79-6.05h1.79l.82 3.85.82-3.85h1.79l-1.79 6.05z" />
+  </svg>
+);
+
 export function getSocialIcon(label: string, props: IconProps = {}) {
   const l = label.toLowerCase();
   if (l.includes("twitter") || l.includes(" x")) return <XIcon {...props} />;
@@ -50,5 +56,6 @@ export function getSocialIcon(label: string, props: IconProps = {}) {
   if (l.includes("linkedin")) return <LinkedInIcon {...props} />;
   if (l.includes("telegram")) return <TelegramIcon {...props} />;
   if (l.includes("discord")) return <DiscordIcon {...props} />;
+  if (l.includes("dev.to")) return <DevToIcon {...props} />;
   return null;
 }

@@ -520,7 +520,31 @@ const s2Tiles = seriesTiles([
   ["02", "The visual layer", "graphs, activity, live chat"],
 ]);
 
+/* --------------------------------------------------------------- site card */
+
+/**
+ * The default share card for every page that has no cover of its own, and the
+ * image an unfurler shows for the site root. 1200x630, the one size every link
+ * preview agrees on. Rendered straight into public/images/og-default.png rather
+ * than uploaded, because it belongs to the site rather than to a post.
+ */
+const siteCard = page(
+  1200,
+  630,
+  `<div class="cover" style="width:1200px"><div class="grid"></div><div class="glow"></div>
+    <div class="left" style="left:64px;top:60px;bottom:60px;width:1072px">
+      <div class="kicker mono">Abhinav Pangaria</div>
+      <div class="part mono">Web3 payments &middot; privacy &middot; on-chain credit &middot; agent infrastructure</div>
+      <div class="title display" style="font-size:80px">Builder of <em>resilient systems</em>.</div>
+      <div class="foot mono" style="margin-top:28px">PayZoll &middot; Tesseract &middot; VEIL &middot; OpenAssets &middot; Kredio &middot; AgentOps &middot; Guardian Kane</div>
+      <div class="foot mono" style="margin-top:12px;color:${LIME}">abhinavpangaria.pages.dev</div>
+    </div>
+  </div>`,
+  coverCss,
+);
+
 export const graphics = [
+  { name: "site-og", width: 1200, height: 630, html: siteCard },
   { name: "cover-s1", width: 1600, height: 672, html: cover({ part: 0, title: "Your agent might <em>actually lie</em> to you", motif: s1Tiles }) },
   { name: "cover-s1-1", width: 1600, height: 672, html: cover({ part: 1, title: "My agent shipped a <em>broken chart</em> and told me it was done", motif: motifs.chart }) },
   { name: "cover-s1-2", width: 1600, height: 672, html: cover({ part: 2, title: "The requirement <em>nobody wrote</em>", motif: motifs.prd }) },
