@@ -1,38 +1,41 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_URL } from "@/content/site-url";
 import { siteGraph, DEFAULT_OG_IMAGE } from "@/content/seo";
 import { JsonLd } from "@/components/JsonLd";
 import "@/styles/globals.css";
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
+// Self-hosted (latin, variable where the face has one) so the build never fetches
+// from Google: the Cloudflare build host got an unparseable font URL back once.
+const hanken = localFont({
+  src: "./fonts/hanken-normal.woff2",
   variable: "--font-hanken",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "300 700",
 });
 
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrains = localFont({
+  src: "./fonts/jetbrains-mono-normal.woff2",
   variable: "--font-jetbrains",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: "400 600",
 });
 
 // The Index view's faces. The chooser on the home page uses the serif too.
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
+const instrument = localFont({
+  src: [
+    { path: "./fonts/instrument-serif-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+  ],
   variable: "--font-instrument",
   display: "swap",
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter-normal.woff2",
   variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: "400 600",
 });
 
 export const metadata: Metadata = {
