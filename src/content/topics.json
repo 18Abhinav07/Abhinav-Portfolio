@@ -20,7 +20,8 @@
       "mutation testing score"
     ],
     "projects": [
-      "guardiankane"
+      "guardiankane",
+      "loom"
     ],
     "dispatches": [
       "agent-shipped-a-broken-chart",
@@ -38,7 +39,7 @@
     "title": "Agent payments and spend policy",
     "headline": "Governing what an autonomous agent is allowed to spend",
     "question": "How do you control what an autonomous AI agent is allowed to pay, trade, or deploy?",
-    "answer": "Once an agent holds a key it holds spending power, and the question stops being what it should do and becomes what it is permitted to do. The answer is a policy layer in front of the key: every payment, swap, and deploy checked against operator rules before it is signed, denied on the spot when it breaks one, and the decision anchored where nobody can revise it afterwards. AgentOps is my build of that on Casper, one organization budget governing x402 payments, CSPR.trade swaps, and direct deploys through an on-chain GuardRegistry, exposed to agents over MCP.",
+    "answer": "Once an agent holds a key it holds spending power, and the question stops being what it should do and becomes what it is permitted to do. A wallet answers how the agent can move money; the organization still needs to know which agent is acting, what it was delegated, how much it may spend, who it may pay, and when a human has to sign off. AgentOps is my build of that layer on Circle and Arc: every agent gets its own identity, wallet, policy and budget, every action runs a fail-closed path of policy, budget and approval before it settles, and the evidence record links the agent's intent to the on-chain settlement. Payments ride x402 and Gateway, agent-to-agent spending is bounded with Permit2, first interactions go through ERC-8183 escrow, and agents reach it over MCP. It was demonstrated as a five-agent organization across Arc Testnet and Base Sepolia.",
     "keywords": [
       "AI agent spending limits",
       "autonomous agent payments",
@@ -46,7 +47,8 @@
       "agent policy firewall",
       "MCP payment governance",
       "agent wallet guardrails",
-      "Casper x402"
+      "Circle Arc agent payments",
+      "Permit2 agent delegation"
     ],
     "projects": [
       "agentops"

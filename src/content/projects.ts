@@ -17,6 +17,8 @@ export type Project = {
   githubUrl?: string;
   presentationUrl?: string;
   docsUrl?: string;
+  /** Long-form write-up hosted off-site (dev.to), for projects without a dispatch. */
+  blogUrl?: string;
   heroImage: string;
   screenshots: { src: string; caption: string }[];
   videos?: { title?: string; youtubeId: string }[];

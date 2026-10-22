@@ -4,7 +4,53 @@
     "wordmark": "ABHINAV PANGARIA",
     "shortBio": "Builder of resilient systems.",
     "longBio": "Engineer who takes a problem down to the primitive it is missing and builds that. Orchestration and verification harnesses that make an autonomous agent prove its work rather than report it. Cryptographic systems that stop a public ledger from naming who paid whom. Settlement backends where a retry is theft and there is nothing to roll back. Retrieval and data pipelines inside a bank's asset and wealth management division, where the bottleneck was never the model. Rust, Go, Python and TypeScript across five runtimes, most of it owned end to end from the contract up to the dashboard.",
+    "headline": "I build resilient systems, from idea to production.",
+    "heroLine": "Full-stack engineer across backend, infrastructure and the product on top. Previously JP Morgan Chase. Stellar SCF grantee.",
+    "identity": {
+      "statement": "I build systems that hold together on the worst day, not the best one.",
+      "paragraphs": [
+        "Verification loops for coding agents. Spend control for agents that hold money. Private payments, on-chain credit, cross-border payroll. Different problems, one bias: toward the boring, exhausting middle of the stack.",
+        "Sole builder on two of these, lead architect and engineer on the rest. JP Morgan Chase, asset and wealth management. Stellar SCF grantee, five hackathon wins."
+      ]
+    },
+    "about": {
+      "lead": "I take a problem down to the primitive it is missing and build that, usually end to end, from the contract or protocol up to the dashboard someone actually looks at.",
+      "body": "Lately that means agents: a shared graph so parallel coding agents know when the code under them changed, a loop that makes an agent prove its work, and a control plane that decides what an agent may spend before it pays. Before that, settlement backends, privacy on Stellar, and retrieval inside a bank.",
+      "facts": [
+        [
+          "Now",
+          "Agent infrastructure"
+        ],
+        [
+          "Previously",
+          "JP Morgan Chase, AWM"
+        ],
+        [
+          "Co-founded",
+          "PayZoll"
+        ],
+        [
+          "Recognition",
+          "Stellar SCF grantee"
+        ],
+        [
+          "Languages",
+          "TypeScript · Rust · Go · Python"
+        ],
+        [
+          "Education",
+          "IIIT Guwahati, 2026"
+        ]
+      ]
+    },
     "email": "abhinavpangaria2003@gmail.com",
+    "location": "India",
+    "replyWindow": "Replies within 48 hours",
+    "status": [
+      "Open to roles",
+      "Open to discuss opportunities",
+      "Or just say hi"
+    ],
     "socials": [
       {
         "label": "Twitter / X",
@@ -159,75 +205,55 @@
   ],
   "projects": [
     {
-      "slug": "agentops",
+      "slug": "loom",
       "index": "01",
-      "name": "AgentOps",
-      "tagline": "The governance layer for autonomous agents on Casper.",
-      "description": "AI agents are about to hold real spending power. AgentOps is the policy firewall that makes that safe, checking every payment, trade, and deploy an agent attempts against operator-defined rules in real time, signing or denying on the spot, then anchoring the decision as immutable proof on the Casper blockchain. One organization-level budget governs Casper x402 payments, CSPR.trade swaps, and direct Casper deploys simultaneously.",
+      "name": "Loom",
+      "tagline": "A shared, live world model for parallel coding agents, kept in one graph.",
+      "description": "Parallel AI coding agents write code that passes alone and breaks when merged. Agent A changes a function's contract, agent B writes a new caller against the old one, git sees no conflict, and the tests fail only after the merge. Loom keeps the code's call graph, every agent's in-flight edits, function-level leases, decisions and test evidence in one FalkorDB graph. On every edit a CALLS traversal of one to three hops finds exactly the agents whose in-flight code depends on the change, and Loom tells them what changed under them, mid-work. Leases are an atomic Cypher compare-and-set: 50 agents making 10,000 attempts got zero double grants, against 2,332 with the check disabled. Test runs are tied to the body hash they ran against, so a later edit marks a claim stale and blocks it, and any symbol can be walked back through decision, task, agent, change and commit. Measured on the 36 STALE-bench Django task pairs with Claude Haiku, 108 real runs across blind, oracle and live: without Loom 0 of 36 merges passed, with Loom 24 of 36 did, including 12 of 12 signature changes. Most of the remaining failures are return-type changes, where the notice arrived and the model kept its own code anyway.",
       "year": "2026",
-      "ecosystem": "Casper Network",
-      "domain": "Agent Governance",
+      "ecosystem": "Claude Code Tooling",
+      "domain": "Agent Coordination",
       "role": "Lead Architect & Engineer",
       "stack": [
-        "Rust / Odra",
-        "Casper x402",
-        "MCP",
-        "PostgreSQL",
-        "Server-Sent Events"
+        "TypeScript",
+        "FalkorDB / Cypher",
+        "Claude Code Hooks + MCP",
+        "tree-sitter",
+        "React",
+        "Docker"
       ],
       "metrics": [
         {
-          "label": "Decision",
-          "value": "Signed or Denied Pre-signature"
+          "label": "Merges Pass, Without Loom",
+          "value": "0 / 36"
         },
         {
-          "label": "Audit",
-          "value": "Hash-chained, On-chain Registry"
+          "label": "Merges Pass, With Loom",
+          "value": "24 / 36"
         },
         {
-          "label": "Actions Governed",
-          "value": "x402 · Swaps · Deploys"
+          "label": "Signature Changes",
+          "value": "12 / 12"
+        },
+        {
+          "label": "Lease Race",
+          "value": "0 Double Grants"
         }
       ],
-      "liveUrl": "https://agentops.up.railway.app",
-      "githubUrl": "https://github.com/AgenticOperations/AOPS-PMOA",
-      "presentationUrl": "https://canva.link/ja7l3zsexb11suy",
-      "docsUrl": "https://aops.tiiny.site",
-      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+      "githubUrl": "https://github.com/18Abhinav07/Loom",
+      "docsUrl": "https://github.com/18Abhinav07/Loom/blob/main/localsetup.md",
+      "blogUrl": "https://dev.to/abhinav_pangaria/stale-memory-stale-execution-and-how-loom-tackles-stalebench-f2i",
+      "heroImage": "https://img.youtube.com/vi/-AGu_jd0vqw/maxresdefault.jpg",
       "screenshots": [
         {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
-          "caption": "Landing surface"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
-          "caption": "Operator dashboard"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
-          "caption": "Policy engine"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
-          "caption": "Auth & org setup"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
-          "caption": "Capability matrix"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
-          "caption": "Live decision stream"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
-          "caption": "Audit export"
+          "src": "https://img.youtube.com/vi/-AGu_jd0vqw/maxresdefault.jpg",
+          "caption": "Loom demo"
         }
       ],
       "videos": [
         {
-          "title": "AOPS Demo",
-          "youtubeId": "eulHWqBkedQ"
+          "title": "Loom Demo: StaleBench on Django",
+          "youtubeId": "-AGu_jd0vqw"
         }
       ],
       "accent": "primary"
@@ -318,8 +344,87 @@
       "accent": "secondary"
     },
     {
-      "slug": "pods",
+      "slug": "agentops",
       "index": "03",
+      "name": "AgentOps",
+      "tagline": "The organizational control plane for agents that hold money.",
+      "description": "A wallet gives an agent the ability to pay. AgentOps decides whether it is allowed to. Every agent is an explicit organizational identity with its own wallet, role, policy bindings and budget, and every economic action it attempts runs one fail-closed path: verify identity, evaluate policy, check budget, escalate to a human when a threshold is crossed, then execute, settle, and write an evidence record that links the agent's intent to its on-chain settlement. Money moves on Circle's infrastructure, with the rail chosen by the relationship: x402 and Gateway for machine-to-service commerce, Permit2 for bounded agent-to-agent spending, ERC-8183 escrow for a first interaction with an unproven counterparty, and ERC-8004 identity and reputation once the work completes. Agents reach the control plane over a hosted MCP server, the same one human operators govern. Demonstrated as a five-agent research organization across Arc Testnet and Base Sepolia: policy-controlled hiring, second-hop delegation where an agent hires another agent on its own authority, approval-gated cross-chain execution, and capital that can be revoked from an agent and recovered.",
+      "year": "2026",
+      "ecosystem": "Circle · Arc",
+      "domain": "Agent Governance",
+      "role": "Lead Architect & Engineer",
+      "stack": [
+        "TypeScript",
+        "Circle Wallets + x402",
+        "Permit2 · ERC-8183 · ERC-8004",
+        "MCP",
+        "Fastify",
+        "PostgreSQL",
+        "Redis",
+        "Next.js"
+      ],
+      "metrics": [
+        {
+          "label": "Agent Org",
+          "value": "5 Agents, 2 Chains"
+        },
+        {
+          "label": "Policy Model",
+          "value": "Fail-closed"
+        },
+        {
+          "label": "Rails",
+          "value": "x402 · Permit2 · Escrow"
+        },
+        {
+          "label": "Networks",
+          "value": "Arc · Base Sepolia"
+        }
+      ],
+      "githubUrl": "https://github.com/AgenticOperations/AOPS-PMOA",
+      "presentationUrl": "https://canva.link/ja7l3zsexb11suy",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
+          "caption": "Operator dashboard"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
+          "caption": "Policy engine"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
+          "caption": "Auth & org setup"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
+          "caption": "Capability matrix"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
+          "caption": "Live decision stream"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
+          "caption": "Audit export"
+        }
+      ],
+      "videos": [
+        {
+          "title": "AOPS Demo",
+          "youtubeId": "eulHWqBkedQ"
+        }
+      ],
+      "accent": "primary"
+    },
+    {
+      "slug": "pods",
+      "index": "04",
       "name": "Pods",
       "tagline": "NIM-backed accountability for small groups. Commit, show up, earn, repeat.",
       "description": "Pods is a NIM-backed accountability app for small groups on Nimiq Pay. Commit NIM upfront, submit proof for scheduled activities like shipping code, fitness, reading, or study, and get payouts proportional to your presence. The creator reviews proof but never funds or receives participant money, so every settlement stays deterministic and disclosed.",
@@ -349,7 +454,6 @@
           "value": "Physical 2-Wallet Gate"
         }
       ],
-      "liveUrl": "https://pods-nimiq-activity.up.railway.app/",
       "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Landing.png",
       "screenshots": [
         {
@@ -383,7 +487,7 @@
     },
     {
       "slug": "veil",
-      "index": "04",
+      "index": "05",
       "name": "VEIL",
       "tagline": "Privacy as a wallet primitive. Shielded notes, private sends, and prediction markets on Stellar.",
       "description": "A private wallet and prediction market built on Stellar testnet. Public USDC converts into spendable shielded notes, private note-to-note transfers, batch payouts, and market participation all run through the same note model, so privacy is part of the wallet flow rather than bolted on. A backend prover and relayer generate proofs, simulate transactions, and settle pool state on-chain.",
@@ -412,8 +516,6 @@
           "value": "Stellar Testnet"
         }
       ],
-      "liveUrl": "https://veil-wallet.up.railway.app/",
-      "githubUrl": "https://github.com/18Abhinav07/Veil.Client.v0",
       "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/veil/Landing.png",
       "screenshots": [
         {
@@ -459,7 +561,7 @@
     },
     {
       "slug": "kredio",
-      "index": "05",
+      "index": "06",
       "name": "Kredio",
       "tagline": "DeFi with memory. Polkadot's on-chain credit layer.",
       "description": "A credit layer for Polkadot that scores a borrower from on-chain behaviour rather than an oracle feed, so there is no price or reputation input to manipulate and nothing to bribe. Scoring runs across two runtimes at once through hybrid EVM and PolkaVM atomic calls, and the resulting score travels between parachains over XCM, which means a borrower's history follows them instead of restarting on every chain.",
@@ -488,7 +590,6 @@
         }
       ],
       "liveUrl": "https://kredio-gamma.vercel.app",
-      "githubUrl": "https://github.com/18Abhinav07/Kredio",
       "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1779944530/portfolio/projects/kredio/Kredio-Hero.png",
       "screenshots": [
         {
@@ -526,7 +627,7 @@
     },
     {
       "slug": "openassets",
-      "index": "06",
+      "index": "07",
       "name": "OpenAssets",
       "tagline": "The Mantle-native gateway bridging the RWA liquidity gap.",
       "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
@@ -556,7 +657,6 @@
           "value": "OAID Credit ID"
         }
       ],
-      "liveUrl": "https://www.openassets.xyz",
       "githubUrl": "https://github.com/TheOpenAssets",
       "presentationUrl": "https://canva.link/tbjsx34kgdzju4c",
       "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1779944528/portfolio/projects/openassets/Hero.png",
@@ -648,7 +748,7 @@
     },
     {
       "slug": "payzoll",
-      "index": "07",
+      "index": "08",
       "name": "PayZoll",
       "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
       "description": "Cross-border payroll and treasury for teams whose members all hold different assets. I was sole technical owner of the payment infrastructure on a two-person founding team. The Stellar Disbursement Platform went from single-tenant to a multi-tenant distributed system running batch payroll for many organizations at once, with signing keys derived in AWS KMS instead of stored as raw tokens and payroll records encrypted at rest with pgcrypto. The interesting constraint was throughput: SDP was capped at eight channel accounts, roughly two transactions per second. Soroban's authorization-tree model let a single channel account fan out into many parallel contract calls, which took it to about 200.",
@@ -711,7 +811,7 @@
     },
     {
       "slug": "tesseract",
-      "index": "08",
+      "index": "09",
       "name": "Tesseract",
       "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
       "description": "Deposit, wait, withdraw. Built to expand Stellar Disbursement Platform with Privacy, Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",

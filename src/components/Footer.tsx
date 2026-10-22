@@ -76,16 +76,6 @@ export function Footer() {
                   <span className="font-display text-headline-sm md:text-headline-md tracking-tighter text-on-surface group-hover:text-primary transition-all duration-500 underline underline-offset-8 decoration-on-surface/10 group-hover:decoration-primary">{site.email}</span>
                 </Link>
               </StaggerItem>
-              <StaggerItem>
-                {/* A plain <a> rather than <Link>: this is a file, not a route. */}
-                <a
-                  href="/abhinav-pangaria-resume.pdf"
-                  className="group flex flex-col gap-3 text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                >
-                  <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-on-surface-variant/40 font-bold">One Page, PDF</span>
-                  <span className="font-display text-headline-sm md:text-headline-md tracking-tighter text-on-surface group-hover:text-primary transition-all duration-500 underline underline-offset-8 decoration-on-surface/10 group-hover:decoration-primary">Download the resume</span>
-                </a>
-              </StaggerItem>
             </ul>
 
             {/* A crawlable path to every section from every page, the topics index
@@ -95,7 +85,7 @@ export function Footer() {
                 {"//"} INDEX
               </h4>
               <ul className="flex flex-wrap gap-x-6 gap-y-3">
-                {[...site.nav, { label: "Topics", href: "/topics" }].map((item) => (
+                {[...site.nav, { label: "Topics", href: "/topics" }, { label: "Index view", href: "/plain" }].map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}

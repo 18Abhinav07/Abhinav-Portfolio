@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Image as DreiImage, Float, Sparkles, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import { easing } from "maath";
@@ -27,14 +27,15 @@ function Hero3DReadyGate() {
   return null;
 }
 
-// Define the 3 positions in space. Made them larger and spread out for a "full screen" feel.
+// The 3 positions in space. Kept to the right half and sized so the photos sit
+// beside the headline instead of filling the screen behind it.
 const SLOTS = [
-  // Slot 0: Front (Right)
-  { pos: [1.5, 0.2, 1.5], scale: [4.5, 6], op: 0.9, gray: 0.2, color: "#ffffff" },
-  // Slot 1: Middle (Left)
-  { pos: [-2, -0.5, -0.5], scale: [3.5, 4.8], op: 0.5, gray: 0.5, color: "#bdf532" },
-  // Slot 2: Back (Center)
-  { pos: [0.5, 1, -2], scale: [5, 7], op: 0.2, gray: 0.8, color: "#e4c278" },
+  // Slot 0: Front
+  { pos: [2.9, 0.1, 1], scale: [2.6, 3.4], op: 0.95, gray: 0.15, color: "#ffffff" },
+  // Slot 1: Middle
+  { pos: [1.2, -0.6, -0.5], scale: [2.1, 2.8], op: 0.45, gray: 0.5, color: "#bdf532" },
+  // Slot 2: Back
+  { pos: [4.2, 1.1, -2], scale: [2.8, 3.7], op: 0.2, gray: 0.8, color: "#e4c278" },
 ];
 
 function ShufflingImage({ url, slotIndex }: { url: string; slotIndex: number }) {
@@ -72,6 +73,9 @@ function ShufflingImage({ url, slotIndex }: { url: string; slotIndex: number }) 
 function Scene() {
   const group = useRef<THREE.Group>(null);
   const [order, setOrder] = useState(0);
+  // A portrait screen only sees a narrow slice of the slots, which puts the
+  // photos behind the copy. Push them toward the right edge and shrink them there.
+  const portrait = useThree((s) => s.viewport.aspect < 0.8);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -102,11 +106,13 @@ function Scene() {
 
   return (
     <group ref={group}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        <ShufflingImage url="/images/Abhinav/photo-1.png" slotIndex={(0 + order) % 3} />
-        <ShufflingImage url="/images/Abhinav/photo-2.png" slotIndex={(1 + order) % 3} />
-        <ShufflingImage url="/images/Abhinav/photo-3.png" slotIndex={(2 + order) % 3} />
-      </Float>
+      <group position={portrait ? [0.3, 0.4, 0] : [0, 0, 0]} scale={portrait ? 0.7 : 1}>
+        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+          <ShufflingImage url="/images/Abhinav/photo-1.png" slotIndex={(0 + order) % 3} />
+          <ShufflingImage url="/images/Abhinav/photo-2.png" slotIndex={(1 + order) % 3} />
+          <ShufflingImage url="/images/Abhinav/photo-3.png" slotIndex={(2 + order) % 3} />
+        </Float>
+      </group>
 
       {/* Volumetric Depth: Floating dust/sparks */}
       <Sparkles count={150} scale={12} size={2} speed={0.4} opacity={0.3} color="#BFFF00" />

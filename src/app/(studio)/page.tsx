@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Identity } from "@/components/Identity";
 import { FeaturedWork } from "@/components/FeaturedWork";
+import { ViewChooser } from "@/components/ViewChooser";
+import { site } from "@/content/site";
 import { SITE_URL } from "@/content/site-url";
 import { JsonLd } from "@/components/JsonLd";
 import { PERSON_ID, SITE_ID, pageGraph } from "@/content/seo";
@@ -26,6 +28,7 @@ export default function HomePage() {
           mainEntity: { "@id": PERSON_ID },
         })}
       />
+      <ViewChooser headline={site.headline} heroLine={site.heroLine} name={site.name} />
       <Hero />
       <Identity />
       <FeaturedWork />

@@ -220,6 +220,7 @@ export const sitemapEntries = (): SitemapEntry[] => {
     { url: `${SITE_URL}/journey`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE_URL}/beyond`, changeFrequency: "monthly", priority: 0.4 },
     { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/plain`, changeFrequency: "monthly", priority: 0.6 },
   ];
 
   for (const t of TOPICS) {

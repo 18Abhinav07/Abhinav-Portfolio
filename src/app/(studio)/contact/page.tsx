@@ -72,7 +72,7 @@ const FAQ = [
     answer:
       "Through the form at " +
       url +
-      ", which reaches him directly, or on X, Telegram, LinkedIn, GitHub and Discord. The links are on the contact page, alongside a one page resume as a PDF.",
+      ", which reaches him directly, or on X, Telegram, LinkedIn, GitHub and Discord. The links are on the contact page.",
   },
 ];
 
@@ -102,13 +102,6 @@ export default function ContactPage() {
             Based · Guwahati, IN
             <br />
             Grad · IIIT Guwahati, Jul 2026
-            <br />
-            <a
-              href="/abhinav-pangaria-resume.pdf"
-              className="text-on-surface underline underline-offset-4 hover:text-primary transition-colors"
-            >
-              Resume · PDF
-            </a>
             <br />
             Reply window · 48h
             <br />

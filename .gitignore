@@ -39,3 +39,5 @@ scripts/graphics/out/
 .claude/
 # a separate clone of github.com/18Abhinav07/18Abhinav07 that lives here for convenience
 github-profile-repo/
+
+.superpowers/

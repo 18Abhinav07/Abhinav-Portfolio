@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
   title: "Work · Abhinav Pangaria",
-  description: "Eight systems across seven problem classes: agent governance, verification systems, applied cryptography, credit systems, compliance infrastructure, settlement design, and payments infrastructure.",
+  description: "Nine systems across eight problem classes: agent coordination, agent governance, verification systems, applied cryptography, credit systems, compliance infrastructure, settlement design, and payments infrastructure.",
 };
 
 export default function WorkPage() {
@@ -19,7 +19,7 @@ export default function WorkPage() {
         </Reveal>
         <Reveal className="md:col-span-9 max-w-2xl" y={28} delay={0.1}>
           <h1 className="font-display text-headline-lg leading-[1.05] tracking-[-0.02em] text-on-surface mb-stack-md">
-            Eight systems. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">Seven Problem Classes</em>
+            Nine systems. <em className="inline-block bg-primary text-on-surface px-3 py-1 rounded-md not-italic font-bold">Eight Problem Classes</em>
           </h1>
           <p className="text-body-md text-on-surface-variant">
             Sorted by what each one had to get right, not by where it was deployed. Hover to explore the architecture, the stack, and the code.

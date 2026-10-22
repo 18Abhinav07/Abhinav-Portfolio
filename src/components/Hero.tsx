@@ -60,7 +60,7 @@ export function Hero() {
           <div className="grid md:grid-cols-2 gap-8 mt-6">
             <StaggerItem>
               <p className="text-body-lg text-on-surface-variant leading-[1.6] max-w-md pointer-events-auto font-medium">
-                {site.longBio}
+                {site.heroLine}
               </p>
             </StaggerItem>
 
