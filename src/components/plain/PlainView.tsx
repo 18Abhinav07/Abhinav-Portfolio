@@ -21,7 +21,7 @@ export type PlainSite = {
   socials: { label: string; url: string }[];
 };
 
-const FEATURED = ["loom", "guardiankane", "agentops", "kredio"];
+const FEATURED = ["loom", "zidd", "guardiankane", "agentops", "kredio"];
 const COUNT_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 const ELSEWHERE = ["GitHub", "LinkedIn", "Twitter / X", "dev.to"];
 
@@ -126,6 +126,7 @@ function projectLinks(p: Project): [string, string][] {
   if (p.blogUrl) out.push(["Write-up", p.blogUrl]);
   if (p.presentationUrl) out.push(["Deck", p.presentationUrl]);
   if (p.liveUrl) out.push(["Live", p.liveUrl]);
+  if (p.apiUrl) out.push(["Live API", p.apiUrl]);
   return out;
 }
 

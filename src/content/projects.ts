@@ -14,6 +14,8 @@ export type Project = {
   stack: string[];
   metrics: { label: string; value: string }[];
   liveUrl?: string;
+  /** Public API base for a product whose backend is deployed on its own. */
+  apiUrl?: string;
   githubUrl?: string;
   presentationUrl?: string;
   docsUrl?: string;

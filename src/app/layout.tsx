@@ -41,7 +41,7 @@ const inter = localFont({
 export const metadata: Metadata = {
   title: "Abhinav Pangaria · Builder of resilient systems.",
   description:
-    "Engineer building agent orchestration and verification harnesses, applied cryptography, and settlement backends that cannot afford to be wrong. Rust, Go, Python, TypeScript, Kubernetes, AWS. Formerly JP Morgan Chase and co-founder at PayZoll. Loom, Guardian Kane, AgentOps, Tesseract, VEIL, Kredio, OpenAssets, Pods.",
+    "Engineer building agent orchestration and verification harnesses, applied cryptography, and settlement backends that cannot afford to be wrong. Rust, Go, Python, TypeScript, Kubernetes, AWS. Formerly JP Morgan Chase and co-founder at PayZoll. Loom, Zidd, Guardian Kane, AgentOps, Tesseract, VEIL, Kredio, OpenAssets, Pods.",
   metadataBase: new URL(SITE_URL),
   // Every page below sets its own canonical. This is the fallback so no route
   // ever ships without one, which is how a query string becomes a duplicate page.

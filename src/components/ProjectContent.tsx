@@ -322,7 +322,7 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
           </section>
         )}
 
-        {(project.liveUrl || project.githubUrl || project.docsUrl || project.blogUrl) && (
+        {(project.liveUrl || project.apiUrl || project.githubUrl || project.docsUrl || project.blogUrl) && (
           <section className="px-6 md:px-[80px] mb-[120px] flex flex-wrap gap-stack-md">
             {project.liveUrl && (
               <a
@@ -332,6 +332,16 @@ export function ProjectContent({ project, nextProject, writing = [], series = []
                 className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 bg-primary text-on-surface font-bold rounded-pill hover:bg-secondary hover:text-on-surface transition-colors"
               >
                 Live site →
+              </a>
+            )}
+            {project.apiUrl && (
+              <a
+                href={project.apiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-label-mono uppercase tracking-[0.18em] px-stack-md py-3 border border-outline-variant rounded-pill text-on-surface hover:border-primary hover:text-on-surface font-bold transition-colors"
+              >
+                Live API →
               </a>
             )}
             {project.githubUrl && (
