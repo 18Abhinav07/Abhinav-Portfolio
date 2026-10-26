@@ -446,7 +446,7 @@ export function HomeView({
             <span>
               <span className="mono muted">05 · Outside the terminal</span>
               <span className="t">
-                The rest of the time, <em>I&apos;m usually somewhere with no signal.</em>
+                The rest of the time, <em>I am usually trying to be a wanderer.</em>
               </span>
             </span>
             <span className="go">
