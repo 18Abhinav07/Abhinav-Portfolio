@@ -1,13 +1,15 @@
 # abhinavpangaria.pages.dev
 #
 # Everything here is meant to be read, quoted and cited, by people and by models
-# alike. The only thing closed is the contact endpoint, which is a mailbox rather
-# than a page. Cloudflare serves a placeholder robots.txt when a site ships none;
-# this file replaces it, so the crawl rules and the sitemap pointer are real.
+# alike. Cloudflare serves a placeholder robots.txt when a site ships none; this
+# file replaces it, so the crawl rules and the sitemap pointer are real.
+#
+# Agents that want the content without running scripts:
+#   https://abhinavpangaria.pages.dev/llms.txt       (map)
+#   https://abhinavpangaria.pages.dev/llms-full.txt  (everything, as markdown)
 
 User-agent: *
 Allow: /
-Disallow: /api/
 
 # Search crawlers
 User-agent: Googlebot

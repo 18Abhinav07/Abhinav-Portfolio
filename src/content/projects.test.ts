@@ -29,4 +29,34 @@ describe("projects content", () => {
   it("getProject returns undefined for unknown slug", () => {
     expect(getProject("__nope__")).toBeUndefined();
   });
+
+  it("orders the newest work first", () => {
+    expect(projects.slice(0, 7).map((p) => p.slug)).toEqual([
+      "sieve",
+      "voluntas",
+      "dart",
+      "loom",
+      "guardiankane",
+      "agentops",
+      "zidd",
+    ]);
+  });
+
+  it("numbers projects in display order", () => {
+    projects.forEach((p, i) => expect(p.index).toBe(String(i + 1).padStart(2, "0")));
+  });
+
+  it("uses absolute https links, or a self-hosted embed path", () => {
+    for (const p of projects) {
+      for (const u of [p.liveUrl, p.githubUrl, p.presentationUrl, p.docsUrl, p.blogUrl, p.apiUrl]) {
+        if (u) expect(u).toMatch(/^https:\/\//);
+      }
+      if (p.embed) expect(p.embed.src).toMatch(/^(https:\/\/|\/embeds\/)/);
+      for (const post of p.posts ?? []) expect(post.url).toMatch(/^https:\/\/dev\.to\/abhinav_pangaria\//);
+    }
+  });
+
+  it("lists Guardian Kane's five posts", () => {
+    expect(getProject("guardiankane")?.posts).toHaveLength(5);
+  });
 });

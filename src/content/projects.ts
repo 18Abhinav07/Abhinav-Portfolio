@@ -24,9 +24,16 @@ export type Project = {
   heroImage: string;
   screenshots: { src: string; caption: string }[];
   videos?: { title?: string; youtubeId: string }[];
+  /** A live page shown inside the deep dive: a results site, a write-up, or a self-hosted copy under /embeds. */
+  embed?: { src: string; title: string };
+  /** Long-form writing about this project, on dev.to. */
+  posts?: { title: string; url: string }[];
   accent: "primary" | "secondary";
 };
 
 export const projects = data.projects as Project[];
+
+/** All writing lives on dev.to; the site links out rather than hosting posts. */
+export const DEVTO_URL = "https://dev.to/abhinav_pangaria";
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

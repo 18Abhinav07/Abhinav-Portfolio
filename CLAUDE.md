@@ -35,14 +35,15 @@ It must return nothing.
 
 ## Content model
 
-Dispatches is the writing section. It holds tech, product, and personal thinking.
-Pieces are syndicated to dev.to only when they fit that platform, which is opt-in
-per post via `syndicate: ["devto"]` in frontmatter. `kind` is one of `teardown`,
-`product`, or `essay`. Essays never go to dev.to.
+The site is one page at `/`: hero, About, Work, a Writing link, Contact, and a door
+to the personal side (the balloon and the trips). Each project's deep dive is a
+sheet at `/work/<slug>`, prerendered; projects live in `src/content/data.json` and
+trips in its `travels` array.
 
-Canonical always points home. A post must be live on the portfolio before it is
-pushed to dev.to, or the canonical URL will not resolve when dev.to indexes the copy.
-`scripts/sync-devto.mjs` enforces this by refusing to sync a `draft: true` post.
+Writing lives on dev.to (https://dev.to/abhinav_pangaria). The portfolio links the
+account and no longer renders posts; old `/dispatches/*` URLs redirect there via
+`public/_redirects`. The markdown in `src/content/dispatches/` and
+`scripts/sync-devto.mjs` remain as the drafting and syndication source.
 
 ## Evidence rule
 

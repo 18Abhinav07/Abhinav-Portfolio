@@ -3,49 +3,29 @@ import { readFileSync } from "node:fs";
 import {
   PERSON_ID,
   SITE_ID,
-  articleSchema,
   breadcrumbSchema,
-  faqSchema,
-  isoMonth,
   knowsAbout,
   llmsFull,
   llmsIndex,
+  profilePageSchema,
   projectSchema,
+  workListSchema,
   siteGraph,
   sitemapEntries,
-  topicSchema,
 } from "./seo";
 import { SITE_URL } from "./site-url";
-import { getDispatches } from "./dispatches";
-import { projects } from "./projects";
+import { DEVTO_URL, projects } from "./projects";
 import { TOPICS, resolveTopic } from "./topics";
 
-const published = getDispatches();
 const urls = sitemapEntries().map((e) => e.url);
 
 describe("sitemap", () => {
-  it("lists every published dispatch", () => {
-    for (const d of published) {
-      expect(urls).toContain(`${SITE_URL}/dispatches/${d.slug}`);
-    }
+  it("is the home page plus one deep dive per project", () => {
+    expect(urls).toEqual([SITE_URL, ...projects.map((p) => `${SITE_URL}/work/${p.slug}`)]);
   });
 
-  it("lists every project and every topic hub", () => {
-    for (const p of projects) expect(urls).toContain(`${SITE_URL}/work/${p.slug}`);
-    for (const t of TOPICS) expect(urls).toContain(`${SITE_URL}/topics/${t.slug}`);
-  });
-
-  it("has no duplicate and no relative urls", () => {
-    expect(new Set(urls).size).toBe(urls.length);
-    for (const u of urls) expect(u.startsWith(`${SITE_URL}/`) || u === SITE_URL).toBe(true);
-  });
-
-  it("never points at an unpublished dispatch", () => {
-    const live = new Set(published.map((d) => d.slug));
-    for (const u of urls.filter((x) => x.includes("/dispatches/"))) {
-      const slug = u.split("/dispatches/")[1];
-      if (slug && !slug.startsWith("series/")) expect(live.has(slug)).toBe(true);
-    }
+  it("lists each project's screenshot as an absolute image url", () => {
+    for (const e of sitemapEntries()) for (const i of e.images ?? []) expect(i).toMatch(/^https:\/\//);
   });
 });
 
@@ -69,17 +49,6 @@ describe("json-ld", () => {
     expect(graph.map((n) => n["@id"])).toEqual([PERSON_ID, SITE_ID]);
   });
 
-  it("every dispatch emits a valid BlogPosting", () => {
-    for (const d of published) {
-      const a = articleSchema(d) as Record<string, unknown>;
-      expect(a["@type"]).toBe("BlogPosting");
-      expect(a.headline).toBeTruthy();
-      expect(a.datePublished).toMatch(/^\d{4}-\d{2}-\d{2}/);
-      expect(a.author).toEqual({ "@id": PERSON_ID });
-      expect(a["@id"]).toBe(`${SITE_URL}/dispatches/${d.slug}#article`);
-    }
-  });
-
   it("every project emits a node with a url and a name", () => {
     for (const p of projects) {
       const n = projectSchema(p) as Record<string, unknown>;
@@ -89,14 +58,13 @@ describe("json-ld", () => {
     }
   });
 
-  it("every topic emits a CollectionPage with one answered question", () => {
-    for (const t of TOPICS) {
-      const n = topicSchema(t) as Record<string, unknown>;
-      expect(n["@type"]).toBe("CollectionPage");
-      const q = n.mainEntity as Record<string, unknown>;
-      expect(q["@type"]).toBe("Question");
-      expect((q.acceptedAnswer as Record<string, string>).text.length).toBeGreaterThan(80);
-    }
+  it("home is a ProfilePage about the person, with the work in display order", () => {
+    const pp = profilePageSchema() as Record<string, unknown>;
+    expect(pp["@type"]).toBe("ProfilePage");
+    expect(pp.mainEntity).toEqual({ "@id": PERSON_ID });
+    const list = workListSchema() as Record<string, unknown>;
+    const items = list.itemListElement as Record<string, unknown>[];
+    expect(items.map((i) => i.url)).toEqual(projects.map((p) => `${SITE_URL}/work/${p.slug}`));
   });
 
   it("breadcrumbs number their items from one", () => {
@@ -108,11 +76,6 @@ describe("json-ld", () => {
     expect(items.map((i) => i.position)).toEqual([1, 2]);
   });
 
-  it("faq schema keeps the question order", () => {
-    const f = faqSchema([{ question: "a?", answer: "one" }]) as Record<string, unknown>;
-    expect(f["@type"]).toBe("FAQPage");
-    expect((f.mainEntity as unknown[]).length).toBe(1);
-  });
 });
 
 describe("topics registry", () => {
@@ -144,40 +107,54 @@ describe("topics registry", () => {
 
 describe("llms.txt", () => {
   const index = llmsIndex();
-  const full = llmsFull();
 
   it("opens with the site as an h1", () => {
     expect(index.startsWith("# Abhinav Pangaria")).toBe(true);
   });
 
-  it("links every published dispatch and every hub absolutely", () => {
-    for (const d of published) expect(index).toContain(`${SITE_URL}/dispatches/${d.slug}`);
-    for (const t of TOPICS) expect(index).toContain(`${SITE_URL}/topics/${t.slug}`);
+  it("links every project and the dev.to account", () => {
+    for (const p of projects) expect(index).toContain(`${SITE_URL}/work/${p.slug}`);
+    expect(index).toContain(DEVTO_URL);
   });
 
-  it("carries the full body of every published dispatch", () => {
-    for (const d of published) expect(full).toContain(d.title);
-    // The body itself, not just the title. A size ratio against the index is not a
-    // usable check: the index grows whenever a topic answer does.
-    for (const d of published) expect(full).toContain(d.body.trim().slice(0, 200));
-    expect(full.length).toBeGreaterThan(index.length);
+  it("points at the full-text companion", () => {
+    expect(index).toContain(`${SITE_URL}/llms-full.txt`);
+  });
+
+  it("full text carries the about section and every project in full", () => {
+    const full = llmsFull();
+    expect(full).toContain("## About");
+    for (const p of projects) {
+      expect(full).toContain(`### ${p.name}`);
+      expect(full).toContain(p.description);
+    }
   });
 
   it("uses no em dash or en dash", () => {
     // Literals are built by code point so this file does not trip house-style.test.ts.
     const dashes = new RegExp(`[${String.fromCharCode(0x2014)}${String.fromCharCode(0x2013)}]`);
-    expect(dashes.test(index + full)).toBe(false);
+    expect(dashes.test(index + llmsFull())).toBe(false);
   });
 });
 
-describe("isoMonth", () => {
-  it("parses the journey date format", () => {
-    expect(isoMonth("JUL 2026")).toBe("2026-07");
-    expect(isoMonth("dec 2024")).toBe("2024-12");
+describe("redirects", () => {
+  const r = readFileSync("public/_redirects", "utf8");
+
+  it("sends every old dispatch to its dev.to copy", () => {
+    for (const slug of [
+      "agent-shipped-a-broken-chart",
+      "the-requirement-nobody-wrote",
+      "who-verifies-the-verifier",
+      "the-second-build-was-mostly-wiring",
+      "making-verification-visible",
+    ]) {
+      expect(r).toMatch(new RegExp(`^/dispatches/${slug} ${DEVTO_URL}/\\S+ 301$`, "m"));
+    }
   });
 
-  it("returns undefined rather than a wrong date", () => {
-    expect(isoMonth("Someday")).toBeUndefined();
-    expect(isoMonth("13 2026")).toBeUndefined();
+  it("sends every retired page home", () => {
+    for (const path of ["/plain", "/journey", "/beyond", "/contact", "/topics", "/dispatches", "/work"]) {
+      expect(r).toMatch(new RegExp(`^${path} / 301$`, "m"));
+    }
   });
 });

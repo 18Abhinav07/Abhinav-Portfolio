@@ -1,51 +1,17 @@
 {
   "site": {
     "name": "Abhinav Pangaria",
-    "wordmark": "ABHINAV PANGARIA",
     "shortBio": "Builder of resilient systems.",
     "longBio": "Engineer who takes a problem down to the primitive it is missing and builds that. Orchestration and verification harnesses that make an autonomous agent prove its work rather than report it. Cryptographic systems that stop a public ledger from naming who paid whom. Settlement backends where a retry is theft and there is nothing to roll back. Retrieval and data pipelines inside a bank's asset and wealth management division, where the bottleneck was never the model. Rust, Go, Python and TypeScript across five runtimes, most of it owned end to end from the contract up to the dashboard.",
     "headline": "I build resilient systems, from idea to production.",
     "heroLine": "Full-stack engineer across backend, infrastructure and the product on top. Previously JP Morgan Chase. Stellar SCF grantee.",
-    "identity": {
-      "statement": "I build systems that hold together on the worst day, not the best one.",
-      "paragraphs": [
-        "Verification loops for coding agents. Spend control for agents that hold money. Private payments, on-chain credit, cross-border payroll. Different problems, one bias: toward the boring, exhausting middle of the stack.",
-        "Sole builder on two of these, lead architect and engineer on the rest. JP Morgan Chase, asset and wealth management. Stellar SCF grantee, five hackathon wins."
-      ]
-    },
     "about": {
-      "lead": "I take a problem down to the primitive it is missing and build that, usually end to end, from the contract or protocol up to the dashboard someone actually looks at.",
-      "body": "Lately that means agents: a shared graph so parallel coding agents know when the code under them changed, a loop that makes an agent prove its work, and a control plane that decides what an agent may spend before it pays. Before that, settlement backends, privacy on Stellar, and retrieval inside a bank.",
-      "facts": [
-        [
-          "Now",
-          "Agent infrastructure"
-        ],
-        [
-          "Previously",
-          "JP Morgan Chase, AWM"
-        ],
-        [
-          "Co-founded",
-          "PayZoll"
-        ],
-        [
-          "Recognition",
-          "Stellar SCF grantee"
-        ],
-        [
-          "Languages",
-          "TypeScript · Rust · Go · Python"
-        ],
-        [
-          "Education",
-          "IIIT Guwahati, 2026"
-        ]
-      ]
+      "lead": "I build things end to end: the idea, the system underneath it, and the part people actually touch.",
+      "body": "The subject keeps changing. So far it has been developer tools, payments, privacy, language learning and research, sometimes alone and sometimes inside a large bank. The habit stays the same: understand the problem properly, build the smallest thing that really solves it, then keep at it until it holds up with real people using it."
     },
     "email": "abhinavpangaria2003@gmail.com",
     "location": "India",
-    "replyWindow": "Replies within 48 hours",
+    "replyWindow": "Replies at the earliest",
     "status": [
       "Open to roles",
       "Open to discuss opportunities",
@@ -82,131 +48,204 @@
         "handle": "@abhinav_pangaria",
         "url": "https://dev.to/abhinav_pangaria"
       }
-    ],
-    "chips": [
-      "STELLAR SCF GRANTEE",
-      "EX CO-FOUNDER",
-      "JP MORGAN CHASE",
-      "LEAD ARCHITECT"
-    ],
-    "nav": [
-      {
-        "label": "Work",
-        "href": "/work"
-      },
-      {
-        "label": "Dispatches",
-        "href": "/dispatches"
-      },
-      {
-        "label": "Journey",
-        "href": "/journey"
-      },
-      {
-        "label": "Beyond",
-        "href": "/beyond"
-      },
-      {
-        "label": "Contact",
-        "href": "/contact"
-      }
     ]
   },
-  "coordinates": [
-    {
-      "city": "Kyoto, JP",
-      "coord": "35.0116° N",
-      "note": "Temple grids and quiet ramen counters."
-    },
-    {
-      "city": "Berlin, DE",
-      "coord": "52.5200° N",
-      "note": "Bauhaus posters and 4am techno."
-    },
-    {
-      "city": "Moab, US",
-      "coord": "38.5733° N",
-      "note": "Red rock under a hard blue sky."
-    },
-    {
-      "city": "London, UK",
-      "coord": "51.5072° N",
-      "note": "Brutalist concrete and quiet pubs."
-    },
-    {
-      "city": "Seoul, KR",
-      "coord": "37.5665° N",
-      "note": "Late-night convenience stores and neon."
-    }
-  ],
-  "dispatches": [
-    {
-      "date": "MAY 2026",
-      "title": "On building infrastructure that actually clears.",
-      "readTime": "8 MIN READ",
-      "href": "#"
-    },
-    {
-      "date": "APR 2026",
-      "title": "The subgraph paradigm: observability as product.",
-      "readTime": "12 MIN READ",
-      "href": "#"
-    },
-    {
-      "date": "FEB 2026",
-      "title": "Why Rust is a language of operators.",
-      "readTime": "6 MIN READ",
-      "href": "#"
-    },
-    {
-      "date": "DEC 2025",
-      "title": "Notes from a year of settlement work.",
-      "readTime": "10 MIN READ",
-      "href": "#"
-    },
-    {
-      "date": "OCT 2025",
-      "title": "Privacy as a primitive, not a feature.",
-      "readTime": "7 MIN READ",
-      "href": "#"
-    }
-  ],
-  "signals": [
-    {
-      "icon": "chat_bubble",
-      "text": "If your protocol cannot clear a payment at 3am on a Sunday, it is not infrastructure. It is a demo.",
-      "time": "12h"
-    },
-    {
-      "icon": "repeat",
-      "text": "RT: 'The boring path through the system should be the most secure one.' Still the only design heuristic I trust.",
-      "time": "1d"
-    },
-    {
-      "icon": "favorite",
-      "text": "Ten million in volume is a number. Ten million in volume without a single rollback is a thesis.",
-      "time": "3d"
-    },
-    {
-      "icon": "chat_bubble",
-      "text": "Hackathon arc: twenty-something ships taught me that velocity is a craft, not a temperament.",
-      "time": "5d"
-    },
-    {
-      "icon": "repeat",
-      "text": "Temporal decorrelation > marketing copy about 'privacy.'",
-      "time": "1w"
-    },
-    {
-      "icon": "favorite",
-      "text": "Builders who answer their own DMs ship faster. No exceptions.",
-      "time": "2w"
-    }
-  ],
   "projects": [
     {
-      "slug": "loom",
+      "slug": "sieve",
       "index": "01",
+      "name": "Sieve",
+      "tagline": "A vector search engine written from scratch in Rust: a billion vectors, searched on one laptop.",
+      "description": "A from-scratch Rust implementation of the search pipeline Exa described in How we built a web-scale vector database: Matryoshka 256-d prefixes, 1-bit codes scored against a float query with NEON lookup tables, IVF routing, then a rerank. Measuring it against exact search and NIST relevance labels showed routing, not the codes, was losing recall, so each vector is also spilled into a second cluster (SOAR), and RaBitQ residual codes replace the global ones. A three-tier store keeps 1-bit and 2-bit codes in RAM and reads int8 rerank rows from SSD with parallel pread, so 87 GB of rerank vectors never have to fit in memory. On the full TREC-RAG 2024 corpus of 113.5M passages it serves R@10 0.909 at 4.8 ms p50 on one 24 GB laptop, or R@10 0.902 in 225 MB of RAM with everything on SSD. On 1 billion vectors (SPACEV-1B) the same laptop builds an index in about 22 minutes and serves R@10 0.906 at 420 QPS. It also shards with a two-phase merge, takes live inserts and deletes with a write-ahead log, and runs filtered and hybrid BM25 search.",
+      "year": "2026",
+      "ecosystem": "Rust · Apple Silicon",
+      "domain": "Vector Search",
+      "role": "Sole Engineer",
+      "stack": [
+        "Rust",
+        "NEON SIMD",
+        "Accelerate / AMX",
+        "IVF + SOAR",
+        "RaBitQ",
+        "FAISS (baseline)"
+      ],
+      "metrics": [
+        {
+          "label": "Passages, One 24 GB Laptop",
+          "value": "113.5M"
+        },
+        {
+          "label": "R@10 at 4.8 ms p50",
+          "value": "0.909"
+        },
+        {
+          "label": "1B Vectors, R@10 0.906",
+          "value": "420 QPS"
+        },
+        {
+          "label": "RAM, Everything on SSD",
+          "value": "225 MB"
+        }
+      ],
+      "liveUrl": "https://18abhinav07.github.io/A-Game-Of-Vectors/",
+      "githubUrl": "https://github.com/18Abhinav07/A-Game-Of-Vectors",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018975/portfolio/portfolio/projects/sieve/sieve.png",
+      "screenshots": [
+        {
+          "src": "/images/work/sieve/hero.webp",
+          "caption": "A billion vectors, searched on a laptop"
+        },
+        {
+          "src": "/images/work/sieve/diskann.webp",
+          "caption": "Head to head with DiskANN on 12 threads"
+        },
+        {
+          "src": "/images/work/sieve/query.webp",
+          "caption": "How a query runs: route, scan, rerank, return"
+        },
+        {
+          "src": "/images/work/sieve/billion.webp",
+          "caption": "Latency at a billion vectors, against a 100 ms budget"
+        },
+        {
+          "src": "/images/work/sieve/build.webp",
+          "caption": "Index build time and memory, next to DiskANN"
+        }
+      ],
+      "embed": {
+        "src": "https://18abhinav07.github.io/A-Game-Of-Vectors/",
+        "title": "Sieve results site"
+      },
+      "accent": "primary"
+    },
+    {
+      "slug": "voluntas",
+      "index": "02",
+      "name": "Voluntas",
+      "tagline": "A Rust order-book collector for Kalshi and Polymarket that keeps every book exact.",
+      "description": "A take-home challenge, written up in full. The service subscribes to every live market on a prediction-market exchange, keeps an L2 order book for each one, and writes every price-level change to stdout plus a snapshot of every book once a minute, in the challenge's aligned SBE format. One engine runs both venues; only the websocket encode and decode layer changes. On AWS (c7i.xlarge, London) it held about 550k Polymarket tokens for an hour at 41k to 43k updates/s, and a two-hour run the next day replayed 118.2M snapshots from the deltas with 0 mismatches, at 1.97 GB peak memory and a load of 1.1 of 4 vCPU. Kalshi ran its whole demo universe from Virginia for two hours: 32.3M updates, 48.9M snapshots replayed, 0 mismatches. A single demo script builds it, replays a committed capture, runs every test against mock venues, and collects live markets.",
+      "year": "2026",
+      "ecosystem": "Rust · Market Data",
+      "domain": "Market Data Infrastructure",
+      "role": "Sole Engineer",
+      "stack": [
+        "Rust",
+        "Tokio",
+        "WebSockets",
+        "SBE",
+        "AWS EC2",
+        "Docker"
+      ],
+      "metrics": [
+        {
+          "label": "Polymarket Tokens Held",
+          "value": "~550k"
+        },
+        {
+          "label": "Updates per Second",
+          "value": "41k to 43k"
+        },
+        {
+          "label": "Snapshots Replayed",
+          "value": "118.2M"
+        },
+        {
+          "label": "Mismatches",
+          "value": "0"
+        }
+      ],
+      "githubUrl": "https://github.com/18Abhinav07/Voluntas-Challenge",
+      "presentationUrl": "https://18abhinav07.github.io/Voluntas-Challenge/",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018977/portfolio/portfolio/projects/voluntas/voluntas.png",
+      "screenshots": [
+        {
+          "src": "/images/work/voluntas/result.webp",
+          "caption": "The result of two hours live on AWS"
+        },
+        {
+          "src": "/images/work/voluntas/runs.webp",
+          "caption": "Every run, by host, and what each one found"
+        },
+        {
+          "src": "/images/work/voluntas/proof.webp",
+          "caption": "How correctness is proven: replay with zero mismatches"
+        },
+        {
+          "src": "/images/work/voluntas/latency.webp",
+          "caption": "Where the time goes, clock by clock"
+        },
+        {
+          "src": "/images/work/voluntas/kalshi.webp",
+          "caption": "Kalshi, the second venue, through the same engine"
+        }
+      ],
+      "embed": {
+        "src": "https://18abhinav07.github.io/Voluntas-Challenge/",
+        "title": "Voluntas write-up"
+      },
+      "accent": "secondary"
+    },
+    {
+      "slug": "dart",
+      "index": "03",
+      "name": "Prefill and the Frame",
+      "tagline": "Local inference vs. the browser compositor: why GPU-heavy pages stutter while a model reads.",
+      "description": "Independent research on one sentence from Dart's DBR-2026-05: a model that starves the compositor makes a janky browser. On a MacBook Pro (M4 Pro, 24 GB) a harness records every page frame next to every inference phase on one clock, 717 trials stored in SQLite. While a local 7B model prefills a 4k-token prompt at llama.cpp's default batch of 512, a GPU-heavy page drops 64% of its frames; decode drops about 0%, and CPU-only inference drops 0.1%, so the GPU is the shared resource. Capping the prefill batch at 64 tokens takes that page to 1.3% (WebGL Aquarium from 83% to 0%) for 9 to 11% more time to first token, with a 3B or 7B model. Safari shows the same mechanism. The fix does not carry over to 14B, still 31% at batch 64, which suggests a base M1 or M2 running 7B behaves the same way. It also reruns Dart's published TTFT and memory claims, and lays out what I would do next.",
+      "year": "2026",
+      "ecosystem": "llama.cpp · Chromium",
+      "domain": "Inference Performance",
+      "role": "Independent Research",
+      "stack": [
+        "Python",
+        "llama.cpp / Metal",
+        "Brave + Safari",
+        "requestAnimationFrame",
+        "SQLite",
+        "uv"
+      ],
+      "metrics": [
+        {
+          "label": "Dropped Frames, Batch 512",
+          "value": "64%"
+        },
+        {
+          "label": "Dropped Frames, Batch 64",
+          "value": "1.3%"
+        },
+        {
+          "label": "TTFT Cost",
+          "value": "+9 to 11%"
+        },
+        {
+          "label": "Trials Recorded",
+          "value": "717"
+        }
+      ],
+      "githubUrl": "https://github.com/18Abhinav07/DiggingOnDart",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018979/portfolio/portfolio/projects/dart/dart.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018979/portfolio/portfolio/projects/dart/dart.png",
+          "caption": "Findings"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018980/portfolio/portfolio/projects/dart/dart-forge.png",
+          "caption": "Breaking Chromium down"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/v1793018981/portfolio/portfolio/projects/dart/dart-next.png",
+          "caption": "What I'd do next"
+        }
+      ],
+      "embed": {
+        "src": "/embeds/dart/index.html",
+        "title": "Prefill and the Frame findings"
+      },
+      "accent": "primary"
+    },
+    {
+      "slug": "loom",
+      "index": "04",
       "name": "Loom",
       "tagline": "A shared, live world model for parallel coding agents, kept in one graph.",
       "description": "Parallel AI coding agents write code that passes alone and breaks when merged. Agent A changes a function's contract, agent B writes a new caller against the old one, git sees no conflict, and the tests fail only after the merge. Loom keeps the code's call graph, every agent's in-flight edits, function-level leases, decisions and test evidence in one FalkorDB graph. On every edit a CALLS traversal of one to three hops finds exactly the agents whose in-flight code depends on the change, and Loom tells them what changed under them, mid-work. Leases are an atomic Cypher compare-and-set: 50 agents making 10,000 attempts got zero double grants, against 2,332 with the check disabled. Test runs are tied to the body hash they ran against, so a later edit marks a claim stale and blocks it, and any symbol can be walked back through decision, task, agent, change and commit. Measured on the 36 STALE-bench Django task pairs with Claude Haiku, 108 real runs across blind, oracle and live: without Loom 0 of 36 merges passed, with Loom 24 of 36 did, including 12 of 12 signature changes. Most of the remaining failures are return-type changes, where the notice arrived and the model kept its own code anyway.",
@@ -259,8 +298,194 @@
       "accent": "primary"
     },
     {
+      "slug": "guardiankane",
+      "index": "05",
+      "name": "Guardian Kane",
+      "tagline": "The loop that makes an agent's \"done\" something it has to prove, not just say.",
+      "description": "Guardian Kane is a reviewed, phased, scope-guarded verification loop wrapped around Claude Code, not just a Stop-hook check (that's where it started; the current build spans twelve numbered phases). Every PRD use-case and generated test has to clear a review gate before it counts as real. A phased task tracker attributes every task, claim, and file to a build phase. Per-task verification then drives a real local browser through a scripted test plus an independent defect sweep before a task can advance to KANE_VERIFIED. Three failed attempts escalate to a human instead of looping forever. Underneath that: a local Jaccard-similarity bug-memory store, a real-time scope guard, a secret-scan security gate, file-level task locking, and a four-tab dashboard (code graph, memory graph, PRD graph with gaps & drift, live activity) with a chat bridge straight into the running agent. Proven across four paired A/B builds, including the flagship ORBITAL financial dashboard, where the unassisted baseline reported \"done\" on a doubled chart and an off-spec alerts layout, and the gated build shipped neither.",
+      "year": "2026",
+      "ecosystem": "Claude Code Tooling",
+      "domain": "Verification Systems",
+      "role": "Lead Architect & Engineer",
+      "stack": [
+        "Node.js (ESM)",
+        "Claude Code Hooks + Skill",
+        "kane-cli",
+        "Vitest",
+        "Playwright",
+        "Stryker Mutation Testing",
+        "Cytoscape.js"
+      ],
+      "metrics": [
+        {
+          "label": "Build",
+          "value": "12 Numbered Phases"
+        },
+        {
+          "label": "Test Suite",
+          "value": "460+ Unit Tests"
+        },
+        {
+          "label": "Escalation",
+          "value": "3-Strike → Human"
+        },
+        {
+          "label": "Measured On",
+          "value": "4 Paired A/B Builds"
+        }
+      ],
+      "githubUrl": "https://github.com/18Abhinav07/adventures-with-kane",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Hero-Dashboard.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Hero-Dashboard.png",
+          "caption": "GuardianKane dashboard: code graph + live verification chat"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/CodeGraph-Tests.png",
+          "caption": "Code graph: focus & selection, one-click Generate tests"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/MemoryGraph.png",
+          "caption": "Memory graph: per-file pass/fail history across runs"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-PRDGraph.png",
+          "caption": "PRD graph: gaps & drift tracking"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-Activity.png",
+          "caption": "Kane activity: the verification loop live"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Kane-Alerts.png",
+          "caption": "Kane-verified: alerts matching spec"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Baseline-Alerts.png",
+          "caption": "Baseline: alerts deviate from spec"
+        }
+      ],
+      "videos": [
+        {
+          "title": "Full System Demo: Current Build",
+          "youtubeId": "TfVm0yNzBJE"
+        },
+        {
+          "title": "14-Minute Deep Dive: Stop-Hook Era",
+          "youtubeId": "efTl_ZSmXUw"
+        },
+        {
+          "title": "3-Minute Trimmed Cut: Stop-Hook Era",
+          "youtubeId": "-4gbIv9hv_M"
+        }
+      ],
+      "accent": "secondary",
+      "posts": [
+        {
+          "title": "My agent shipped a broken chart and told me it was done",
+          "url": "https://dev.to/abhinav_pangaria/my-agent-shipped-a-broken-chart-and-told-me-it-was-done-36k7"
+        },
+        {
+          "title": "The requirement nobody wrote",
+          "url": "https://dev.to/abhinav_pangaria/the-requirement-nobody-wrote-43je"
+        },
+        {
+          "title": "Who verifies the verifier",
+          "url": "https://dev.to/abhinav_pangaria/who-verifies-the-verifier-1nff"
+        },
+        {
+          "title": "The second build was mostly wiring",
+          "url": "https://dev.to/abhinav_pangaria/the-second-build-was-mostly-wiring-3hlm"
+        },
+        {
+          "title": "Making verification visible",
+          "url": "https://dev.to/abhinav_pangaria/making-verification-visible-151l"
+        }
+      ]
+    },
+    {
+      "slug": "agentops",
+      "index": "06",
+      "name": "AgentOps",
+      "tagline": "The organizational control plane for agents that hold money.",
+      "description": "A wallet gives an agent the ability to pay. AgentOps decides whether it is allowed to. Every agent is an explicit organizational identity with its own wallet, role, policy bindings and budget, and every economic action it attempts runs one fail-closed path: verify identity, evaluate policy, check budget, escalate to a human when a threshold is crossed, then execute, settle, and write an evidence record that links the agent's intent to its on-chain settlement. Money moves on Circle's infrastructure, with the rail chosen by the relationship: x402 and Gateway for machine-to-service commerce, Permit2 for bounded agent-to-agent spending, ERC-8183 escrow for a first interaction with an unproven counterparty, and ERC-8004 identity and reputation once the work completes. Agents reach the control plane over a hosted MCP server, the same one human operators govern. Demonstrated as a five-agent research organization across Arc Testnet and Base Sepolia: policy-controlled hiring, second-hop delegation where an agent hires another agent on its own authority, approval-gated cross-chain execution, and capital that can be revoked from an agent and recovered.",
+      "year": "2026",
+      "ecosystem": "Circle · Arc",
+      "domain": "Agent Governance",
+      "role": "Lead Architect & Engineer",
+      "stack": [
+        "TypeScript",
+        "Circle Wallets + x402",
+        "Permit2 · ERC-8183 · ERC-8004",
+        "MCP",
+        "Fastify",
+        "PostgreSQL",
+        "Redis",
+        "Next.js"
+      ],
+      "metrics": [
+        {
+          "label": "Agent Org",
+          "value": "5 Agents, 2 Chains"
+        },
+        {
+          "label": "Policy Model",
+          "value": "Fail-closed"
+        },
+        {
+          "label": "Rails",
+          "value": "x402 · Permit2 · Escrow"
+        },
+        {
+          "label": "Networks",
+          "value": "Arc · Base Sepolia"
+        }
+      ],
+      "githubUrl": "https://github.com/AgenticOperations/AOPS-PMOA",
+      "presentationUrl": "https://canva.link/ja7l3zsexb11suy",
+      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+      "screenshots": [
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
+          "caption": "Landing surface"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
+          "caption": "Operator dashboard"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
+          "caption": "Policy engine"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
+          "caption": "Auth & org setup"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
+          "caption": "Capability matrix"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
+          "caption": "Live decision stream"
+        },
+        {
+          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
+          "caption": "Audit export"
+        }
+      ],
+      "videos": [
+        {
+          "title": "AOPS Demo",
+          "youtubeId": "eulHWqBkedQ"
+        }
+      ],
+      "accent": "primary"
+    },
+    {
       "slug": "zidd",
-      "index": "02",
+      "index": "07",
       "name": "Zidd",
       "tagline": "An AI English coach for learners in India, from Class 2 chapters to the interview room.",
       "description": "Zidd is an AI English coach built for learners in India, and it runs two products on one engine. School teaches NCERT-aligned English for Classes 2 to 5 across 47 authored chapters, with a placement diagnostic, teaching sessions, recaps, and reports a parent can read. Career runs communication drills, mock interviews and group-discussion simulations for job-seekers. Learners answer in their own words, with explanations in English, Hinglish or Hindi. Every answer goes through a LangGraph decision graph that scores it and picks the next teaching move: teach a new idea, bridge down when the learner is lost, strengthen, challenge once they have it, or redirect when the answer is fluent but off the question. Every loop is capped so nobody gets drilled forever, and progression runs on a streak of clean passes rather than a moving average, because an average that settles at 0.8 never crosses a strict 0.8 gate and soft-locks a learner who is getting it right. The reply streams token by token over SSE. Underneath, it is built to stay correct on a free tier: boot fails closed if the secret, database or schema is wrong, open-answer grading runs through a Postgres job queue that resumes after a crash, session starts and credit charges carry idempotency keys so a retry never double-charges, and a pool of Gemini keys rotates on rate limits. Reports only state progress the saved evidence supports, so an empty report says so instead of guessing.",
@@ -342,172 +567,8 @@
       "accent": "secondary"
     },
     {
-      "slug": "guardiankane",
-      "index": "03",
-      "name": "Guardian Kane",
-      "tagline": "The loop that makes an agent's \"done\" something it has to prove, not just say.",
-      "description": "Guardian Kane is a reviewed, phased, scope-guarded verification loop wrapped around Claude Code, not just a Stop-hook check (that's where it started; the current build spans twelve numbered phases). Every PRD use-case and generated test has to clear a review gate before it counts as real. A phased task tracker attributes every task, claim, and file to a build phase. Per-task verification then drives a real local browser through a scripted test plus an independent defect sweep before a task can advance to KANE_VERIFIED. Three failed attempts escalate to a human instead of looping forever. Underneath that: a local Jaccard-similarity bug-memory store, a real-time scope guard, a secret-scan security gate, file-level task locking, and a four-tab dashboard (code graph, memory graph, PRD graph with gaps & drift, live activity) with a chat bridge straight into the running agent. Proven across four paired A/B builds, including the flagship ORBITAL financial dashboard, where the unassisted baseline reported \"done\" on a doubled chart and an off-spec alerts layout, and the gated build shipped neither.",
-      "year": "2026",
-      "ecosystem": "Claude Code Tooling",
-      "domain": "Verification Systems",
-      "role": "Lead Architect & Engineer",
-      "stack": [
-        "Node.js (ESM)",
-        "Claude Code Hooks + Skill",
-        "kane-cli",
-        "Vitest",
-        "Playwright",
-        "Stryker Mutation Testing",
-        "Cytoscape.js"
-      ],
-      "metrics": [
-        {
-          "label": "Build",
-          "value": "12 Numbered Phases"
-        },
-        {
-          "label": "Test Suite",
-          "value": "460+ Unit Tests"
-        },
-        {
-          "label": "Escalation",
-          "value": "3-Strike → Human"
-        },
-        {
-          "label": "Measured On",
-          "value": "4 Paired A/B Builds"
-        }
-      ],
-      "githubUrl": "https://github.com/18Abhinav07/adventures-with-kane",
-      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Hero-Dashboard.png",
-      "screenshots": [
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Hero-Dashboard.png",
-          "caption": "GuardianKane dashboard: code graph + live verification chat"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/CodeGraph-Tests.png",
-          "caption": "Code graph: focus & selection, one-click Generate tests"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/MemoryGraph.png",
-          "caption": "Memory graph: per-file pass/fail history across runs"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-PRDGraph.png",
-          "caption": "PRD graph: gaps & drift tracking"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Dashboard-Activity.png",
-          "caption": "Kane activity: the verification loop live"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Kane-Alerts.png",
-          "caption": "Kane-verified: alerts matching spec"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/guardiankane/Orbital-Baseline-Alerts.png",
-          "caption": "Baseline: alerts deviate from spec"
-        }
-      ],
-      "videos": [
-        {
-          "title": "Full System Demo: Current Build",
-          "youtubeId": "TfVm0yNzBJE"
-        },
-        {
-          "title": "14-Minute Deep Dive: Stop-Hook Era",
-          "youtubeId": "efTl_ZSmXUw"
-        },
-        {
-          "title": "3-Minute Trimmed Cut: Stop-Hook Era",
-          "youtubeId": "-4gbIv9hv_M"
-        }
-      ],
-      "accent": "secondary"
-    },
-    {
-      "slug": "agentops",
-      "index": "04",
-      "name": "AgentOps",
-      "tagline": "The organizational control plane for agents that hold money.",
-      "description": "A wallet gives an agent the ability to pay. AgentOps decides whether it is allowed to. Every agent is an explicit organizational identity with its own wallet, role, policy bindings and budget, and every economic action it attempts runs one fail-closed path: verify identity, evaluate policy, check budget, escalate to a human when a threshold is crossed, then execute, settle, and write an evidence record that links the agent's intent to its on-chain settlement. Money moves on Circle's infrastructure, with the rail chosen by the relationship: x402 and Gateway for machine-to-service commerce, Permit2 for bounded agent-to-agent spending, ERC-8183 escrow for a first interaction with an unproven counterparty, and ERC-8004 identity and reputation once the work completes. Agents reach the control plane over a hosted MCP server, the same one human operators govern. Demonstrated as a five-agent research organization across Arc Testnet and Base Sepolia: policy-controlled hiring, second-hop delegation where an agent hires another agent on its own authority, approval-gated cross-chain execution, and capital that can be revoked from an agent and recovered.",
-      "year": "2026",
-      "ecosystem": "Circle · Arc",
-      "domain": "Agent Governance",
-      "role": "Lead Architect & Engineer",
-      "stack": [
-        "TypeScript",
-        "Circle Wallets + x402",
-        "Permit2 · ERC-8183 · ERC-8004",
-        "MCP",
-        "Fastify",
-        "PostgreSQL",
-        "Redis",
-        "Next.js"
-      ],
-      "metrics": [
-        {
-          "label": "Agent Org",
-          "value": "5 Agents, 2 Chains"
-        },
-        {
-          "label": "Policy Model",
-          "value": "Fail-closed"
-        },
-        {
-          "label": "Rails",
-          "value": "x402 · Permit2 · Escrow"
-        },
-        {
-          "label": "Networks",
-          "value": "Arc · Base Sepolia"
-        }
-      ],
-      "githubUrl": "https://github.com/AgenticOperations/AOPS-PMOA",
-      "presentationUrl": "https://canva.link/ja7l3zsexb11suy",
-      "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
-      "screenshots": [
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-1.png",
-          "caption": "Landing surface"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Home.png",
-          "caption": "Operator dashboard"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Policies.png",
-          "caption": "Policy engine"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Auth.png",
-          "caption": "Auth & org setup"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-2.png",
-          "caption": "Capability matrix"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-3.png",
-          "caption": "Live decision stream"
-        },
-        {
-          "src": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/aops/Landing-4.png",
-          "caption": "Audit export"
-        }
-      ],
-      "videos": [
-        {
-          "title": "AOPS Demo",
-          "youtubeId": "eulHWqBkedQ"
-        }
-      ],
-      "accent": "primary"
-    },
-    {
       "slug": "pods",
-      "index": "05",
+      "index": "08",
       "name": "Pods",
       "tagline": "NIM-backed accountability for small groups. Commit, show up, earn, repeat.",
       "description": "Pods is a NIM-backed accountability app for small groups on Nimiq Pay. Commit NIM upfront, submit proof for scheduled activities like shipping code, fitness, reading, or study, and get payouts proportional to your presence. The creator reviews proof but never funds or receives participant money, so every settlement stays deterministic and disclosed.",
@@ -570,7 +631,7 @@
     },
     {
       "slug": "veil",
-      "index": "06",
+      "index": "09",
       "name": "VEIL",
       "tagline": "Privacy as a wallet primitive. Shielded notes, private sends, and prediction markets on Stellar.",
       "description": "A private wallet and prediction market built on Stellar testnet. Public USDC converts into spendable shielded notes, private note-to-note transfers, batch payouts, and market participation all run through the same note model, so privacy is part of the wallet flow rather than bolted on. A backend prover and relayer generate proofs, simulate transactions, and settle pool state on-chain.",
@@ -644,7 +705,7 @@
     },
     {
       "slug": "kredio",
-      "index": "07",
+      "index": "10",
       "name": "Kredio",
       "tagline": "DeFi with memory. Polkadot's on-chain credit layer.",
       "description": "A credit layer for Polkadot that scores a borrower from on-chain behaviour rather than an oracle feed, so there is no price or reputation input to manipulate and nothing to bribe. Scoring runs across two runtimes at once through hybrid EVM and PolkaVM atomic calls, and the resulting score travels between parachains over XCM, which means a borrower's history follows them instead of restarting on every chain.",
@@ -710,7 +771,7 @@
     },
     {
       "slug": "openassets",
-      "index": "08",
+      "index": "11",
       "name": "OpenAssets",
       "tagline": "The Mantle-native gateway bridging the RWA liquidity gap.",
       "description": "A fundamental Real-World Asset (RWA) execution layer. Built for the Mantle Global Hackathon, OpenAssets transforms off-chain cash flows into credit-enabled primitives. Featuring ERC-3643 (T-REX) compliance, mETH-powered leverage vaults, and 'Token-Day' engines to prevent yield sniping. A system built for the next cycle of institutional RealFi.",
@@ -831,7 +892,7 @@
     },
     {
       "slug": "payzoll",
-      "index": "09",
+      "index": "12",
       "name": "PayZoll",
       "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
       "description": "Cross-border payroll and treasury for teams whose members all hold different assets. I was sole technical owner of the payment infrastructure on a two-person founding team. The Stellar Disbursement Platform went from single-tenant to a multi-tenant distributed system running batch payroll for many organizations at once, with signing keys derived in AWS KMS instead of stored as raw tokens and payroll records encrypted at rest with pgcrypto. The interesting constraint was throughput: SDP was capped at eight channel accounts, roughly two transactions per second. Soroban's authorization-tree model let a single channel account fan out into many parallel contract calls, which took it to about 200.",
@@ -894,7 +955,7 @@
     },
     {
       "slug": "tesseract",
-      "index": "10",
+      "index": "13",
       "name": "Tesseract",
       "tagline": "Privacy-preserving payment & identity mixing on Stellar.",
       "description": "Deposit, wait, withdraw. Built to expand Stellar Disbursement Platform with Privacy, Tesseract severs the link between depositor and recipient. Featuring channel-account rotation and layered hybrid encryption, it ensures that the most boring path through the system is also the most private one.",
@@ -951,345 +1012,6 @@
         }
       ],
       "accent": "secondary"
-    }
-  ],
-  "episodes": [
-    {
-      "slug": "polaris-fellowship",
-      "index": "01",
-      "title": "The Polaris Signal.",
-      "subtitle": "Shortlisted for Round 4 of India's most selective student fellowship.",
-      "era": "S01 · 2026 : 2026",
-      "date": "JUL 2026",
-      "category": "Recognition",
-      "excerpt": "Out of thousands of applicants nationwide, shortlisted for Round 4, the final interview round of the Polaris Fellowship, for a shot at one of ten seats in Bangalore.",
-      "aspect": "aspect-video",
-      "accent": "primary",
-      "image": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/journey/polaris/Top-100-Polaris.png",
-      "videos": [
-        {
-          "title": "Round 2 · Introduction Video",
-          "youtubeId": "hrUCs4Wt5c4"
-        },
-        {
-          "title": "Round 3 · Technical Deep-Dive",
-          "youtubeId": "-jAFntReQLY"
-        }
-      ],
-      "body": [
-        {
-          "kind": "p",
-          "text": "Thousands of students, builders, and researchers applied to the Polaris Fellowship 2026: India's most selective residential program, ten seats nationwide, six months embedded inside the country's sharpest startups and venture firms. Round 1 filtered the noise. Round 2 asked for an unscripted video: who are you beyond the resume, what have you actually shipped, what's the most ambitious thing worth building in the next ten years."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 09 / Selection"
-        },
-        {
-          "kind": "h2",
-          "text": "Receipts, not roadmaps."
-        },
-        {
-          "kind": "p",
-          "text": "Round 3 changed the question: not what you plan to build, but what you've already built, in the trenches, where it broke and what no tutorial covered. The brief was to walk through one project in full technical depth: architecture, the hardest problem solved, and what would be done differently next time."
-        },
-        {
-          "kind": "quote",
-          "text": "genuine depth on something real"
-        },
-        {
-          "kind": "p",
-          "text": "Clearing Round 3's technical deep dive earned a place in Round 4, the final round: a thirty to forty five minute interview with the Polaris panel, the last filter before ten seats are named in Bangalore."
-        }
-      ]
-    },
-    {
-      "slug": "agentops-journey",
-      "index": "02",
-      "title": "The Agentic Economy.",
-      "subtitle": "Building the policy firewall for autonomous agent payments on Casper.",
-      "era": "S01 · 2026 : 2026",
-      "date": "JUL 2026",
-      "category": "Governance",
-      "excerpt": "AI agents are about to hold real spending power. AgentOps is the control plane that lets them build without handing over a blank check, proven live and anchored on-chain on Casper.",
-      "aspect": "aspect-video",
-      "accent": "secondary",
-      "videos": [
-        {
-          "title": "Casper Hackathon Build",
-          "youtubeId": "xy9PJHcfa8I"
-        }
-      ],
-      "body": [
-        {
-          "kind": "p",
-          "text": "Autonomous agents are being handed real spending power before anyone builds them a conscience. An agent with a private key and no spend cap, no velocity limit, no kill-switch, and no tamper-proof record of what it did with the money it was given is unbounded risk. Today, the only insight into a misbehaving agent is a bank statement after the damage is done."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 08 / Governance"
-        },
-        {
-          "kind": "h2",
-          "text": "A policy firewall, not a wallet."
-        },
-        {
-          "kind": "p",
-          "text": "AgentOps sits between the agent and the chain. Every payment, trade, and deploy an agent attempts is checked against operator-defined rules in real time: spend caps, velocity limits, destination scope, signed or denied on the spot, with a budget hold placed atomically so an agent can never double-spend against an in-flight payment."
-        },
-        {
-          "kind": "quote",
-          "text": "Prove every decision forever on Casper, immutably and on-chain."
-        },
-        {
-          "kind": "p",
-          "text": "Once a decision settles, its hash is anchored to a custom Rust/Odra smart contract, the GuardRegistry, where re-anchoring the same hash is a no-op and submitting a different hash for an already-anchored decision causes the contract to revert. The audit trail cannot be rewritten later, not even by the team that built it."
-        }
-      ]
-    },
-    {
-      "slug": "veil-journey",
-      "index": "03",
-      "title": "Privacy as a Habit.",
-      "subtitle": "Extending Tesseract's thesis into a full private wallet on Stellar.",
-      "era": "S01 · 2026 : 2026",
-      "date": "JUN 2026",
-      "category": "Privacy",
-      "excerpt": "From a single private-payment mechanism to a complete wallet: shielded notes, private sends, batch payouts, and private prediction markets, all on Stellar.",
-      "aspect": "aspect-video",
-      "accent": "primary",
-      "videos": [
-        {
-          "title": "Stellar Zk Hacks Build",
-          "youtubeId": "CIWCdmyTbRY"
-        }
-      ],
-      "body": [
-        {
-          "kind": "p",
-          "text": "Tesseract proved a mechanism: deposit, wait, withdraw, and the link between depositor and recipient disappears. It was one door. VEIL asks what happens when privacy needs to be the entire building: a wallet where every surface, not just the transfer, understands how to stay quiet."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 07 / Continuity"
-        },
-        {
-          "kind": "h2",
-          "text": "One note model, every surface."
-        },
-        {
-          "kind": "p",
-          "text": "Public USDC converts into shielded notes on deposit. Those notes spend privately, split into change, batch into payouts, or convert into Market Notes for private prediction-market positions, all through the same commitment model, so the private path is never a special case bolted onto the public one. A backend prover and relayer generate proofs, simulate transactions, and settle pool state on Stellar testnet."
-        },
-        {
-          "kind": "quote",
-          "text": "Privacy should be part of the wallet flow itself."
-        },
-        {
-          "kind": "p",
-          "text": "What shipped is a live client with wallet and market privacy pools, an encrypted client-side vault, deposit and withdrawal flows, note transfers, batch payments, and claimable market payouts: the same thesis as Tesseract, extended until it stopped being a primitive and became a product."
-        }
-      ]
-    },
-    {
-      "slug": "tesseract-and-zk",
-      "index": "04",
-      "title": "Privacy as Primitive.",
-      "subtitle": "Building temporal decorrelation on Stellar.",
-      "era": "S01 · 2025 : 2026",
-      "date": "NOV 2025",
-      "category": "Cryptography",
-      "excerpt": "Deposit, wait, withdraw. A Distributor severs the link between depositors and recipients. The most boring path is the most private one.",
-      "aspect": "aspect-square",
-      "accent": "secondary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "Privacy as a feature is marketing. Privacy as a primitive is architecture. Tesseract makes that distinction concrete: a mechanism where a detached Distributor handles outflow, breaking the on-chain link between depositor and recipient. Channel-account rotation, hybrid encryption, and BullMQ-backed scheduling ensure that the system remains stable and private."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 06 / Mastery"
-        },
-        {
-          "kind": "h2",
-          "text": "The silent protocol."
-        },
-        {
-          "kind": "p",
-          "text": "I came out of the Soroban season with a much narrower set of opinions and a much wider set of scars. Both compound. The result is a protocol that does one thing perfectly: it clears private payments without the theater of 'zero-knowledge' marketing."
-        }
-      ]
-    },
-    {
-      "slug": "open-assets-evolution",
-      "index": "05",
-      "title": "RealFi Mastery.",
-      "subtitle": "Bridging the RWA liquidity gap.",
-      "era": "S01 · 2025 : 2026",
-      "date": "OCT 2025",
-      "category": "Architecture",
-      "excerpt": "From the U2U Vietbuild win to Mantle-native RWA layers. Moving beyond hackathon products to fundamental financial primitives.",
-      "aspect": "aspect-square",
-      "accent": "primary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "OpenAssets found its niche in the gap between trade receivables and on-chain liquidity. We first proved the concept at the Vietbuild hackathon for U2U network, taking home the win. But a hackathon product is just a sketch. We redesigned and revamped the entire stack for the Mantle Network, focusing on ERC-3643 (T-REX) compliance and institutional-grade security."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 05 / Primitives"
-        },
-        {
-          "kind": "h2",
-          "text": "The RWA Primitive."
-        },
-        {
-          "kind": "quote",
-          "text": "If your protocol cannot handle compliant Real-World Assets with the precision of a legacy bank, you are playing a game. We built OpenAssets to be the fundamental service."
-        },
-        {
-          "kind": "p",
-          "text": "We implemented mETH-powered leverage vaults and universal credit abstraction (OAID). It was a season of high-stakes architectural decisions, transforming a 48-hour win into a cornerstone of the Mantle ecosystem."
-        }
-      ]
-    },
-    {
-      "slug": "jpmc-internship",
-      "index": "06",
-      "title": "The Bank Floor.",
-      "subtitle": "Python, retrieval, and a bug queue that took a week.",
-      "era": "S01 · 2025 : 2025",
-      "date": "MAY 2025",
-      "category": "Systems",
-      "excerpt": "Three months inside JP Morgan Chase, Asset and Wealth Management. A RAG triage service written in Python that pulled bug resolution from about a week down to a day, and Snowflake pipelines that cut manual reporting by over 60% across the division.",
-      "aspect": "aspect-video",
-      "accent": "secondary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "A bank is where you find out what the word internal actually costs. In the Asset and Wealth Management division the bug queue had a shape everybody had stopped questioning: a ticket arrives, an engineer goes looking through Jira history and Confluence pages for the last time something like this happened, and about a week later it is resolved. Nobody was doing anything wrong. The knowledge simply was not retrievable."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 04 / Retrieval"
-        },
-        {
-          "kind": "h2",
-          "text": "The fix was retrieval, not process."
-        },
-        {
-          "kind": "p",
-          "text": "I built the triage service from scratch in Python, served through FastAPI, with Confluence documentation and Jira ticket data as the corpus. Given a new ticket it returns the prior incidents that genuinely resemble it and the resolution path that worked on them. Bug resolution went from roughly a week to about a day."
-        },
-        {
-          "kind": "p",
-          "text": "The second half of the work was data movement rather than retrieval: real-time Snowflake pipelines on AWS, replacing reporting that people were assembling by hand, cutting that effort by over 60% across the division. Different problem, same lesson I keep meeting. Most of what looks like a people problem is an interface between two systems that nobody owns."
-        }
-      ]
-    },
-    {
-      "slug": "payzoll-journey",
-      "index": "07",
-      "title": "The Settlement Season.",
-      "subtitle": "From the first prototype to a settled payment path.",
-      "era": "S01 · 2025 : 2026",
-      "date": "JAN 2025",
-      "category": "Inflection",
-      "excerpt": "A prototype I built through an Open Campus incubation and a Stellar hackathon became an SCF-backed company. I owned the Stellar core: path formation, settlement, and the disbursement integration.",
-      "aspect": "aspect-video",
-      "accent": "secondary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "PayZoll began as a thesis on friction. Capital moves slowly between borders and blockchains. I was on it from the first prototype: through the Educhain Open Campus incubation, then the Stellar Build Better hackathon, then the build that carried the SCF application. A $100K grant from the Stellar Development Foundation turned that prototype into a company, and I stayed on the Stellar side of the engineering as a co-founder."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 03 / Conviction"
-        },
-        {
-          "kind": "h2",
-          "text": "Engineering as a thesis."
-        },
-        {
-          "kind": "p",
-          "text": "I was the sole technical owner of the payment infrastructure, and the work was less glamorous than the pitch. Redesigning the Stellar Disbursement Platform from single-tenant into a multi-tenant distributed system. Moving signing keys out of raw token storage and into hardware-derived material in AWS KMS, so no organization's funds or data were ever exposed to another's. Rebuilding the transaction queue with distributed workers and a real-time event layer, because the old \"optimistic done\" status marked payments successful before on-chain confirmation, and a payment that lies about itself is worse than one that fails loudly. Then a fund-recovery service to unwind partial failures without losing funds."
-        },
-        {
-          "kind": "p",
-          "text": "The ceiling I remember best was arithmetic. The platform could hold eight channel accounts, which meant about two transactions per second, which meant a large payroll took longer than a payroll is allowed to take. Soroban's authorization-tree model turned out to allow one channel account to fan out into many parallel contract calls, and that moved it to roughly 200 per second. Rust and Go, learned as needed. The part that stayed with me is not any deploy, it is what a payment system has to get right at 3am on a Sunday, when there is nobody to reverse anything."
-        }
-      ]
-    },
-    {
-      "slug": "hackathon-arc",
-      "index": "08",
-      "title": "The Crucible.",
-      "subtitle": "4-day sprints and solo marathons.",
-      "era": "S01 · 2023 : 2024",
-      "date": "FEB 2024",
-      "category": "Velocity",
-      "excerpt": "Four-day sprints and one solo marathon across Stellar, Polkadot, and Mantle. Where the habit of reading the protocol before writing the code got formed.",
-      "aspect": "aspect-square",
-      "accent": "primary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "The arc reached its peak during the four-day Stellar Build Better hackathon. Entering as a newcomer, I took the high-risk path and solo-coded the infrastructure. The first twelve hours went into the core protocol docs rather than the editor, mapping a multi-hop path payment that converted assets mid-flow. It placed first, and the lesson that stuck was about the twelve hours, not the placement."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 02 / The Operator"
-        },
-        {
-          "kind": "h2",
-          "text": "Systems that clear."
-        },
-        {
-          "kind": "quote",
-          "text": "Winning is a byproduct of planning. From solo marathons on Stellar to hybrid EVM / Wasm logic on Polkadot, the goal was never just to 'finish', it was to build systems that clear under pressure."
-        },
-        {
-          "kind": "p",
-          "text": "The momentum shifted to Polkadot, where I built Kredio. New to Substrate, I implemented cross-chain credit scoring over XCM and it earned an Honorary Award. Then the Mantle Global Hackathon, where my team and I architected OpenAssets. What I took from both was narrower than a trophy: how a score computed from public history gets farmed, and why compliance has to live inside the transfer rather than in a document beside it."
-        },
-        {
-          "kind": "p",
-          "text": "The tally, for anyone counting: first at Stellar Build Better, a win at VietBuidl U2U, a win at the Mantle Global Hackathon, third at Pharos Builder Camp, and an honorary award from Polkadot for arriving at Substrate as a newcomer. Five placements across five different ecosystems, which is less a record than a description of how I learn a stack: build the hardest thing it allows, under a deadline, in front of people who know it better than I do."
-        }
-      ]
-    },
-    {
-      "slug": "college-foundations",
-      "index": "09",
-      "title": "The Apprenticeship.",
-      "subtitle": "Theory meets the wire at IIIT.",
-      "era": "S01 · 2022 : 2023",
-      "date": "NOV 2022",
-      "category": "Origins",
-      "excerpt": "IIIT Guwahati, first semester. Writing malloc from scratch to understand segfaults, and a stubborn refusal to write throwaway code. Algorithms by day, Linux stacks at 2am.",
-      "aspect": "aspect-[3/4]",
-      "accent": "secondary",
-      "body": [
-        {
-          "kind": "p",
-          "text": "College began as a race for technical depth. While the syllabus covered the basics, I was building my own detention center for bugs. Writing malloc from scratch to understand segfaults, scraping portals before there was a polite reason to, and obsessing over the distance between a textbook example and the actual wire."
-        },
-        {
-          "kind": "phase",
-          "text": "Phase 01 / The Foundation"
-        },
-        {
-          "kind": "h2",
-          "text": "Learning to see the system."
-        },
-        {
-          "kind": "p",
-          "text": "What I was actually learning was the distance between a textbook example and the wire. Reimplementing things that already existed, badly at first, until the failure modes stopped being surprising. The path from a first-year exercise to a system other people depend on is not a leap, it is a thousand boring repetitions."
-        }
-      ]
     }
   ],
   "travels": [

@@ -1,0 +1,16 @@
+# The writing moved to dev.to; every retired page lands on the home page.
+/dispatches/agent-shipped-a-broken-chart https://dev.to/abhinav_pangaria/my-agent-shipped-a-broken-chart-and-told-me-it-was-done-36k7 301
+/dispatches/the-requirement-nobody-wrote https://dev.to/abhinav_pangaria/the-requirement-nobody-wrote-43je 301
+/dispatches/who-verifies-the-verifier https://dev.to/abhinav_pangaria/who-verifies-the-verifier-1nff 301
+/dispatches/the-second-build-was-mostly-wiring https://dev.to/abhinav_pangaria/the-second-build-was-mostly-wiring-3hlm 301
+/dispatches/making-verification-visible https://dev.to/abhinav_pangaria/making-verification-visible-151l 301
+/dispatches/* https://dev.to/abhinav_pangaria 301
+/plain / 301
+/journey / 301
+/journey/* / 301
+/beyond / 301
+/contact / 301
+/topics / 301
+/topics/* / 301
+/dispatches / 301
+/work / 301

@@ -21,7 +21,7 @@ const jetbrains = localFont({
   weight: "400 600",
 });
 
-// The Index view's faces. The chooser on the home page uses the serif too.
+// The home page's faces.
 const instrument = localFont({
   src: [
     { path: "./fonts/instrument-serif-normal.woff2", weight: "400", style: "normal" },
@@ -39,15 +39,16 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Abhinav Pangaria · Builder of resilient systems.",
+  title: "Abhinav Pangaria · Software Engineer building resilient systems",
   description:
-    "Engineer building agent orchestration and verification harnesses, applied cryptography, and settlement backends that cannot afford to be wrong. Rust, Go, Python, TypeScript, Kubernetes, AWS. Formerly JP Morgan Chase and co-founder at PayZoll. Loom, Zidd, Guardian Kane, AgentOps, Tesseract, VEIL, Kredio, OpenAssets, Pods.",
+    "Engineer building agent orchestration and verification harnesses, applied cryptography, and settlement backends that cannot afford to be wrong. Rust, Go, Python, TypeScript, Kubernetes, AWS. Formerly JP Morgan Chase and co-founder at PayZoll. Sieve, Voluntas, Dart, Loom, Guardian Kane, AgentOps, Zidd, Pods, VEIL, Kredio, OpenAssets, Tesseract.",
   metadataBase: new URL(SITE_URL),
   // Every page below sets its own canonical. This is the fallback so no route
   // ever ships without one, which is how a query string becomes a duplicate page.
   alternates: {
     canonical: "/",
-    types: { "application/rss+xml": "/dispatches/rss.xml" },
+    // A plain-text map of the site for crawlers and agents that do not run scripts.
+    types: { "text/plain": [{ url: "/llms.txt", title: "llms.txt" }, { url: "/llms-full.txt", title: "llms-full.txt" }] },
   },
   authors: [{ name: "Abhinav Pangaria", url: SITE_URL }],
   creator: "Abhinav Pangaria",
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Abhinav Pangaria · Builder of resilient systems.",
+    title: "Abhinav Pangaria · Software Engineer building resilient systems",
     description:
-      "Systems that hold together on the worst day. PayZoll · Tesseract · VEIL · OpenAssets · Kredio · AgentOps · Guardian Kane · Loom.",
+      "Systems that hold together on the worst day. Sieve · Voluntas · Dart · Loom · Guardian Kane · AgentOps · Zidd · PayZoll.",
     url: SITE_URL,
     siteName: "Abhinav Pangaria",
     locale: "en_US",
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhinav Pangaria · Builder of resilient systems.",
+    title: "Abhinav Pangaria · Software Engineer building resilient systems",
     description:
       "Engineer across agent orchestration, automated verification, applied cryptography, and systems that move value.",
     creator: "@abhinavpangaria",
@@ -89,18 +90,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${hanken.variable} ${jetbrains.variable} ${instrument.variable} ${inter.variable}`}>
       <head>
-        {/* Clash Display: geometric display face via Fontshare CDN (exposed as --font-display in globals.css) */}
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
-          rel="stylesheet"
-        />
         {/* The person and site entity, once, so every other page's nodes can point at it. */}
         <JsonLd data={siteGraph()} />
       </head>

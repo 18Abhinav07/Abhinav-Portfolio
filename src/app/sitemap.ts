@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: e.url,
     changeFrequency: e.changeFrequency,
     priority: e.priority,
+    ...(e.images ? { images: e.images } : {}),
     ...(e.lastModified ? { lastModified: new Date(`${e.lastModified}T00:00:00Z`) } : {}),
   }));
 }
