@@ -408,23 +408,27 @@
       "slug": "agentops",
       "index": "06",
       "name": "AgentOps",
-      "tagline": "The organizational control plane for agents that hold money.",
-      "description": "A wallet gives an agent the ability to pay. AgentOps decides whether it is allowed to. Every agent is an explicit organizational identity with its own wallet, role, policy bindings and budget, and every economic action it attempts runs one fail-closed path: verify identity, evaluate policy, check budget, escalate to a human when a threshold is crossed, then execute, settle, and write an evidence record that links the agent's intent to its on-chain settlement. Money moves on Circle's infrastructure, with the rail chosen by the relationship: x402 and Gateway for machine-to-service commerce, Permit2 for bounded agent-to-agent spending, ERC-8183 escrow for a first interaction with an unproven counterparty, and ERC-8004 identity and reputation once the work completes. Agents reach the control plane over a hosted MCP server, the same one human operators govern. Demonstrated as a five-agent research organization across Arc Testnet and Base Sepolia: policy-controlled hiring, second-hop delegation where an agent hires another agent on its own authority, approval-gated cross-chain execution, and capital that can be revoked from an agent and recovered.",
+      "tagline": "The organizational control plane for agents that hold money, now on C# and .NET 8.",
+      "description": "A wallet gives an agent the ability to pay. AgentOps decides whether it is allowed to. Every agent is an explicit organizational identity with its own wallet, role, policy bindings and budget, and every economic action it attempts runs one fail-closed path: verify identity, evaluate policy, check budget, escalate to a human when a threshold is crossed, then execute, settle, and write an evidence record that links the agent's intent to its on-chain settlement. Money moves on Circle's infrastructure, with the rail chosen by the relationship: x402 and Gateway for machine-to-service commerce, Permit2 for bounded agent-to-agent spending, ERC-8183 escrow for a first interaction with an unproven counterparty, and ERC-8004 identity and reputation once the work completes. Agents reach the control plane over a hosted MCP server, the same one human operators govern. Demonstrated as a five-agent research organization across Arc Testnet and Base Sepolia: policy-controlled hiring, second-hop delegation where an agent hires another agent on its own authority, approval-gated cross-chain execution, and capital that can be revoked from an agent and recovered. The control plane was first built as a TypeScript monorepo on Fastify and PostgreSQL. I migrated its governance core to C# on .NET 8 for a stricter implementation: a typed domain model across Domain, Application and Infrastructure layers, EF Core on SQL Server with Dapper for analytics, an ASP.NET Core API with a Razor operations console, and a .NET worker on Azure Queue Storage that settles each action, re-checks the daily budget at settlement time and ignores redelivered messages. Policy evaluation fails closed when an organization has no active policy, and every audit event carries a SHA-256 digest that stops verifying if the row is edited.",
       "year": "2026",
       "ecosystem": "Circle · Arc",
       "domain": "Agent Governance",
       "role": "Lead Architect & Engineer",
       "stack": [
-        "TypeScript",
+        "C# · .NET 8",
+        "ASP.NET Core",
+        "EF Core · SQL Server",
+        "Azure Queue Storage",
         "Circle Wallets + x402",
         "Permit2 · ERC-8183 · ERC-8004",
         "MCP",
-        "Fastify",
-        "PostgreSQL",
-        "Redis",
-        "Next.js"
+        "Previously: TypeScript, Fastify, PostgreSQL"
       ],
       "metrics": [
+        {
+          "label": "Stack",
+          "value": "C# · .NET 8, from TypeScript"
+        },
         {
           "label": "Agent Org",
           "value": "5 Agents, 2 Chains"
@@ -570,34 +574,42 @@
       "slug": "pods",
       "index": "08",
       "name": "Pods",
-      "tagline": "NIM-backed accountability for small groups. Commit, show up, earn, repeat.",
-      "description": "Pods is a NIM-backed accountability app for small groups on Nimiq Pay. Commit NIM upfront, submit proof for scheduled activities like shipping code, fitness, reading, or study, and get payouts proportional to your presence. The creator reviews proof but never funds or receives participant money, so every settlement stays deterministic and disclosed.",
+      "tagline": "An accountability platform for small groups, rebuilt in C# on .NET 8.",
+      "description": "Pods lets a small group make commitments, check in against a schedule, and have the group verify who actually showed up. The first version was a TypeScript mini-app on Nimiq Pay with NIM escrow and proportional payouts. I rebuilt it as a C# system on .NET 8 with Clean Architecture: domain aggregates that enforce roster capacity, private invite codes and commitment state transitions; FluentValidation at the edges; EF Core on SQL Server; an ASP.NET Core REST API alongside Razor MVC pages; a leaderboard computed in one Dapper query with a CTE and DENSE_RANK; proof uploads to Azure Blob Storage; and weekly coaching from Azure OpenAI that is fed a snapshot of the user's real check-ins and falls back to deterministic heuristics when the model is unavailable. Writing the service tests surfaced a real EF Core bug: domain-generated Guid keys made new child rows look like stale updates, fixed by marking keys as never store-generated.",
       "year": "2026",
-      "ecosystem": "Nimiq",
-      "domain": "Settlement Design",
+      "ecosystem": ".NET · Azure",
+      "domain": "Accountability Platform",
       "role": "Lead Architect & Engineer",
       "stack": [
-        "Next.js 16",
-        "Nimiq Mini-App SDK",
-        "@nimiq/core",
-        "Drizzle ORM",
-        "PostgreSQL",
-        "TypeScript"
+        "C# · .NET 8",
+        "ASP.NET Core MVC",
+        "EF Core",
+        "SQL Server",
+        "Dapper",
+        "Azure Blob Storage",
+        "Azure OpenAI",
+        "xUnit · Moq",
+        "Previously: TypeScript, Next.js, Nimiq"
       ],
       "metrics": [
         {
-          "label": "Model",
-          "value": "NIM Escrow Pool"
+          "label": "Stack",
+          "value": "C# · .NET 8"
         },
         {
-          "label": "Settlement",
-          "value": "Proportional Payout"
+          "label": "Architecture",
+          "value": "Clean Architecture, 4 layers"
         },
         {
-          "label": "Verified",
-          "value": "Physical 2-Wallet Gate"
+          "label": "Data",
+          "value": "SQL Server · EF Core"
+        },
+        {
+          "label": "Tests",
+          "value": "48 xUnit"
         }
       ],
+      "githubUrl": "https://github.com/18Abhinav07/Pods",
       "heroImage": "https://res.cloudinary.com/dj57qnyzd/image/upload/f_auto,q_auto/portfolio/projects/pods/Landing.png",
       "screenshots": [
         {
@@ -895,7 +907,7 @@
       "index": "12",
       "name": "PayZoll",
       "tagline": "Cross-border payroll and treasury, built for crypto-native teams.",
-      "description": "Cross-border payroll and treasury for teams whose members all hold different assets. I was sole technical owner of the payment infrastructure on a two-person founding team. The Stellar Disbursement Platform went from single-tenant to a multi-tenant distributed system running batch payroll for many organizations at once, with signing keys derived in AWS KMS instead of stored as raw tokens and payroll records encrypted at rest with pgcrypto. The interesting constraint was throughput: SDP was capped at eight channel accounts, roughly two transactions per second. Soroban's authorization-tree model let a single channel account fan out into many parallel contract calls, which took it to about 200.",
+      "description": "Cross-border payroll and treasury for teams whose members all hold different assets. I was sole technical owner of the payment infrastructure on a two-person founding team. The Stellar Disbursement Platform went from single-tenant to a multi-tenant distributed system running batch payroll for many organizations at once, with signing keys derived in AWS KMS instead of stored as raw tokens and payroll records encrypted at rest with pgcrypto. The interesting constraint was throughput: SDP was capped at eight channel accounts, which meant at most eight transactions per ledger. Soroban's authorization-tree model let a single channel account fan out into many parallel contract calls, which took it to 120 transactions per ledger sustained and 220 at peak.",
       "year": "2025 · 2026",
       "ecosystem": "Stellar",
       "domain": "Payments Infrastructure",
@@ -914,7 +926,7 @@
       "metrics": [
         {
           "label": "Throughput",
-          "value": "2 to 200 tx/sec"
+          "value": "8 to 120 tx/ledger · 220 peak"
         },
         {
           "label": "Scope",
